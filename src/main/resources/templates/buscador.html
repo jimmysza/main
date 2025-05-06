@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/buscador_s.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>ETA - Buscando Eventos, Toures & Actividades en Cartagena </title>
+
+</head>
+
+<body>
+    <nav>
+        <div class="contain-nav flex">
+            <a href="/indice" class="center logo-ept">
+                <img src="/images/logo_withoutbg.webp" class="logo" alt="logo" loading="lazy" />
+            </a>
+            <div class="search">
+                <div class="search-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" {...props}>
+                        <path fill="currentColor"
+                            d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68">
+                        </path>
+                    </svg>
+                    <input type="text" placeholder="Buscar eventos, lugares, viajes..." />
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="/cliente">Explorar</a><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" {...props}>
+                        <path fill="currentColor" fill-rule="evenodd" d="m6 7l6 6l6-6l2 2l-8 8l-8-8z"></path>
+                    </svg>
+                </li>
+                <li><a href="#">Guardado</a></li>
+                <li><a href="/">Asistente</a></li>
+            </ul>
+            <div class="log-contain center">
+                <a href="/login" class="log-in">Log In</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="categories">
+        <div class="categories-container">
+            <div class="container-categories">
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/iconic.webp" alt="Categoria Iconicos" />
+                        <p>Icónicos</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/acuatico.webp" alt="Categoria Acuáticos" />
+                        <p>Acuáticos</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/foodie.webp" alt="Foodies" />
+                        <p>Foodies</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/islas.webp" alt="Islas" />
+                        <p>Islas</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/entre.webp" alt="Entretenimiento" />
+                        <p>Cine</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/arte.webp" alt="Arte" />
+                        <p>Arte</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/deporte.webp" alt="Deporte" />
+                        <p>Deporte</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/historia.webp" alt="Historia" />
+                        <p>Historia</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat">
+                        <img src="/images/categorias/playas.webp" alt="Playas" />
+                        <p>Playas</p>
+                    </div>
+                </a>
+            </div>
+            <div class="filtro-ordenar">
+                <div class="btn-filter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2M6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2z">
+                        </path>
+                    </svg>
+                    <p>Filtro & Ordenar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-eta">
+        <div class="content-eta-container">
+            <div class="contain-h2 ">
+                <h2>Los Mejores lugares en Cartagena</h2>
+            </div>
+
+
+            <div class="card-eta">
+                <img src="/images/card3.webp" alt="Imagen de evento" />
+                <div class="card-eta-text">
+                    <h3>Nombre del evento</h3>
+                    <div class="container-info cursor-pointer">
+                        <div class="contain flex">
+                            <div class="badges">
+                                <span class="badge">2,9 km</span>
+                                <span class="badge">Eta. 1hr</span>
+                                <span class="badge badge-star">5
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path fill="currentColor"
+                                            d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                        </path>
+                                    </svg>
+                                </span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatum dicta sunt
+                        esse earum! Praesentium similique, vitae et impedit laborum quod non!</p>
+                </div>
+
+
+            </div>
+
+            <div class="card-eta">
+                <img src="/images/card4.webp" alt="Imagen de evento" />
+                <div class="card-eta-text">
+                    <h3>Isla Cholon</h3>
+                    <div class="container-info cursor-pointer">
+                        <div class="contain flex">
+                            <div class="badges">
+                                <span class="badge">2,9 km</span>
+                                <span class="badge">Eta. 1hr</span>
+                                <span class="badge badge-star">5
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path fill="currentColor"
+                                            d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                        </path>
+                                    </svg>
+                                </span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <p>Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</p>
+                </div>
+
+
+            </div>
+
+            <div class="card-eta">
+                <img src="/images/card3.webp" alt="Imagen de evento" />
+                <div class="card-eta-text">
+                    <h3>Nombre del evento</h3>
+                    <div class="container-info cursor-pointer">
+                        <div class="contain flex">
+                            <div class="badges">
+                                <span class="badge">2,9 km</span>
+                                <span class="badge">Eta. 1hr</span>
+                                <span class="badge badge-star">5
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path fill="currentColor"
+                                            d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                        </path>
+                                    </svg>
+                                </span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatum dicta sunt
+                        esse earum! Praesentium similique, vitae et impedit laborum quod non!</p>
+                </div>
+
+
+            </div>
+            <div class="card-eta">
+                <img src="/images/card3.webp" alt="Imagen de evento" />
+                <div class="card-eta-text">
+                    <h3>Nombre del evento</h3>
+                    <div class="container-info cursor-pointer">
+                        <div class="contain flex">
+                            <div class="badges">
+                                <span class="badge">2,9 km</span>
+                                <span class="badge">Eta. 1hr</span>
+                                <span class="badge badge-star">5
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path fill="currentColor"
+                                            d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                        </path>
+                                    </svg>
+                                </span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatum dicta sunt
+                        esse earum! Praesentium similique, vitae et impedit laborum quod non!</p>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="container-map">
+            <div class="map-img"></div>
+        </div>
+    </section>
+
+    <div class="contain-section reseña-section">
+        <section id="reseñas" class="reseñas">
+            <div class="contain-title-reseña">
+                <h3 class="c-t-r-20">Reseñas de <span>Cartagena de India</span></h3>
+            </div>
+            <div class="container-reseña">
+                
+                <div class="search-reseñas">
+                    <div class="search-container-reseñas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" {...props}>
+                            <path fill="currentColor"
+                                d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68">
+                            </path>
+                        </svg>
+                        <input type="text" placeholder="Buscar eventos, lugares, viajes..." />
+                    </div>
+                </div>
+                <div class="card-reseña">
+                    <div class="personal_info">
+                        <img src="/images/bgmain.webp" class="img-reseña" alt="Imagen de reseña" />
+                        <div class="name">
+                            <a href="">Jaime Perez</a>
+                            <div class="flex align-center gap-2">
+                                <div class="calificion flex center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                </div>
+                                <div class="info_date flex center gap-3">
+                                    <p> 16 julio 2025 . Tour </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-reseña-text">
+                        <p>Hace mucho calor en la pared sin sombra, así que hay que ir temprano. Tiene buenas vistas y no
+                            hay mucha gente.</p>
+                        <div class="flex location gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 7.35q3.05-2.8 4.525-5.087T18 10.2q0-2.725-1.737-4.462T12 4T7.738 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35M12 22q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22m0-12" />
+                            </svg>
+                            <a href="">Ciudad Amurallada de Cartagena Recorrido Circular</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-reseña">
+                    <div class="personal_info">
+                        <img src="/images/bgmain.webp" class="img-reseña" alt="Imagen de reseña" />
+                        <div class="name">
+                            <a href="">Jaime Perez</a>
+                            <div class="flex align-center gap-2">
+                                <div class="calificion flex center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                </div>
+                                <div class="info_date flex center gap-3">
+                                    <p> 16 julio 2025 . Tour </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-reseña-text">
+                        <p>Hace mucho calor en la pared sin sombra, así que hay que ir temprano. Tiene buenas vistas y no
+                            hay mucha gente.</p>
+                        <div class="flex location gap-3 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 7.35q3.05-2.8 4.525-5.087T18 10.2q0-2.725-1.737-4.462T12 4T7.738 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35M12 22q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22m0-12" />
+                            </svg>
+                            <a href="">Ciudad Amurallada de Cartagena Recorrido Circular</a>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    </div>
+
+    <section class="preguntas_frecuentes">
+        <div class="ctrl2">
+            <h3 class="question">Preguntas <span>Frecuentes</span></h3>
+        </div>
+
+        <div class="container_preguntas">
+
+            <div class="flex preguntas_card ">
+
+                <div class="preguntas_card_text">
+                    <h3>¿Cuáles son los mejores lugares para visitar en Cartagena?</h3>
+                    <p>
+                        Los mejores lugares para visitar en Cartagena son la Ciudad Amurallada, el Castillo de San
+                        Felipe,
+                        las Islas del Rosario y el Parque Nacional Natural Corales del Rosario y San Bernardo.
+                    </p>
+                </div>
+
+                <button class="btn_preguntas_card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
+                        <path fill="currentColor"
+                            d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div class="preguntas_card flex">
+
+                <div class="preguntas_card_text">
+                    <h3>¿Cuales son los diferentes tipos de Actividades?</h3>
+                    <p>
+                        Los mejores lugares para visitar en Cartagena son la Ciudad Amurallada, el Castillo de San
+                        Felipe,
+                        las Islas del Rosario y el Parque Nacional Natural Corales del Rosario y San Bernardo.
+                    </p>
+                </div>
+
+                <button class="btn_preguntas_card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
+                        <path fill="currentColor"
+                            d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div class="preguntas_card flex">
+
+                <div class="preguntas_card_text">
+                    <h3>¿Cuáles son los mejores lugares para visitar en Cartagena?</h3>
+                    <p>
+                        Los mejores lugares para visitar en Cartagena son la Ciudad Amurallada, el Castillo de San
+                        Felipe,
+                        las Islas del Rosario y el Parque Nacional Natural Corales del Rosario y San Bernardo.
+                    </p>
+                </div>
+
+                <button class="btn_preguntas_card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
+                        <path fill="currentColor"
+                            d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div class="preguntas_card flex">
+
+                <div class="preguntas_card_text">
+                    <h3>¿C...?</h3>
+                    <p>
+                        Los mejores lugares para visitar en Cartagena son la Ciudad Amurallada, el Castillo de San
+                        Felipe,
+                        las Islas del Rosario y el Parque Nacional Natural Corales del Rosario y San Bernardo.
+                    </p>
+                </div>
+
+                <button class="btn_preguntas_card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
+                        <path fill="currentColor"
+                            d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div class="preguntas_card flex border-y-1 ">
+
+                <div class="preguntas_card_text">
+                    <h3>¿Cuáles son los mejores lugares para visitar en Cartagena?</h3>
+                    <p>
+                        Los mejores lugares para visitar en Cartagena son la Ciudad Amurallada, el Castillo de San
+                        Felipe,
+                        las Islas del Rosario y el Parque Nacional Natural Corales del Rosario y San Bernardo.
+                    </p>
+                </div>
+
+                <button class="btn_preguntas_card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
+                        <path fill="currentColor"
+                            d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="info-footer flex flex-col">
+            <div class="links-container-footer">
+                <div class="flex justify-start con-logo-footer">
+                    <a href="" class="logo-footer"><span>eta</span>®</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Explorar</a>
+                    <a href="Paises">Paises</a>
+                    <a href="">Eventos</a>
+                    <a href="">Lugares</a>
+                    <a href="">Actividades</a>
+                    <a href="">Toures</a>
+                    <a href="">Rutas</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Mapas</a>
+                    <a href="">Guardados</a>
+                    <a href="">Crear Rutas</a>
+                    <a href="">Crear Actividad</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Empresa</a>
+                    <a href="">Acerca de Ept</a>
+                    <a href="">Empleo</a>
+                    <a href="">Afiliados</a>
+                    <a href="">Influencers</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Comunidad</a>
+                    <a href="">Soporte</a>
+                    <a href="">Regala EPT pluss </a>
+                </div>
+            </div>
+
+            <div class="social_footer mt-7  grid grid-cols-3">
+                <div class="download flex flex-col items-start justify-start">
+                    <p>Una aplicacion para disfruta al maximo de [city]</p>
+                    <div class="flex gap-4 mt-4px">
+                        <a href=""><img src="/images/appstore.webp" alt="apple" class="w-[125px]  "></a>
+                        <a href="andor"><img src="/images/googleplay.webp" alt="android" class="w-[130px]"></a>
+                    </div>
+                </div>
+                <div class="sponsor flex flex-col items-start justify-start">
+                    <p>Miembros de EPT</p>
+                    <div class="flex gap-3.5 mt-4px">
+                        <a href=""><img class="w-[130px]" src="/images/fiscalia.webp" alt="fiscalia" /></a>
+                        <a href=""><img class="w-[130px]" src="/images/ministerio.webp" alt="ministerio" /></a>
+                        <a href="" class="white-bg w-[130px]"><img src="/images/alcadia.webp" alt="alcadia" /></a>
+                    </div>
+                </div>
+                <div class="social_medias_links flex flex-col items-start justify-start">
+                    <p>Conectate con nosotros</p>
+                    <div class="icon_social flex gap-3 mt-4px">
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3">
+                                </path>
+                            </svg></a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright grid">
+                <div class="info_copy flex flex-col">
+                    <p>© 2025-2025 EPT, LLC</p>
+                    <p>EPT® y EPT Mountain Design son marcas registradas de EPT, LLC tanto en Estados Unidos como en
+                        otras jurisdicciones.
+                    <p>
+                    <p>FIND YOUR WAY OUTSIDE™ es una marca registrada de EPT, LLC.</p>
+                    <div class="flex gap-4">
+                        <a href="">terminos</a>
+                        <a href="condi">condiciones</a>
+                    </div>
+                </div>
+                <div class="languages flex justify-center">
+                    <select name="" id="">
+                        <option value="">español</option>
+                        <option value="">English</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>

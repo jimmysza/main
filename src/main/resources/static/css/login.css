@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../images/login.jpg) no-repeat;
+    background-size: cover;
+}
+
+
+
+.bg_login {
+    background: #2864a1;
+    background: linear-gradient(90deg, rgba(40, 100, 161, 1) 0%, rgba(108, 163, 217, 0.99) 46%, rgba(104, 146, 173, 0.34) 100%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+@media (max-width: 560px) {
+    html, body {
+        height: 115vh;
+    }
+    .bg_login {
+        height: 115vh;
+    }
+}
+
+
+.container-100 {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1351px;
+}
+
+nav {
+    
+    display: flex;
+    padding: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 134;
+    width: 100%;
+    max-width: 1350px;
+    gap: 60px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    color: var(--color-white);
+    font-weight: 400;
+    gap: 80px;
+    padding: 0 20px;
+}
+
+.nav-links li {
+    display: flex;
+}
+
+.nav-links li a {
+    z-index: 2;
+    font-weight: 800;
+}
+
+.logo {
+    z-index: 2;
+    object-fit: cover;
+    width: 100px;
+    margin-left: 60px;
+    height: 35px;
+}
+
+.Formulario {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1351px;
+    height: fit-content;
+    padding: 70px 70px 0px 70px;
+}
+
+@media (max-width: 700px) {
+    .Formulario{
+        align-items: center;
+        padding: 50px 20px 0px 20px;
+    }
+
+    h1{
+        text-align: center;
+    }
+}
+
+.text-mayus {
+    margin-left: 6px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    color: #aaaaaa;
+}
+
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+    padding: 2px 0px;
+}
+
+.login {
+    margin-left: 6px;
+    font-size: 14px;
+    font-family: var(--font-inter);
+    color: #aaaaaa;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.login a {
+    font-weight: 900;
+    font-size: 14px;
+    color: #c1e8ff;
+}
+
+.nombre {
+    grid-area: nombre;
+}
+
+.apellido {
+    grid-area: apellido;
+}
+
+.email {
+    grid-area: email;
+}
+
+.contraseña {
+    grid-area: contraseña;
+}
+
+.google {
+    grid-area: google;
+}
+
+.login_grid {
+    grid-area: login_grid;
+}
+
+.contain-info-more {
+    grid-area: info;
+    padding: 0px 10px;
+    color: #ffffff;  
+    font-weight: 600;  
+}
+
+
+.btn {
+    background: #c1e8ff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+form {
+    width: 60%;
+    max-width: 594px;
+    display: grid;
+    grid-template-areas:
+        "email "
+        "contraseña"
+        "login_grid"
+        "google"
+        "info";
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+
+.containt-input {
+    justify-content: space-between;
+    background: #333645;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 18px;
+}
+
+
+.info-input {
+    width: 85%;
+}
+
+.info-input label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #aaaaaa;
+}
+
+.info-input input {
+    color: white;
+    font-size: 16px;
+}
+
+.info-input input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.info-input input:hover {
+    background-color: initial;
+    border-color: initial;
+    box-shadow: none;
+    outline: none;
+    cursor: auto;
+    /* o default si quieres */
+}

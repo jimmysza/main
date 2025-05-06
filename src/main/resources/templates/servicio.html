@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <link rel="stylesheet" href="/css/servicio.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>ETA - Buscando Eventos, Toures & Actividades en Cartagena </title>
+
+</head>
+
+<body>
+    <nav>
+        <div class="contain-nav flex">
+            <a href="/indice/index.html" class="center logo-ept">
+                <img src="/images/eta_rvbg.webp" class="logo" alt="logo" loading="lazy" />
+            </a>
+            <div class="search">
+                <div class="search-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" {...props}>
+                        <path fill="currentColor"
+                            d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68">
+                        </path>
+                    </svg>
+                    <input type="text" placeholder="Buscar eventos, lugares, viajes..." />
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Explorar</a><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" {...props}>
+                        <path fill="currentColor" fill-rule="evenodd" d="m6 7l6 6l6-6l2 2l-8 8l-8-8z"></path>
+                    </svg>
+                </li>
+                <li><a href="#">Guardado</a></li>
+                <li><a href="#">Asistente</a></li>
+            </ul>
+            <div class="log-contain center">
+                <a href="#" class="log-in">Log In</a>
+            </div>
+        </div>
+    </nav>
+    <section class="encabezado">
+        <h1>Isla Cholon</h1>
+        <div class="badges">
+            <span class="badge badge-star">5
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill="currentColor"
+                        d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                    </path>
+                </svg>
+            </span>
+            <span class="badge">2,9 km</span>
+            <span class="badge">Eta. 1hr</span>
+            <span class="badge">easy</span>
+            <a href="/sign_up/signup.html">
+                <span class="badge">Cartagena de Indias</span>
+            </a>
+        </div>
+    </section>
+    <section class="sticky-container">
+        <nav id="navbar">
+            <ul>
+                <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                <li><a href="#info" class="nav-link">Info</a></li>
+                <li><a href="#map" class="nav-link">Mapa</a></li>
+                <li><a href="#planes" class="nav-link">Planes</a></li>
+                <li><a href="#reseñas" class="nav-link">Reseñas</a></li>
+                <li><a href="#footer" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="social-nav flex center gap-2">
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#fff"
+                            d="M5 21V5q0-.825.588-1.412T7 3h10q.825 0 1.413.588T19 5v16l-7-3zm2-3.05l5-2.15l5 2.15V5H7zM7 5h10z" />
+                    </svg></a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m20 12l-6.4-7v3.5C10.4 8.5 4 10.6 4 19c0-1.167 1.92-3.5 9.6-3.5V19z" />
+                    </svg></a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#fff"
+                            d="M18.9 6c-.2-.6-.8-1-1.4-1h-11c-.7 0-1.2.4-1.4 1L3 12v8c0 .5.5 1 1 1h1c.6 0 1-.5 1-1v-1h12v1c0 .5.5 1 1 1h1c.5 0 1-.5 1-1v-8zM6.8 7h10.3l1.1 3H5.8zM19 17H5v-5h14zM7.5 13c.8 0 1.5.7 1.5 1.5S8.3 16 7.5 16S6 15.3 6 14.5S6.7 13 7.5 13m9 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5" />
+                    </svg></a>
+            </div>
+        </nav>
+    </section>
+
+    <section class="galeria-container" id="galeria">
+        <div class="galeria">
+            <div class="big">
+                <img src="/images/Cholon Island/1.jpg" alt="" class="galeria-item" />
+            </div>
+            <div class="small">
+                <img src="/images/Cholon Island/2.jpg" alt="" class="galeria-item space hide-cell" />
+                <img src="/images/Cholon Island/3.jpg" alt="" class="galeria-item hide-cell" />
+            </div>
+            <div class="small small-final">
+                <img src="/images/Cholon Island/4.jpg" alt="" class="galeria-item space hide-cell right-top" />
+                <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide-cell right-bottom" />
+            </div>
+            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
+            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
+            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
+            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide " />
+            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
+            <img src="/images/Cholon Island/5.jpg" class="galeria-item hide">
+        </div>
+    </section>
+
+    <div class="modal" id="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image" />
+        <a class="prev" id="prev">&laquo;</a>
+        <a class="next" id="next">&raquo;</a>
+    </div>
+
+    <section id="info" class="contenido flex">
+        <div class="propuesta-valor flex flex-col">
+            <div class="colaborador flex items-center">
+                <img src="/images/perfil_colaborador.jpg" alt="Foto del colaborador" class="colaborador-foto">
+                <div class="colaborador-texto">
+                    <h3>Jimmy</h3>
+                    <p>Alfitrion</p>
+                </div>
+            </div>
+            <div class="tiempo flex justify-start">
+                <div class="card-time flex flex-col justify-end">
+                    <div class="flex hours justify-end">
+                        <p>5<span>hr</span></p>
+                        <p>30<span>m</span></p>
+                    </div>
+                    <p class="title-time">Duraccion</p>
+                </div>
+                <div class="card-time flex flex-col justify-end">
+                    <div class="flex hours justify-end">
+                        <p>7<span>:</span></p>
+                        <p>30<span>AM</span></p>
+                    </div>
+                    <p class="title-time">Salida</p>
+                </div>
+                <div class="card-time flex flex-col justify-end">
+                    <div class="flex hours justify-end">
+                        <p>4<span>:</span></p>
+                        <p>00<span>PM</span></p>
+                    </div>
+                    <p class="title-time">Recogida</p>
+                </div>
+                <div class="card-time flex flex-col justify-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M19.235 13.234H4.765v3.494L0 11.964l4.765-4.765v3.494h14.47V7.199L24 11.964l-4.765 4.765z" />
+                    </svg>
+                    <p class="title-time"></p>ida y vuelta</p>
+                </div>
+            </div>
+            <div class="contenido-texto">
+                <p>La Isla Cholon es un destino turístico popular en Cartagena, Colombia, conocido por sus hermosas
+                    playas,
+                    aguas cristalinas y ambiente relajado. Es un lugar ideal para disfrutar de actividades acuáticas
+                    como
+                    snorkel, buceo y paseos en bote. La isla también cuenta con restaurantes y bares donde los
+                    visitantes
+                    pueden disfrutar de la gastronomía local y cócteles refrescantes. Además, Cholon es famosa por su
+                    vibrante vida nocturna, con fiestas en la playa que atraen a turistas y lugareños por igual.</p>
+            </div>
+        </div>
+        <div class="categorias">
+            <h3>Categorias</h3>
+            <div class="card-categorias-contain">
+                <div class="card-categorias">
+                    <div class="card-categorias-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 512">
+                            <path fill="#fff"
+                                d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32S80 82.1 80 144s50.1 112 112 112m76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2M480 256c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96s43 96 96 96m48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4c24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48c0-61.9-50.1-112-112-112" />
+                        </svg>
+                    </div>
+                    <p>Amigos</p>
+                </div>
+                <div class="card-categorias">
+                    <div class="card-categorias-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z" />
+                        </svg>
+                    </div>
+                    <p>Me Gusta</p>
+                </div>
+                <div class="card-categorias">
+                    <div class="card-categorias-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                            <path fill="#fff"
+                                d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1M1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25m5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.75.75 0 0 1-.018 1.042a.75.75 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0m2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.75.75 0 0 1-1.042-.018a.75.75 0 0 1-.018-1.042L10.69 7L9.22 5.53a.75.75 0 0 1 0-1.06" />
+                        </svg>
+                    </div>
+                    <p>Reviews</p>
+                </div>
+                <div class="card-categorias">
+                    <div class="card-categorias-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8a8.009 8.009 0 0 1-8 8Z" />
+                        </svg>
+                    </div>
+                    <p>Fiesta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="map" class="map-container flex gap-10">
+        <div class="incluido">
+            <h3>Incluido</h3>
+            <div class="contain-incluido">
+                <div class="card-incluido">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                        <path fill="#000"
+                            d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                    </svg>
+                    <p>Guia</p>
+                </div>
+                <div class="card-incluido">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                        <path fill="#000"
+                            d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                    </svg>
+                    <p>Guia</p>
+                </div>
+                <div class="card-incluido">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                        <path fill="#000"
+                            d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                    </svg>
+                    <p>Guia</p>
+                </div>
+                <div class="card-incluido">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                        <path fill="#000"
+                            d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                    </svg>
+                    <p>Guia</p>
+                </div>
+                <div class="card-incluido">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                        <path fill="#000"
+                            d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                    </svg>
+                    <p>Guia</p>
+                </div>
+            </div>
+            <button class="mostrar-mas">Mostrar Mas</button>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15708.811735951806!2d-75.67964491509728!3d10.164153638524155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e588795dcbf248f%3A0x5aa5812541242508!2sIsla%20Cholon%20en%20Cartagena!5e0!3m2!1ses!2sco!4v1745030166778!5m2!1ses!2sco"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+
+    <!--por hacer-->
+    <div class="modal modal-info" id="modal-info">
+        <div class="modal-info-content">
+            <span class="close">&times;</span>
+            <h3>¿Quieres saber más?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore molestias tempora molestiae blanditiis
+                fuga. Voluptatum, pariatur veniam omnis nesciunt voluptates iste quo, mollitia consectetur sed ex qui
+                dolore beatae eius.</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <section id="planes" class="planes">
+        <div class="p-bg"></div>
+        <div class="containt-cards-prices">
+            <div class="card-plans">
+                <div class="head-card-plan">
+                    <p class="plan-nombre">Free Plan</p>
+                    <p class="plan-precio">Free</p>
+                </div>
+                <div class="body-card-plan">
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Cocte Bienvenida</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>4 personas</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                </div>
+                <div class="contain-btn flex center">
+                    <button>Compra</button>
+                </div>
+            </div>
+            <div class="card-plans">
+                <div class="head-card-plan">
+                    <p class="plan-nombre">Free Plan</p>
+                    <p class="plan-precio">Free</p>
+                </div>
+                <div class="body-card-plan">
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye sombrilla</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                </div>
+                <div class="contain-btn flex center">
+                    <button>Compra</button>
+                </div>
+            </div>
+            <div class="card-plans">
+                <div class="head-card-plan">
+                    <p class="plan-nombre">Free Plan</p>
+                    <p class="plan-precio">Free</p>
+                </div>
+                <div class="body-card-plan">
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                    <div class="wrap-body-plans">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
+                            <path fill="#fff"
+                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
+                        </svg>
+                        <p>Incluye Viaje en Lancha</p>
+                    </div>
+                </div>
+                <div class="contain-btn flex center">
+                    <button>Compra</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contain-section reseña-section">
+        <section id="reseñas" class="reseñas">
+            <div class="contain-title-reseña">
+                <h3 class="c-t-r-20">Reseñas de <span>Cartagena de India</span></h3>
+            </div>
+            < <div class="container-reseña">
+
+                <div class="search-reseñas">
+                    <div class="search-container-reseñas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"
+                            {...props}>
+                            <path fill="currentColor"
+                                d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68">
+                            </path>
+                        </svg>
+                        <input type="text" placeholder="Buscar eventos, lugares, viajes..." />
+                    </div>
+                </div>
+
+                <div class="card-reseña">
+                    <div class="personal_info">
+                        <img src="/images/bgmain.webp" class="img-reseña" alt="Imagen de reseña" />
+                        <div class="name">
+                            <a href="">Jaime Perez</a>
+                            <div class="flex align-center gap-2">
+                                <div class="calificion flex center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                </div>
+                                <div class="info_date flex center gap-3">
+                                    <p> 16 julio 2025 . Tour </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-reseña-text">
+                        <p>Hace mucho calor en la pared sin sombra, así que hay que ir temprano. Tiene buenas vistas y
+                            no
+                            hay mucha gente.</p>
+                        <div class="flex location gap-3 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 7.35q3.05-2.8 4.525-5.087T18 10.2q0-2.725-1.737-4.462T12 4T7.738 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35M12 22q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22m0-12" />
+                            </svg>
+                            <a href="">Ciudad Amurallada de Cartagena Recorrido Circular</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-reseña">
+                    <div class="personal_info">
+                        <img src="/images/bgmain.webp" class="img-reseña" alt="Imagen de reseña" />
+                        <div class="name">
+                            <a href="">Jaime Perez</a>
+                            <div class="flex align-center gap-2">
+                                <div class="calificion flex center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                                    </svg>
+                                </div>
+                                <div class="info_date flex center gap-3">
+                                    <p> 16 julio 2025 . Tour </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-reseña-text">
+                        <p>Hace mucho calor en la pared sin sombra, así que hay que ir temprano. Tiene buenas vistas y
+                            no
+                            hay mucha gente.</p>
+                        <div class="flex location gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 7.35q3.05-2.8 4.525-5.087T18 10.2q0-2.725-1.737-4.462T12 4T7.738 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35M12 22q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22m0-12" />
+                            </svg>
+                            <a href="">Ciudad Amurallada de Cartagena Recorrido Circular</a>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+    </section>
+    </div>
+
+
+    <section class="contain-quizas">
+
+        <div class="contain-title-reseña center az">
+            <h3 class="c-t-r-20">Quizás te interese</h3>
+        </div>
+        <div class="contain-grid-quizas">
+
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+
+                <img src="/images/card1.webp" alt="The Hills Guest House">
+
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="#fff">
+                                <path fill="#fff"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card2.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card3.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer id="footer">
+        <div class="info-footer flex flex-col">
+            <div class="links-container-footer">
+                <div class="flex justify-start con-logo-footer">
+                    <a href="" class="logo-footer"><span>eta</span>®</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Explorar</a>
+                    <a href="Paises">Paises</a>
+                    <a href="">Eventos</a>
+                    <a href="">Lugares</a>
+                    <a href="">Actividades</a>
+                    <a href="">Toures</a>
+                    <a href="">Rutas</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Mapas</a>
+                    <a href="">Guardados</a>
+                    <a href="">Crear Rutas</a>
+                    <a href="">Crear Actividad</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Empresa</a>
+                    <a href="">Acerca de Ept</a>
+                    <a href="">Empleo</a>
+                    <a href="">Afiliados</a>
+                    <a href="">Influencers</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Comunidad</a>
+                    <a href="">Soporte</a>
+                    <a href="">Regala EPT pluss </a>
+                </div>
+            </div>
+
+            <div class="social_footer mt-7  grid grid-cols-3">
+                <div class="download flex flex-col items-start justify-start">
+                    <p>Una aplicacion para disfruta al maximo de [city]</p>
+                    <div class="flex gap-4 mt-4px">
+                        <a href=""><img src="/images/appstore.webp" alt="apple" class="w-[125px]  "></a>
+                        <a href="andor"><img src="/images/googleplay.webp" alt="android" class="w-[130px]"></a>
+                    </div>
+                </div>
+                <div class="sponsor flex flex-col items-start justify-start">
+                    <p>Miembros de EPT</p>
+                    <div class="flex gap-3.5 mt-4px">
+                        <a href=""><img class="w-[130px]" src="/images/fiscalia.webp" alt="fiscalia" /></a>
+                        <a href=""><img class="w-[130px]" src="/images/ministerio.webp" alt="ministerio" /></a>
+                        <a href="" class="white-bg w-[130px]"><img src="/images/alcadia.webp" alt="alcadia" /></a>
+                    </div>
+                </div>
+                <div class="social_medias_links flex flex-col items-start justify-start">
+                    <p>Conectate con nosotros</p>
+                    <div class="icon_social flex gap-3 mt-4px">
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3">
+                                </path>
+                            </svg></a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright grid">
+                <div class="info_copy flex flex-col">
+                    <p>© 2025-2025 EPT, LLC</p>
+                    <p>EPT® y EPT Mountain Design son marcas registradas de EPT, LLC tanto en Estados Unidos como en
+                        otras jurisdicciones.
+                    <p>
+                    <p>FIND YOUR WAY OUTSIDE™ es una marca registrada de EPT, LLC.</p>
+                    <div class="flex gap-4">
+                        <a href="">terminos</a>
+                        <a href="condi">condiciones</a>
+                    </div>
+                </div>
+                <div class="languages flex justify-center">
+                    <select name="" id="">
+                        <option value="">español</option>
+                        <option value="">English</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!--model-->
+    <li class="open-btn" onclick="document.getElementById('Mydialog').showModal()">
+        <a href="#">Explorar</a>
+    </li>
+    <li><a href="/busqueda/buscador.html">Guardado</a></li>
+    <li><a href="#">Asistente</a></li>
+    </ul>
+    <div class="sign-contain">
+        <a href="/sign_up/signup.html" class="sign-up">registrate</a>
+    </div>
+    </nav>
+    </div>
+
+    <dialog id="Mydialog" closedby="any">
+        <p>explora</p>
+        <form method="dialog">
+            <button class="close-btn">Cerrar</button>
+        </form>
+    </dialog>
+    <script src="servicio.js"></script>
+</body>
+
+</html>

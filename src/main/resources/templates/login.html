@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
+    <title>Eta - Eventos Toures Actividades</title>
+</head>
+
+<body>
+    <div class="bg_login"></div>
+    <div class="container-100">
+        <nav>
+            <a class="flex justify-center items-center cursor-pointer" href="/indice/index.html">
+                <img src="/images/eta_rvbg.webp" class="logo" alt="logo" loading="lazy" />
+            </a>
+            <ul class="nav-links">
+                <li ">
+                <a href="/home">Home</a>
+                </li>
+                <li><a href="/registro">Registrarse</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section class="Formulario">
+        <p class="text-mayus">Bienvenido, ingresa tus datos</p>
+        <H1>Bienvenido de Nuevo</H1>
+        <div class="flex login gap-2">
+            <p>Aun no tienes cuenta?, </p>
+            <a href="/sign_up">sign up</a>
+        </div>
+        <form action="">
+            <div class="containt-input flex justify-start items-center email">
+                <div class="info-input flex flex-col">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="ejemplo@gmail.com" required id="Email"/>
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z"/></svg>
+                </div>
+            </div>
+            <div class="containt-input flex justify-start items-center contraseña">
+                <div class="info-input flex flex-col">
+                    <label for="password">Contraseña</label>
+                    <input type="password" placeholder="*****" required id="password"/>
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="M21 2a8.998 8.998 0 0 0-8.612 11.612L2 24v6h6l10.388-10.388A9 9 0 1 0 21 2m0 16a7 7 0 0 1-2.032-.302l-1.147-.348l-.847.847l-3.181 3.181L12.414 20L11 21.414l1.379 1.379l-1.586 1.586L9.414 23L8 24.414l1.379 1.379L7.172 28H4v-3.172l9.802-9.802l.848-.847l-.348-1.147A7 7 0 1 1 21 18"/><circle cx="22" cy="10" r="2" fill="currentColor"/></svg>
+                </div>
+            </div>
+            <button class="btn login_grid">Log in</button>
+            <button class="btn google flex align-center justify-center gap-2"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 262"><path fill="#4285f4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"/><path fill="#34a853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"/><path fill="#fbbc05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"/><path fill="#eb4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"/></svg> Inicia Sesion con Google</button>
+             <div class="contain-info-more flex justify-between items-center ">
+                <div class="flex gap-2">
+                    <input type="checkbox"><p>Recordar Inicio Sesion</p>
+                </div>
+                <a href="">olvidaste la contraseña?</a>
+             </div>                  
+        </form>
+    </section>
+</body>

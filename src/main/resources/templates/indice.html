@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/indexs.css">
+    <link rel="stylesheet" href="/css/fonts/fonts.css">
+    <title>Eta - Eventos Toures Actividades</title>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="container-100">
+            <nav>
+                <div class="flex justify-center items-center">
+                    <img src="/images/logo_rework_nav.jpg" class="logo" alt="logo" loading="lazy" />
+                </div>
+                <ul class="nav-links">
+                    <li class="open-btn">
+                        <a href="#">Explorar</a>
+                    </li>
+                    <li><a href="/buscador">Guardado</a></li>
+                    <li><a href="#">Asistente</a></li>
+                </ul>
+                <div class="sign-contain">
+                    <a href="/sign_up/signup.html" class="sign-up">registrate</a>
+                </div>
+            </nav>
+        </div>
+        <div class="img-container">
+            <div class="fondo-img">
+                <div class="gradient"></div>
+            </div>
+            <h1>Bienvenido, Jaime</h1>
+            <a>Cerca de ti</a>
+        </div>
+
+        <div class="search">
+            <div class="search-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68">
+                    </path>
+                </svg>
+                <input type="text" placeholder="Buscar eventos, lugares, viajes..." />
+            </div>
+        </div>
+    </section>
+
+
+    <section class="Categories flex w-full h-fit flex-col">
+
+        <div class="flex gap-20 justify-center items-center">
+            <div class="container-categories flex justify-start gap-8">
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/iconic.webp"
+                            alt="Categoria Iconicos" />
+                        <p>Icónicos</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover"
+                            src="/images/categorias/acuatico.webp" alt="Categoria Acuáticos" />
+                        <p>Acuáticos</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/foodie.webp"
+                            alt="Foodies" />
+                        <p>Foodies</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/islas.webp"
+                            alt="Islas" />
+                        <p>Islas</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/entre.webp"
+                            alt="Entretenimiento" />
+                        <p>Cine</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/arte.webp"
+                            alt="Arte" />
+                        <p>Arte</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/deporte.webp"
+                            alt="Deporte" />
+                        <p>Deporte</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover"
+                            src="/images/categorias/historia.webp" alt="Historia" />
+                        <p>Historia</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="circle-cat links flex flex-col justify-center items-center gap-2 text-center">
+                        <img class="w-[100px] h-[100px] rounded-full object-cover" src="/images/categorias/playas.webp"
+                            alt="Playas" />
+                        <p>Playas</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="Trending">
+        <div class="top-trending">
+            <h2 class="h2_trendi">Tendencias, <a href="#" class="city">Cartagena de Indias</a></h2>
+        </div>
+        <div class="container-activities">
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+
+                <img src="/images/card1.webp" alt="The Hills Guest House">
+
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+
+
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card2.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla ...</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <a href="/servicio/servicio.html"><button class="reserve-btn">Reserva</button></a>
+            </div>
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card3.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card4.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="Trending">
+        <div class="top-trending">
+            <h2>Cerca de Ti, <a href="#" class="city">Cartagena de Indias</a></h2>
+        </div>
+        <div class="container-activities">
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card1.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+
+
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card3.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card4.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+            <div class="cardd">
+                <div class="container-bookmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
+                        <path fill="currentColor"
+                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                        </path>
+                    </svg>
+                </div>
+                <img src="/images/card2.webp" alt="The Hills Guest House">
+                <!--<div class="price">$620</div>-->
+                <div class="card-content">
+                    <div class="card-title">Isla Cholon</div>
+                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
+                        feliz en
+                        una de las mejores discoteca en cartagena</div>
+                    <div class="badges">
+                        <span class="badge">2,9 km</span>
+                        <span class="badge">Eta. 1hr</span>
+                        <span class="badge badge-star">5
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                                </path>
+                            </svg>
+                        </span>
+
+
+                    </div>
+                </div>
+                <button class="reserve-btn">Reserva</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="social">
+        <div class="flex">
+            <div class="w-70 social-container-info">
+                <h2>Comparte, Tu Plan</h2>
+                <p class="h2_description">¡Muéstranos cómo vas de aventura etiquetándonos con #GetOutThere en @AllTrails
+                    para tener la oportunidad de aparecer en la lista!</p>
+            </div>
+            <div class="w-30 flex items-center justify-center gap-10.5">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
+                        <path fill="currentColor"
+                            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                    </svg>
+                </a>
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
+                        <g fill="none">
+                            <g clip-path="url(#akarIconsFacebookFill0)">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M0 12.067C0 18.034 4.333 22.994 10 24v-8.667H7V12h3V9.333c0-3 1.933-4.666 4.667-4.666c.866 0 1.8.133 2.666.266V8H15.8c-1.467 0-1.8.733-1.8 1.667V12h3.2l-.533 3.333H14V24c5.667-1.006 10-5.966 10-11.933C24 5.43 18.6 0 12 0S0 5.43 0 12.067"
+                                    clip-rule="evenodd" />
+                            </g>
+                            <defs>
+                                <clipPath id="akarIconsFacebookFill0">
+                                    <path fill="#fff" d="M0 0h24v24H0z" />
+                                </clipPath>
+                            </defs>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="container_share">
+            <a href="">
+                <div class="shares">
+                    <div class="contain-img-shares">
+                        <img src="/images/shares/share1.webp" alt="">
+                        <p class="text-shares">@andrewlf</p>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="shares">
+                    <div class="contain-img-shares">
+                        <img src="/images/shares/share2.webp" alt="">
+                        <p class="text-shares">@jimmysza</p>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="shares">
+                    <div class="contain-img-shares">
+                        <img src="/images/shares/share3.webp" alt="">
+                        <p class="text-shares">@lunajr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="shares">
+                    <div class="contain-img-shares">
+                        <img src="/images/shares/share4.webp" alt="">
+                        <p class="text-shares">@kaicenat</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="turism">
+        <h2>Todo lo que tienes que saber en <span>Cartagena</span></h2>
+        <div class="container_turism">
+            <a href="">
+                <div class="turism_links">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
+                        <path fill="currentColor"
+                            d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8z">
+                        </path>
+                    </svg>
+                    <p>Transporte</p>
+                </div>
+            </a>
+            <a href="">
+                <div class="turism_links">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" {...props}>
+                        <g fill="none">
+                            <path fill="currentColor"
+                                d="M10 5.196c1.5-2.598 5.098-2.83 7.696-1.33s4.196 4.732 2.696 7.33l-3.464-2l-1.732-1l-1.732-1z">
+                            </path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.696 3.866C15.098 2.366 11.5 2.598 10 5.196l3.464 2m4.232-3.33c2.598 1.5 4.196 4.732 2.696 7.33l-5.196-3m2.5-4.33l.5-.866m-.5.866c-1.821.488-2.982 1.165-4.232 3.33m4.232-3.33c.488 1.821.482 3.165-.768 5.33m-1.732-1l-1.732-1m1.732 1l-3 5.196M3 21l.88-1.056a2 2 0 0 1 3.139.08v0a2 2 0 0 0 3.107.118l.19-.218a2.236 2.236 0 0 1 3.367 0l.191.218c.838.957 2.344.9 3.107-.117v0a2 2 0 0 1 3.14-.08L21 21M6.708 16A7.97 7.97 0 0 1 12 14a7.97 7.97 0 0 1 5.292 2">
+                            </path>
+                        </g>
+                    </svg>
+                    <p>Precios Playa</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="info-footer flex flex-col">
+
+            <div class="links-container-footer">
+                <div class="flex justify-start con-logo-footer">
+                    <a href="" class="logo-footer"><span>eta</span>®</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Explorar</a>
+                    <a href="Paises">Paises</a>
+                    <a href="">Eventos</a>
+                    <a href="">Lugares</a>
+                    <a href="">Actividades</a>
+                    <a href="">Toures</a>
+                    <a href="">Rutas</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Mapas</a>
+                    <a href="">Guardados</a>
+                    <a href="">Crear Rutas</a>
+                    <a href="">Crear Actividad</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Empresa</a>
+                    <a href="">Acerca de Ept</a>
+                    <a href="/cliente">Clientes</a>
+                    <a href="/colaboradores">Colaboradores</a>
+                    <a href="/actividades">Actividades</a>
+                </div>
+                <div class="links-footer">
+                    <a href="" class="font-bold">Comunidad</a>
+                    <a href="">Soporte</a>
+                    <a href="">Regala EPT pluss </a>
+                </div>
+            </div>
+
+            <div class="social_footer mt-7  grid grid-cols-3">
+
+                <div class="download flex flex-col gap-2 items-start justify-start">
+                    <p class="font-bold">Una aplicacion para disfruta al maximo </p>
+                    <div class="flex gap-4 mt-4px">
+                        <a href=""><img src="/images/appstore.webp" alt="apple" class="w-[125px]  "></a>
+                        <a href="andor"><img src="/images/googleplay.webp" alt="android" class="w-[130px]"></a>
+                    </div>
+                </div>
+
+                <div class="sponsor flex flex-col items-start justify-start gap-1">
+                    <p class="font-bold">Miembros de EPT</p>
+                    <div class="flex gap-3.5 mt-4px">
+                        <a href=""><img class="w-[130px]" src="/images/fiscalia.webp" alt="fiscalia" /></a>
+                        <a href=""><img class="w-[130px]" src="/images/ministerio.webp" alt="ministerio" /></a>
+                        <a href="" class="white-bg w-[130px]"><img src="/images/alcadia.webp" alt="alcadia" /></a>
+                    </div>
+                </div>
+
+                <div class="social_medias_links justify-center">
+                    <p class="font-bold">Conectate con nosotros</p>
+                    <div class="icon_social flex gap-5 mt-4px justify-center">
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3">
+                                </path>
+                            </svg></a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                {...props}>
+                                <path fill="currentColor"
+                                    d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                <div class="info_copy flex flex-col">
+                    <p>© 2025-2025 EPT, LLC</p>
+                    <p>EPT® y EPT Mountain Design son marcas registradas de EPT, LLC tanto en Estados Unidos como en
+                        otras jurisdicciones.
+                    <p>
+                    <p>FIND YOUR WAY OUTSIDE™ es una marca registrada de EPT, LLC.</p>
+                    <div class="flex gap-4">
+                        <a href="">terminos</a>
+                        <a href="condi">condiciones</a>
+                    </div>
+                </div>
+                <div class="idiomas flex center">
+                    <select name="" id="">
+                        <option value="">español</option>
+                        <option value="">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
