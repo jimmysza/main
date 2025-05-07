@@ -1,6 +1,14 @@
 package eta.main.modeloEntidad;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cliente")
@@ -8,14 +16,14 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente") // nombre de columna en la base de datos
+    @Column(name = "id_cliente")
     private Long idCliente;
 
-    @Column(name = "Preferencias", columnDefinition = "TEXT")
+    @Column(name = "preferencias", columnDefinition = "TEXT") // corregido: nombre de columna en minúsculas
     private String preferencias;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona", nullable = false)
     private Persona persona;
 
     // Constructor por defecto

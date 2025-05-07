@@ -21,7 +21,7 @@
             <div class="menu">
                 <ul>
                     <li class="menu-link menu-link1">
-                        <a href="#" >
+                        <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="#000"
                                     d="M12 4.5a.5.5 0 0 0-.5-.5a.5.5 0 0 0-.5.5v1.53c-2.25.25-4 2.15-4 4.47v5.91L5.41 18h12.18L16 16.41V10.5c0-2.32-1.75-4.22-4-4.47zM11.5 3A1.5 1.5 0 0 1 13 4.5v.71c2.31.65 4 2.79 4 5.29V16l3 3H3l3-3v-5.5C6 8 7.69 5.86 10 5.21V4.5A1.5 1.5 0 0 1 11.5 3m0 19a2.5 2.5 0 0 1-2.45-2h1.04a1.495 1.495 0 0 0 2.82 0h1.04a2.5 2.5 0 0 1-2.45 2"
@@ -123,9 +123,6 @@
                         </svg>
                         <p>Filtrar</p>
                     </a>
-
-
-
                     <div class="add-btn btn_add">
                         <button class="text-open-add" id="open-add-modal">Agregar</button>
                     </div>
@@ -134,70 +131,71 @@
                         <button class="text-open-delete" id="open-delete-modal">Eliminar</button>
                     </div>
 
+                    <!-- Modal para Agregar -->
+                    <div class="modal modal-add">
+                        <span class="close-modal">&times;</span>
+                        <h2>Agregar Cliente</h2>
 
-                </div>
-                <div class="modal modal-add">
-                    <span class="close-modal">&times;</span>
-                    <p>fsdfs</p>
+                        <form th:action="@{/cliente}" method="post" th:object="${cliente}">
+                            <label>Nombre Completo</label>
+                            <input type="text" th:field="*{persona.nombreCompleto}" required>
 
-                    <form th:action="@{/cliente}" method="post" th:object="${cliente}">
+                            <label>Fecha Nacimiento</label>
+                            <input type="date" th:field="*{persona.fechaDeNacimiento}" />
 
-                        <label>Nombre Completo</label>
-                        <input type="text" th:field="*{persona.nombreCompleto}" required>
+                            <label>Teléfono</label>
+                            <input type="tel" th:field="*{persona.telefono}" required>
 
-                        <label>Fecha Nacimiento</label>
-                        <input type="date" th:field="*{persona.fechaDeNacimiento}" />
+                            <label>Email</label>
+                            <input type="email" th:field="*{persona.correoElectronico}" required>
 
-                        <label>Teléfono</label>
-                        <input type="tel" th:field="*{persona.telefono}" required>
+                            <label>Preferencias</label>
+                            <input type="text" th:field="*{preferencias}" required>
 
-                        <label>Email</label>
-                        <input type="email" th:field="*{persona.correoElectronico}" required>
+                            <button type="submit" class="btn">Agregar</button>
+                        </form>
 
+                        <button class="close-btn" id="closeAddModal">Cerrar</button>
+                    </div>
 
+                    <!-- Modal para Eliminar -->
+                    <div class="modal modal-delete">
+                        <span class="close-modal">&times;</span>
+                        <h2>Eliminar Cliente</h2>
 
-                        <label>Preferencias</label>
-                        <input type="text" th:field="*{preferencias}" required>
+                        <form th:action="@{/cliente/eliminar}" method="post">
+                            <label>ID Cliente</label>
+                            <input type="number" name="idCliente" required>
+                            <button type="submit" class="btn">Eliminar</button>
+                        </form>
 
-                        <button type="submit" class="btn">Agregar</button>                    
-                    </form>
-                    <button class="close-btn" id="closeAddModal">Cerrar</button>
-                </div>
-
-                <!-- Modal para Eliminar -->
-                <div class="modal modal-delete">
-                    <span class="close-modal">&times;</span>
-                    <form th:action="@{/cliente}" method="post">
-                        <label>ID</label>
-                        <input type="number" name="id" required>
-                        <button type="submit" class="btn">Eliminar</button>
-                    </form>                    
-                    <button class="close-btn" id="closeDeleteModal">Cerrar</button>
+                        <button class="close-btn" id="closeDeleteModal">Cerrar</button>
+                    </div>
+                    
                 </div>
                 
             </div>
-
-
+            <!-- Tabla de Clientes -->
             <div class="table_db">
                 <table>
                     <thead>
                         <tr>
-                            <th>id persona</th>
+                            <th>ID Cliente</th>
                             <th>Nombre Completo</th>
                             <th>Fecha Nacimiento</th>
-                            <th>Telefono</th>
+                            <th>Teléfono</th>
                             <th>Email</th>
                             <th>Preferencias</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="cliente : ${clientes}">
-                            <td th:text="${cliente.id_cliente}"></td>
+                            <td th:text="${cliente.idCliente}"></td>
                             <td th:text="${cliente.persona.nombreCompleto}"></td>
-                            <td th:text="${cliente.persona.fechaNacimiento}"></td>
+                            <td th:text="${cliente.persona.fechaDeNacimiento}"></td>
                             <td th:text="${cliente.persona.telefono}"></td>
-                            <td th:text="${cliente.persona.correo_Electronico}"></td>
-                            <td th:text="${cliente.preferencia}"></td>
+                            <td th:text="${cliente.persona.correoElectronico}"></td>
+                            <td th:text="${cliente.preferencias}"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -257,7 +255,6 @@
                     </a>
                 </div>
             </div>
-        </div>        
     </section>
 
     <script th:src="@{/js/cliente.js}"></script>
