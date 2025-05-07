@@ -915,6 +915,10 @@ footer .logo-footer {
     outline: none;
 }
 
+.modal form button {
+    border-radius: 20px;
+    border: 1px solid #007BFF ;
+}
 
 .close-modal {
     position: absolute;
@@ -938,4 +942,14 @@ footer .logo-footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.modal-edit {
+    display: none;
+}
+
+.modal-edit.show {
+    z-index: 100;
+    display: flex;
 }

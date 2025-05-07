@@ -127,8 +127,43 @@
                         <button class="text-open-add" id="open-add-modal">Agregar</button>
                     </div>
 
+            
                     <div class="add-btn btn_delete">
                         <button class="text-open-delete" id="open-delete-modal">Eliminar</button>
+                    </div>
+
+                    <div class="add-btn btn_Edit">
+                        <button class="text-open-edit" id="open-edit-modal">Editar</button>
+                    </div>
+
+                    <div class="modal modal-edit">
+                        <span class="close-modal">&times;</span>
+                        <h2>Editar Cliente</h2>
+
+                        <form th:action="@{/cliente/editar}" method="post" th:object="${cliente}">
+
+                            <label for="">Id</label>
+                            <input type="number" th:field="*{idCliente}" required>
+
+                            <label>Nombre Completo</label>
+                            <input type="text" th:field="*{persona.nombreCompleto}"  >
+
+                            <label>Fecha Nacimiento</label>
+                            <input type="date" th:field="*{persona.fechaDeNacimiento}" />
+
+                            <label>Teléfono</label>
+                            <input type="tel" th:field="*{persona.telefono}" >
+
+                            <label>Email</label>
+                            <input type="email" th:field="*{persona.correoElectronico}" >
+
+                            <label>Preferencias</label>
+                            <input type="text" th:field="*{preferencias}" >
+
+                            <button type="submit" class="btn">Editar</button>
+                        </form>
+
+                        
                     </div>
 
                     <!-- Modal para Agregar -->
@@ -154,11 +189,11 @@
 
                             <button type="submit" class="btn">Agregar</button>
                         </form>
-
-                        <button class="close-btn" id="closeAddModal">Cerrar</button>
                     </div>
 
-                    <!-- Modal para Eliminar -->
+                    
+
+                    <!-- Modal para Eliminar , borre close btn-->
                     <div class="modal modal-delete">
                         <span class="close-modal">&times;</span>
                         <h2>Eliminar Cliente</h2>
@@ -169,9 +204,8 @@
                             <button type="submit" class="btn">Eliminar</button>
                         </form>
 
-                        <button class="close-btn" id="closeDeleteModal">Cerrar</button>
                     </div>
-                    
+
                 </div>
                 
             </div>

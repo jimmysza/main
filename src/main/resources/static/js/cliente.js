@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.add('show');
         });
 
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Modal edit open clicked"); // Verifica que esto se imprima en la consola
+            modal.classList.add('show');
+        });
+        
+
         closeBtn.addEventListener('click', () => {
             modal.classList.remove('show');
         });
@@ -23,5 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     setupModal('#open-add-modal', '.modal-add', '.close-modal');
+    setupModal('#open-edit-modal', '.modal-edit', '.close-modal');
     setupModal('#open-delete-modal', '.modal-delete', '.close-modal');
 });
