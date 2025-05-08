@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,19 +49,19 @@ public class ClienteControlador {
         return "redirect:/cliente";
     }
 
-    @PostMapping("/eliminar")
-    public String eliminarCliente(@RequestParam("idCliente") Long idCliente, Model model) {
-        if (!clienteRepository.existsById(idCliente)) {
-            model.addAttribute("error", "El cliente con ID " + idCliente + " no existe.");
-            return "cliente";
+    @GetMapping("/eliminar/{id}")
+    public String eliminarCliente(@PathVariable("id") Long idCliente) {
+        if (clienteRepository.existsById(idCliente)) {
+            clienteRepository.deleteById(idCliente);
+            return "redirect:/cliente";
+        } else {
+            return "redirect:/cliente?error=deleteFailed";
         }
-
-        clienteRepository.deleteById(idCliente);
-        return "redirect:/cliente";
     }
 
-    @PatchMapping("/editar")
+    @PostMapping("/editar")  // Change from @PatchMapping to @PostMapping
 public String editarClienteParcial(@ModelAttribute("cliente") Cliente cliente, Model model) {
+    // Rest of the method remains the same
     if (cliente.getIdCliente() == null || !clienteRepository.existsById(cliente.getIdCliente())) {
         model.addAttribute("error", "El cliente con ID proporcionado no existe.");
         return "redirect:/cliente";

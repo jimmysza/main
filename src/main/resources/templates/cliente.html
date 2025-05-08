@@ -127,14 +127,8 @@
                         <button class="text-open-add" id="open-add-modal">Agregar</button>
                     </div>
 
-            
-                    <div class="add-btn btn_delete">
-                        <button class="text-open-delete" id="open-delete-modal">Eliminar</button>
-                    </div>
 
-                    <div class="add-btn btn_Edit">
-                        <button class="text-open-edit" id="open-edit-modal">Editar</button>
-                    </div>
+
 
                     <div class="modal modal-edit">
                         <span class="close-modal">&times;</span>
@@ -146,24 +140,24 @@
                             <input type="number" th:field="*{idCliente}" required>
 
                             <label>Nombre Completo</label>
-                            <input type="text" th:field="*{persona.nombreCompleto}"  >
+                            <input type="text" th:field="*{persona.nombreCompleto}">
 
                             <label>Fecha Nacimiento</label>
                             <input type="date" th:field="*{persona.fechaDeNacimiento}" />
 
                             <label>Teléfono</label>
-                            <input type="tel" th:field="*{persona.telefono}" >
+                            <input type="tel" th:field="*{persona.telefono}">
 
                             <label>Email</label>
-                            <input type="email" th:field="*{persona.correoElectronico}" >
+                            <input type="email" th:field="*{persona.correoElectronico}">
 
                             <label>Preferencias</label>
-                            <input type="text" th:field="*{preferencias}" >
+                            <input type="text" th:field="*{preferencias}">
 
                             <button type="submit" class="btn">Editar</button>
                         </form>
 
-                        
+
                     </div>
 
                     <!-- Modal para Agregar -->
@@ -191,23 +185,21 @@
                         </form>
                     </div>
 
-                    
-
                     <!-- Modal para Eliminar , borre close btn-->
                     <div class="modal modal-delete">
-                        <span class="close-modal">&times;</span>
-                        <h2>Eliminar Cliente</h2>
 
-                        <form th:action="@{/cliente/eliminar}" method="post">
-                            <label>ID Cliente</label>
-                            <input type="number" name="idCliente" required>
-                            <button type="submit" class="btn">Eliminar</button>
+                        <form class="flex">
+                            <h2>Estas Seguro</h2>
+                            <div class="flex justify-between items-center">
+                                <a th:href="@{/cliente/eliminar/{id}(id=${cliente.idCliente})}">Eliminar</a>
+                                <span class="close-btn-modal">Cancelar</span>
+                            </div>
                         </form>
 
                     </div>
 
                 </div>
-                
+
             </div>
             <!-- Tabla de Clientes -->
             <div class="table_db">
@@ -220,6 +212,7 @@
                             <th>Teléfono</th>
                             <th>Email</th>
                             <th>Preferencias</th>
+                            <th class="acciones">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -230,6 +223,35 @@
                             <td th:text="${cliente.persona.telefono}"></td>
                             <td th:text="${cliente.persona.correoElectronico}"></td>
                             <td th:text="${cliente.preferencias}"></td>
+                            <td class="flex justify-between items-center">
+                                <div class="add-btn btn_delete">
+                                    <button class="text-open-delete" id="open-delete-modal"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24">
+                                            <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2">
+                                                <path stroke-dasharray="56" stroke-dashoffset="56"
+                                                    d="M3 21l2 -6l11 -11c1 -1 3 -1 4 0c1 1 1 3 0 4l-11 11l-6 2">
+                                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s"
+                                                        values="56;0" />
+                                                </path>
+                                                <path stroke-dasharray="8" stroke-dashoffset="8" d="M15 5l4 4">
+                                                    <animate fill="freeze" attributeName="stroke-dashoffset"
+                                                        begin="0.6s" dur="0.2s" values="8;0" />
+                                                </path>
+                                                <path stroke-dasharray="6" stroke-dashoffset="6" stroke-width="1"
+                                                    d="M6 15l3 3">
+                                                    <animate fill="freeze" attributeName="stroke-dashoffset"
+                                                        begin="0.6s" dur="0.2s" values="6;0" />
+                                                </path>
+                                            </g>
+                                        </svg></button>
+                                </div>
+
+                                <div class="add-btn btn_Edit">
+                                    <button class="text-open-edit" id="open-edit-modal">Editar</button>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

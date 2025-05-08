@@ -953,3 +953,16 @@ footer .logo-footer {
     z-index: 100;
     display: flex;
 }
+
+
+.acciones {
+    width: 50px;
+}
+
+.modal-delete form{
+    
+}
+
+.modal-delete form h2{
+    font-size: 30px;
+}
