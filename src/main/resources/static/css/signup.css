@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -13,27 +14,18 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background: url(../images/login.jpg) no-repeat;
+    background-color: #000000;
     background-size: cover;
 }
 
 
-
-.bg_login {
-    background: #2864a1;
-    background: linear-gradient(90deg, rgba(40, 100, 161, 1) 0%, rgba(108, 163, 217, 0.99) 46%, rgba(104, 146, 173, 0.34) 100%);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
 @media (max-width: 560px) {
-    html, body {
+
+    html,
+    body {
         height: 115vh;
     }
+
     .bg_login {
         height: 115vh;
     }
@@ -43,25 +35,27 @@ body {
 .container-100 {
     margin: 0 auto;
     width: 100%;
-    max-width: 1351px;
+    border-bottom: 1px solid #252525;
+    position: fixed;
+    top: 0;
 }
 
 nav {
-    
     display: flex;
-    padding: 20px;
+    padding: 15px 20px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     z-index: 134;
     width: 100%;
-    max-width: 1350px;
+    background-color: #000000;
+    max-width: 1351px;
     gap: 60px;
 }
 
 .nav-links {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
     color: var(--color-white);
@@ -87,25 +81,13 @@ nav {
     height: 35px;
 }
 
-.Formulario {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1351px;
-    height: fit-content;
-    padding: 70px 70px 0px 70px;
-}
-
 @media (max-width: 700px) {
-    .Formulario{
+    .Formulario {
         align-items: center;
         padding: 50px 20px 0px 20px;
     }
 
-    h1{
+    h1 {
         text-align: center;
     }
 }
@@ -119,114 +101,81 @@ nav {
 }
 
 
-h1 {
-    font-size: 50px;
-    font-weight: 700;
-    color: white;
-    padding: 2px 0px;
+
+
+.contain-info-more {
+    grid-area: info;
+    padding: 0px 10px;
+    color: #ffffff;
+    font-weight: 600;
 }
 
-.login {
-    margin-left: 6px;
-    font-size: 14px;
-    font-family: var(--font-inter);
-    color: #aaaaaa;
-    font-weight: 500;
-    margin-bottom: 15px;
+
+
+
+
+.Formulario {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 100%;
+    max-width: 428px;
+    height: fit-content;
+    background-color: #0A0A0A;
+    border-radius: 20px;
+    border: 1px solid #252525;
+    padding: 20px 20px 5px 20px;
 }
 
-.login a {
-    font-weight: 900;
-    font-size: 14px;
-    color: #c1e8ff;
-}
+.Formulario h1 {
+    font-size: 32px;
 
-.nombre {
-    grid-area: nombre;
-}
-
-.apellido {
-    grid-area: apellido;
-}
-
-.email {
-    grid-area: email;
-}
-
-.contraseña {
-    grid-area: contraseña;
-}
-
-.google {
-    grid-area: google;
-}
-
-.enviar {
-    grid-area: enviar;
-}
-
-.btn{
-    background: #c1e8ff;
-    color: #000000;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px 16px;
-    border-radius: 18px;
-    border: none;
-    cursor: pointer;
 }
 
 form {
+    width: 100%;
+    max-width: 794px;
     display: grid;
+    justify-content: center;
     grid-template-areas:
-        "nombre apellido"
-        "email  email"
-        "contraseña contraseña"
-        "enviar enviar"
-        "google google";
-    grid-template-columns: 1fr 1fr;
+        "nombre"
+        "email"
+        "usuario"
+        "contraseña"
+        "login_grid"
+
+    ;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 0px 40px 10px 20px;
 }
 
-@media (max-width: 600px) {
-    form {
-        grid-template-areas:
-            "nombre"
-            "apellido"
-            "email"
-            "contraseña"
-            "enviar"
-            "google";
-        grid-template-columns: 1fr;
-    }
+.form-logo {
+    border: 1px solid #252525;
+    margin: 20px 0px;
+    width: 90px;
+    height: 90px;
 }
 
 .containt-input {
     justify-content: space-between;
-    background: #333645;
+    border: 0.5px solid #3d3c3c;
     color: white;
     padding: 10px 16px;
-    border-radius: 18px;
+    border-radius: 14px;
 }
 
 
 .info-input {
-    width: 85%;
-}
-
-.info-input label {
-    font-size: 12px;
-    font-weight: 700;
-    color: #aaaaaa;
-}
-
-.info-input input {
-    color: white;
-    font-size: 16px;
+    width: 100%;
+    font-size: 15px;
 }
 
 .info-input input::placeholder {
-    color: #ffffff;
+    color: #747171;
     opacity: 1;
 }
 
@@ -237,4 +186,63 @@ form {
     outline: none;
     cursor: auto;
     /* o default si quieres */
+}
+
+.btn {
+    background: #eef4f7;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 13px;
+    border: none;
+    cursor: pointer;
+}
+
+.registrarse-contain {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    padding: 7px 20px;
+    color: #ffffff;
+    gap: 7px;
+}
+
+.registrarse-contain p {
+    color: #747171;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+    padding: 2px 0px;
+}
+
+.login-sub-text {
+    margin-bottom: 25px;
+}
+
+
+.nombre {
+    grid-area: nombre;
+}
+
+.email {
+    grid-area: email;
+}
+
+.usuario {
+    grid-area: usuario;
+}
+
+.contraseña {
+    grid-area: contraseña;
+}
+
+
+.login_grid {
+    grid-area: login_grid;
 }

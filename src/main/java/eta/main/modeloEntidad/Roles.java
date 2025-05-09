@@ -1,6 +1,7 @@
 package eta.main.modeloEntidad;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "roles")
@@ -11,22 +12,19 @@ public class Roles {
     @Column(name = "id_rol")
     private Long idRol;
 
-    @Column(name = "nombre", length = 50, nullable = false)
+    @Column(name = "nombre", length = 50)
     private String nombre;
 
-    @Column(name = "descripcion", length = 255)
-    private String descripcion;
+    // Optional: mapeo inverso hacia Persona
+    @OneToMany(mappedBy = "roles")
+    private List<Persona> personas;
 
-    // Constructor por defecto
     public Roles() {}
 
-    // Constructor con parámetros
-    public Roles(String nombre, String descripcion) {
+    public Roles(String nombre) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
     }
 
-    // Getters y Setters
     public Long getIdRol() {
         return idRol;
     }
@@ -43,11 +41,11 @@ public class Roles {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public List<Persona> getPersonas() {
+        return personas;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setPersonas(List<Persona> personas) {
+        this.personas = personas;
     }
 }

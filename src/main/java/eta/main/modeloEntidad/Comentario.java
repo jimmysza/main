@@ -12,16 +12,16 @@ public class Comentario {
     @Column(name = "id_comentario")
     private Long idComentario;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_cliente") // por defecto se vincula con @Id de Cliente (id_cliente)
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @ManyToOne
+    @JoinColumn(name = "id_actividad")
     private Actividad actividad;
 
-    @Column(name = "comentario_texto", columnDefinition = "TEXT")
-    private String comentarioTexto;
+    @Column(name = "texto", columnDefinition = "TEXT")
+    private String texto;
 
     @Column(name = "calificacion")
     private Integer calificacion;
@@ -29,7 +29,9 @@ public class Comentario {
     @Column(name = "fecha_comentario")
     private LocalDateTime fechaComentario;
 
-    // Getters y Setters
+    public Comentario() {
+        this.fechaComentario = LocalDateTime.now();
+    }
 
     public Long getIdComentario() {
         return idComentario;
@@ -55,12 +57,12 @@ public class Comentario {
         this.actividad = actividad;
     }
 
-    public String getComentarioTexto() {
-        return comentarioTexto;
+    public String getTexto() {
+        return texto;
     }
 
-    public void setComentarioTexto(String comentarioTexto) {
-        this.comentarioTexto = comentarioTexto;
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
     public Integer getCalificacion() {
@@ -78,4 +80,5 @@ public class Comentario {
     public void setFechaComentario(LocalDateTime fechaComentario) {
         this.fechaComentario = fechaComentario;
     }
+
 }

@@ -10,43 +10,35 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "persona") // Se mapea a la tabla "persona"
+@Table(name = "persona")
 public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_persona")
-    private Long idPersona; // Clave primaria autoincremental
+    private Long idPersona;
 
-    @Column(name = "NombreCompleto", length = 100)
-    private String NombreCompleto; // Campo obligatorio
+    @Column(name = "nombre", length = 100)
+    private String nombre;
 
-    @Column(name = "Fecha_de_Nacimiento")
-    private java.sql.Date fechaDeNacimiento; // Fecha opcional
-
-    @Column(name = "Telefono", length = 20)
-    private String telefono; // Teléfono, no obligatorio
-
-    @Column(name = "Correo_Electronico", nullable = false, length = 100, unique = true)
-    private String correoElectronico; // Campo obligatorio y único
+    @Column(name = "correo_electronico", nullable = false, length = 100, unique = true)
+    private String correoElectronico;
 
     @OneToOne
     @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
-    private Roles roles; // Relación con la entidad Roles
+    private Roles roles;
 
     // Constructor vacío requerido por JPA
     public Persona() {}
 
-    // Constructor para crear objetos fácilmente
-    public Persona(String NombreCompleto, java.sql.Date fechaDeNacimiento, String telefono, String correoElectronico, Roles roles) {
-        this.NombreCompleto = NombreCompleto;
-        this.fechaDeNacimiento = fechaDeNacimiento;
-        this.telefono = telefono;
+    // Constructor con parámetros
+    public Persona(String nombre, String correoElectronico, Roles roles) {
+        this.nombre = nombre;
         this.correoElectronico = correoElectronico;
         this.roles = roles;
     }
 
-    // Getters y Setters estándar
+    // Getters y Setters
     public Long getIdPersona() {
         return idPersona;
     }
@@ -55,28 +47,12 @@ public class Persona {
         this.idPersona = idPersona;
     }
 
-    public String getNombreCompleto() {
-        return NombreCompleto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreCompleto(String NombreCompleto) {
-        this.NombreCompleto = NombreCompleto;
-    }
-
-    public java.sql.Date getFechaDeNacimiento() {
-        return fechaDeNacimiento;
-    }
-
-    public void setFechaDeNacimiento(java.sql.Date fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCorreoElectronico() {
@@ -87,14 +63,11 @@ public class Persona {
         this.correoElectronico = correoElectronico;
     }
 
-    public Roles getRol() {
+    public Roles getRoles() {
         return roles;
     }
-    
-    public void setRol(Roles roles) {
+
+    public void setRoles(Roles roles) {
         this.roles = roles;
     }
-
-
-
-}   
+}

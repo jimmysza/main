@@ -1,68 +1,48 @@
 package eta.main.modeloEntidad;
 
 import jakarta.persistence.*;
-import java.sql.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "actividades")
+@Table(name = "actividad")
 public class Actividad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_actividad") // nombre claro para el ID
+    @Column(name = "id_actividad")
     private Long idActividad;
 
     @ManyToOne
-    @JoinColumn(name = "id_colaborador_empresa", referencedColumnName = "id_colaborador_empresa") // Se ajusta la referencia
-    private ColaboradorEmpresa colaboradorEmpresa;
+    @JoinColumn(name = "id_colaborador")
+    private Colaborador colaborador;
 
-    @ManyToOne
-    @JoinColumn(name = "id_colaborador_individual", referencedColumnName = "id_colaborador_individual") // Se ajusta la referencia
-    private ColaboradorIndividual colaboradorIndividual;
-
-    @Column(name = "Titulo", length = 100)
+    @Column(name = "titulo", length = 100)
     private String titulo;
 
-    @Column(name = "descripcion", length = 500)
+    @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
     @Column(name = "cupo_maximo")
-    private int cupoMaximo;
+    private Integer cupoMaximo;
 
     @Column(name = "ubicacion", length = 100)
     private String ubicacion;
 
-    @Column(name = "fecha")
-    private Date fecha;
-
-    @Column(name = "incluidos", columnDefinition = "JSON")
-    private String incluidos;
-
-    @Column(name = "categoria", columnDefinition = "JSON")
+    @Column(name = "categoria", length = 50)
     private String categoria;
 
-    @Column(name = "ciudad", length = 30)
-    private String ciudad;
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
+    private List<ActividadFecha> fechas;
 
-    // Constructor por defecto
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
+    private List<Plan> planes;
+
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
+    private List<Comentario> comentarios;
+
     public Actividad() {
     }
 
-    // Constructor con parámetros
-    public Actividad(ColaboradorEmpresa colaboradorEmpresa, ColaboradorIndividual colaboradorIndividual, String titulo, String descripcion, int cupoMaximo, String ubicacion, Date fecha, String incluidos, String categoria, String ciudad) {
-        this.colaboradorEmpresa = colaboradorEmpresa;
-        this.colaboradorIndividual = colaboradorIndividual;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.cupoMaximo = cupoMaximo;
-        this.ubicacion = ubicacion;
-        this.fecha = fecha;
-        this.incluidos = incluidos;
-        this.categoria = categoria;
-        this.ciudad = ciudad;
-    }
-
-    // Getters y setters
     public Long getIdActividad() {
         return idActividad;
     }
@@ -71,20 +51,12 @@ public class Actividad {
         this.idActividad = idActividad;
     }
 
-    public ColaboradorEmpresa getColaboradorEmpresa() {
-        return colaboradorEmpresa;
+    public Colaborador getColaborador() {
+        return colaborador;
     }
 
-    public void setColaboradorEmpresa(ColaboradorEmpresa colaboradorEmpresa) {
-        this.colaboradorEmpresa = colaboradorEmpresa;
-    }
-
-    public ColaboradorIndividual getColaboradorIndividual() {
-        return colaboradorIndividual;
-    }
-
-    public void setColaboradorIndividual(ColaboradorIndividual colaboradorIndividual) {
-        this.colaboradorIndividual = colaboradorIndividual;
+    public void setColaborador(Colaborador colaborador) {
+        this.colaborador = colaborador;
     }
 
     public String getTitulo() {
@@ -103,11 +75,11 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public int getCupoMaximo() {
+    public Integer getCupoMaximo() {
         return cupoMaximo;
     }
 
-    public void setCupoMaximo(int cupoMaximo) {
+    public void setCupoMaximo(Integer cupoMaximo) {
         this.cupoMaximo = cupoMaximo;
     }
 
@@ -119,22 +91,6 @@ public class Actividad {
         this.ubicacion = ubicacion;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getIncluidos() {
-        return incluidos;
-    }
-
-    public void setIncluidos(String incluidos) {
-        this.incluidos = incluidos;
-    }
-
     public String getCategoria() {
         return categoria;
     }
@@ -143,11 +99,28 @@ public class Actividad {
         this.categoria = categoria;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public List<ActividadFecha> getFechas() {
+        return fechas;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setFechas(List<ActividadFecha> fechas) {
+        this.fechas = fechas;
     }
+
+    public List<Plan> getPlanes() {
+        return planes;
+    }
+
+    public void setPlanes(List<Plan> planes) {
+        this.planes = planes;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
 }

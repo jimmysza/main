@@ -19,8 +19,11 @@ public class Cliente {
     @Column(name = "id_cliente")
     private Long idCliente;
 
-    @Column(name = "preferencias", columnDefinition = "TEXT") // corregido: nombre de columna en minúsculas
-    private String preferencias;
+    @Column(name = "usuario", length = 50)
+    private String usuario;
+
+    @Column(name = "contrasena", length = 255)
+    private String contrasena;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
@@ -30,8 +33,9 @@ public class Cliente {
     public Cliente() {}
 
     // Constructor con parámetros
-    public Cliente(String preferencias, Persona persona) {
-        this.preferencias = preferencias;
+    public Cliente(String usuario, String contrasena, Persona persona) {
+        this.usuario = usuario;
+        this.contrasena = contrasena;
         this.persona = persona;
     }
 
@@ -44,12 +48,20 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public String getPreferencias() {
-        return preferencias;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setPreferencias(String preferencias) {
-        this.preferencias = preferencias;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public Persona getPersona() {
@@ -59,4 +71,5 @@ public class Cliente {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
+
 }

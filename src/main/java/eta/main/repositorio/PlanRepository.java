@@ -2,8 +2,8 @@ package eta.main.repositorio;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import eta.main.modeloEntidad.ColaboradorIndividual;
+import eta.main.modeloEntidad.Plan;
 
 @Repository
-public interface ColaboradorIndividualRepository extends JpaRepository<ColaboradorIndividual, Long> {
+public interface PlanRepository extends JpaRepository<Plan, Long> {
 }

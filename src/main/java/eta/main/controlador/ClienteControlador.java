@@ -44,7 +44,7 @@ public class ClienteControlador {
         Roles rolPorDefecto = rolesRepository.findById(1L)
                 .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
 
-        cliente.getPersona().setRol(rolPorDefecto);
+        cliente.getPersona().setRoles(rolPorDefecto);
         clienteRepository.save(cliente);
 
         return "redirect:/cliente";
@@ -74,26 +74,18 @@ public class ClienteControlador {
 
         // Actualiza solo si los campos vienen con valores
         if (cliente.getPersona() != null) {
-            if (cliente.getPersona().getNombreCompleto() != null && !cliente.getPersona().getNombreCompleto().isBlank()) {
-                clienteExistente.getPersona().setNombreCompleto(cliente.getPersona().getNombreCompleto());
+            if (cliente.getPersona().getNombre() != null && !cliente.getPersona().getNombre().isBlank()) {
+                clienteExistente.getPersona().setNombre(cliente.getPersona().getNombre());
             }
-            if (cliente.getPersona().getFechaDeNacimiento() != null) {
-                clienteExistente.getPersona().setFechaDeNacimiento(cliente.getPersona().getFechaDeNacimiento());
-            }
-            if (cliente.getPersona().getTelefono() != null && !cliente.getPersona().getTelefono().isBlank()) {
-                clienteExistente.getPersona().setTelefono(cliente.getPersona().getTelefono());
-            }
+        
             if (cliente.getPersona().getCorreoElectronico() != null && !cliente.getPersona().getCorreoElectronico().isBlank()) {
                 clienteExistente.getPersona().setCorreoElectronico(cliente.getPersona().getCorreoElectronico());
             }
 
             // Siempre se asegura que el rol esté presente
-            clienteExistente.getPersona().setRol(rolPorDefecto);
+            clienteExistente.getPersona().setRoles(rolPorDefecto);
         }
 
-        if (cliente.getPreferencias() != null && !cliente.getPreferencias().isBlank()) {
-            clienteExistente.setPreferencias(cliente.getPreferencias());
-        }
 
         clienteRepository.save(clienteExistente);
         return "redirect:/cliente";
