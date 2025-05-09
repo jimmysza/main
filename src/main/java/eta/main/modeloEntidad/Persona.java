@@ -18,8 +18,8 @@ public class Persona {
     @Column(name = "id_persona")
     private Long idPersona; // Clave primaria autoincremental
 
-    @Column(name = "NombreCompleto", nullable = false, length = 100)
-    private String nombreCompleto; // Campo obligatorio
+    @Column(name = "NombreCompleto", length = 100)
+    private String NombreCompleto; // Campo obligatorio
 
     @Column(name = "Fecha_de_Nacimiento")
     private java.sql.Date fechaDeNacimiento; // Fecha opcional
@@ -38,8 +38,8 @@ public class Persona {
     public Persona() {}
 
     // Constructor para crear objetos fácilmente
-    public Persona(String nombreCompleto, java.sql.Date fechaDeNacimiento, String telefono, String correoElectronico, Roles roles) {
-        this.nombreCompleto = nombreCompleto;
+    public Persona(String NombreCompleto, java.sql.Date fechaDeNacimiento, String telefono, String correoElectronico, Roles roles) {
+        this.NombreCompleto = NombreCompleto;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
@@ -56,11 +56,11 @@ public class Persona {
     }
 
     public String getNombreCompleto() {
-        return nombreCompleto;
+        return NombreCompleto;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setNombreCompleto(String NombreCompleto) {
+        this.NombreCompleto = NombreCompleto;
     }
 
     public java.sql.Date getFechaDeNacimiento() {

@@ -102,9 +102,9 @@
 
             <div class="filtro_db">
                 <div class="filtro-eazy">
-                    <a href="">Todo</a>
-                    <a href="">Pagado</a>
-                    <a href="">Sin pagar</a>
+                    <a href="">Cantidad Clientes</a>
+                    <a href="">suma de </a>
+                    <a href="">promedio  </a>
                 </div>
                 <div class="flex gap-1">
                     <a class="search-filter">
@@ -140,10 +140,10 @@
                             <input type="number" th:field="*{idCliente}" required>
 
                             <label>Nombre Completo</label>
-                            <input type="text" th:field="*{persona.nombreCompleto}">
+                            <input type="text" th:field="*{persona.NombreCompleto}" >
 
                             <label>Fecha Nacimiento</label>
-                            <input type="date" th:field="*{persona.fechaDeNacimiento}" />
+                            <input type="date" th:field="*{persona.fechaDeNacimiento}" >
 
                             <label>Teléfono</label>
                             <input type="tel" th:field="*{persona.telefono}">
@@ -154,7 +154,7 @@
                             <label>Preferencias</label>
                             <input type="text" th:field="*{preferencias}">
 
-                            <button type="submit" class="btn">Editar</button>
+                            <button type="submit" class="btn btn-submit">Editar</button>
                         </form>
 
 
@@ -167,10 +167,10 @@
 
                         <form th:action="@{/cliente}" method="post" th:object="${cliente}">
                             <label>Nombre Completo</label>
-                            <input type="text" th:field="*{persona.nombreCompleto}" required>
+                            <input type="text" th:field="*{persona.NombreCompleto}" required>
 
                             <label>Fecha Nacimiento</label>
-                            <input type="date" th:field="*{persona.fechaDeNacimiento}" />
+                            <input type="date" th:field="*{persona.fechaDeNacimiento}" required/>
 
                             <label>Teléfono</label>
                             <input type="tel" th:field="*{persona.telefono}" required>
@@ -181,21 +181,37 @@
                             <label>Preferencias</label>
                             <input type="text" th:field="*{preferencias}" required>
 
-                            <button type="submit" class="btn">Agregar</button>
+                            <button type="submit" class="btn-submit">Agregar</button>
                         </form>
                     </div>
 
                     <!-- Modal para Eliminar , borre close btn-->
                     <div class="modal modal-delete">
-
-                        <form class="flex">
-                            <h2>Estas Seguro</h2>
-                            <div class="flex justify-between items-center">
-                                <a th:href="@{/cliente/eliminar/{id}(id=${cliente.idCliente})}">Eliminar</a>
-                                <span class="close-btn-modal">Cancelar</span>
+                        <form class="card">
+                            <div class="header">
+                                <div class="image">
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path
+                                            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                </div>
+                                <div class="content">
+                                    <span class="title">Eliminando Cliente</span>
+                                    <p class="message">
+                                        Estas Seguro que tu quieres eliminar el cliente? todos sus datos sera
+                                        permanentemente eliminado.
+                                        this action no puedes ser undone
+                                    </p>
+                                </div>
+                                <div class="actions">
+                                    <a th:href="@{/cliente/eliminar/{id}(id=${cliente.idCliente})}"
+                                        class="delete-btn desactivate" type="button">Eliminar</a>
+                                    <button class="cancel close-btn-modal" type="button">Cancel</button>
+                                </div>
                             </div>
                         </form>
-
                     </div>
 
                 </div>
@@ -218,41 +234,38 @@
                     <tbody>
                         <tr th:each="cliente : ${clientes}">
                             <td th:text="${cliente.idCliente}"></td>
-                            <td th:text="${cliente.persona.nombreCompleto}"></td>
+                            <td th:text="${cliente.persona.NombreCompleto}"></td>
                             <td th:text="${cliente.persona.fechaDeNacimiento}"></td>
                             <td th:text="${cliente.persona.telefono}"></td>
                             <td th:text="${cliente.persona.correoElectronico}"></td>
                             <td th:text="${cliente.preferencias}"></td>
-                            <td class="flex justify-between items-center">
+                            <td class="flex justify-between items-center gap-2">
                                 <div class="add-btn btn_delete">
                                     <button class="text-open-delete" id="open-delete-modal"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
-                                            <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2">
-                                                <path stroke-dasharray="56" stroke-dashoffset="56"
-                                                    d="M3 21l2 -6l11 -11c1 -1 3 -1 4 0c1 1 1 3 0 4l-11 11l-6 2">
-                                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s"
-                                                        values="56;0" />
-                                                </path>
-                                                <path stroke-dasharray="8" stroke-dashoffset="8" d="M15 5l4 4">
-                                                    <animate fill="freeze" attributeName="stroke-dashoffset"
-                                                        begin="0.6s" dur="0.2s" values="8;0" />
-                                                </path>
-                                                <path stroke-dasharray="6" stroke-dashoffset="6" stroke-width="1"
-                                                    d="M6 15l3 3">
-                                                    <animate fill="freeze" attributeName="stroke-dashoffset"
-                                                        begin="0.6s" dur="0.2s" values="6;0" />
-                                                </path>
+                                            <g fill="none">
+                                                <path fill="#fff" d="M8 21h8a2 2 0 0 0 2-2V7H6v12a2 2 0 0 0 2 2"
+                                                    opacity="0.16" />
+                                                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2.5"
+                                                    d="M14 11v6m-4-6v6M6 7v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7M4 7h16M7 7l2-4h6l2 4" />
                                             </g>
-                                        </svg></button>
+                                        </svg>
+                                    </button>
                                 </div>
 
                                 <div class="add-btn btn_Edit">
-                                    <button class="text-open-edit" id="open-edit-modal">Editar</button>
+                                    <button class="text-open-edit" id="open-edit-modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24">
+                                            <path fill="#000"
+                                                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"
+                                                stroke-width="0.4" stroke="#ffaf00" />
+                                    </button>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>                        
                     </tbody>
                 </table>
             </div>

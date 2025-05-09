@@ -23,7 +23,7 @@ public class Cliente {
     private String preferencias;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona", nullable = false)
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     private Persona persona;
 
     // Constructor por defecto
