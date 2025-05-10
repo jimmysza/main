@@ -1,19 +1,18 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/fonts/fonts.css">
 
-
+    <link rel="stylesheet" th:href="@{/css/global.css}">
     <link rel="stylesheet" href="../static/css/global.css">
-    <link rel="stylesheet" href="../static/css/login.css">
-    <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="stylesheet" th:href="@{/css/registro.css}">
+    <link rel="stylesheet" th:href="@{/fonts/fonts.css}">
+
     <title>Eta - Eventos Toures Actividades</title>
 </head>
 
@@ -21,28 +20,31 @@
 
     <div class="container-100">
         <nav>
-            <a class="flex justify-center items-center cursor-pointer" href="/indice/index.html">
-                <img src="../static/images/eta_rvbg.webp" class="logo" alt="logo" loading="lazy" />
+            <a class="flex justify-center items-center cursor-pointer" th:href="@{/indice}">
+                <img th:src="@{/images/eta_rvbg.webp}" class="logo" alt="logo" loading="lazy">
             </a>
+            F
+
             <ul class="nav-links">
                 <li>
-                    <a href=" /home">Home</a>
+                    <a th:href="@{/indice}">Home</a>
                 </li>
-                <li><a href="/registro">Inicia Sesion</a></li>
+                <li><a th:href="@{/ingreso}">Inicia Sesion</a></li>
             </ul>
         </nav>
     </div>
     <section class="Formulario">
 
-        <img class="form-logo rounded-full" src="../static/images/Logo.webp" alt="">
+        <img class="form-logo rounded-full" th:src="@{/images/Logo.webp}" alt="logo">
 
         <H1>Crea una Cuenta</H1>
         <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
-        <form action="">
+
+        <form th:action="@{/registro}" method="post" th:object="${cliente}">
 
             <div class="containt-input flex justify-start items-center nombre">
                 <div class="info-input flex flex-col">
-                    <input type="usuario" placeholder="nombre" required id="usuario" />
+                    <input placeholder="nombre" type="text" th:field="*{persona.nombre}" required />
                 </div>
                 <div class="icon-input">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
@@ -55,9 +57,10 @@
                     </svg>
                 </div>
             </div>
+
             <div class="containt-input flex justify-start items-center email">
                 <div class="info-input flex flex-col">
-                    <input type="usuario" placeholder="email" required id="usuario" />
+                    <input placeholder="email" type="email" th:field="*{persona.correoElectronico}" required />
                 </div>
                 <div class="icon-input">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
@@ -68,18 +71,20 @@
             </div>
             <div class="containt-input flex justify-start items-center usuario">
                 <div class="info-input flex flex-col">
-                    <input type="usuario" placeholder="usuario" required id="usuario" />
+                    <input placeholder="usuario" type="text" th:field="*{usuario}" required />
                 </div>
                 <div class="icon-input">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26">
-	<path fill="currentColor" d="M16.563 15.9c-.159-.052-1.164-.505-.536-2.414h-.009c1.637-1.686 2.888-4.399 2.888-7.07c0-4.107-2.731-6.26-5.905-6.26c-3.176 0-5.892 2.152-5.892 6.26c0 2.682 1.244 5.406 2.891 7.088c.642 1.684-.506 2.309-.746 2.397c-3.324 1.202-7.224 3.393-7.224 5.556v.811c0 2.947 5.714 3.617 11.002 3.617c5.296 0 10.938-.67 10.938-3.617v-.811c0-2.228-3.919-4.402-7.407-5.557" stroke-width="0.4" stroke="currentColor" />
-</svg>
+                        <path fill="currentColor"
+                            d="M16.563 15.9c-.159-.052-1.164-.505-.536-2.414h-.009c1.637-1.686 2.888-4.399 2.888-7.07c0-4.107-2.731-6.26-5.905-6.26c-3.176 0-5.892 2.152-5.892 6.26c0 2.682 1.244 5.406 2.891 7.088c.642 1.684-.506 2.309-.746 2.397c-3.324 1.202-7.224 3.393-7.224 5.556v.811c0 2.947 5.714 3.617 11.002 3.617c5.296 0 10.938-.67 10.938-3.617v-.811c0-2.228-3.919-4.402-7.407-5.557"
+                            stroke-width="0.4" stroke="currentColor" />
+                    </svg>
                 </div>
             </div>
 
             <div class="containt-input flex justify-start items-center contraseña">
                 <div class="info-input flex flex-col">
-                    <input type="password" placeholder="Contraseña" required id="password" />
+                    <input placeholder="Contraseña" type="password" th:field="*{contrasena}" required />
                 </div>
                 <div class="icon-input">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
@@ -89,12 +94,23 @@
                     </svg>
                 </div>
             </div>
-            <button class="btn login_grid">Registrate</button>
+            <button type="submit" class="btn login_grid">Registrate</button>
             <div class="registrarse-contain">
                 <p>ya tienes cuenta en eta?</p>
-                <a href="">inicia sesion</a>
+                <a th:href="@{/ingreso}">Inicia Sesion</a>     
             </div>
 
         </form>
     </section>
+
+
+
+    <div th:if="${errorRepetido != null and !#strings.isEmpty(errorRepetido)}" class="error-message show">
+    <p th:text="${errorRepetido}"></p>
+    <button class="close-repetido">cerrar</button>
+</div>
+
+
+<script th:src="@{/js/registro.js}"></script>
+
 </body>

@@ -174,6 +174,10 @@ form {
     font-size: 15px;
 }
 
+.info-input  input{
+    background-color: #0A0A0A;
+}
+
 .info-input input::placeholder {
     color: #747171;
     opacity: 1;
@@ -245,4 +249,41 @@ h1 {
 
 .login_grid {
     grid-area: login_grid;
+}
+
+/* Estilo del modal */
+.error-message {
+    display: none; /* Inicialmente oculto */
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3d3c3c;
+    color: white;
+    border-radius: 20px;
+    padding: 30px 60px;
+    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+}
+
+/* Se muestra cuando tiene la clase "show" */
+.error-message.show {
+    display: flex; /* Muestra el modal */
+}
+
+/* Estilo del botón de cerrar */
+.close-repetido {
+    background-color: red;
+    color: white;
+    border-radius: 14px;
+    padding: 6px 10px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 10px;
+    border: none; /* Elimina el borde por defecto */
+}
+
+.close-repetido:hover {
+    background-color: darkred; /* Cambio de color cuando el usuario pasa el ratón */
 }

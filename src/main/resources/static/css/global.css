@@ -879,7 +879,8 @@ footer .logo-footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
-    /* ✅ correcto */
+    align-items: center;
+    justify-content: center;
 }
 
 .modal form {
@@ -919,7 +920,6 @@ footer .logo-footer {
 }
 
 .modal form input:focus {
-    border-color: #007BFF;
     outline: none;
 }
 
@@ -944,20 +944,8 @@ footer .logo-footer {
 
 .modal.show {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    
 }
-
-
-.modal-edit {
-    display: none;
-}
-
-.modal-edit.show {
-    z-index: 100;
-    display: flex;
-}
-
 
 .acciones {
     width: 50px;
@@ -981,7 +969,11 @@ footer .logo-footer {
 .btn_delete {
     display: flex;
     background-color: #f00;
+}
 
+.btn_edit {
+    display: flex;
+    background-color: #ffaf00;
 }
 
 .delete-btn {
@@ -1002,11 +994,7 @@ footer .logo-footer {
 }
 
 
-.btn_Edit {
-    display: flex;
-    background-color: #ffaf00;
 
-}
 
 /* From Uiverse.io by Yaya12085 */
 .card {

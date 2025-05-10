@@ -93,8 +93,7 @@
 
         <div class="main-content">
             <div class="header_db">
-                <h1>Clientes - Base de Datos</h1>
-
+                <h1> Cliente - Base de Datos</h1>
                 <div class="profile">
                     <img src="/images/perfil_colaborador.jpg" alt="Profile Picture">
                 </div>
@@ -104,7 +103,7 @@
                 <div class="filtro-eazy">
                     <a href="">Cantidad Clientes</a>
                     <a href="">suma de </a>
-                    <a href="">promedio  </a>
+                    <a href="">promedio </a>
                 </div>
                 <div class="flex gap-1">
                     <a class="search-filter">
@@ -130,56 +129,25 @@
 
 
 
-                    <div class="modal modal-edit">
-                        <span class="close-modal">&times;</span>
-                        <h2>Editar Cliente</h2>
 
-                        <form th:action="@{/cliente/editar}" method="post" th:object="${cliente}">
-
-                            <label for="">Id</label>
-                            <input type="number" th:field="*{idCliente}" required>
-
-                            <label>Nombre Completo</label>
-                            <input type="text" th:field="*{persona.NombreCompleto}" >
-
-                            <label>Fecha Nacimiento</label>
-                            <input type="date" th:field="*{persona.fechaDeNacimiento}" >
-
-                            <label>Teléfono</label>
-                            <input type="tel" th:field="*{persona.telefono}">
-
-                            <label>Email</label>
-                            <input type="email" th:field="*{persona.correoElectronico}">
-
-                            <label>Preferencias</label>
-                            <input type="text" th:field="*{preferencias}">
-
-                            <button type="submit" class="btn btn-submit">Editar</button>
-                        </form>
-
-
-                    </div>
 
                     <!-- Modal para Agregar -->
                     <div class="modal modal-add">
                         <span class="close-modal">&times;</span>
                         <h2>Agregar Cliente</h2>
 
-                        <form th:action="@{/cliente}" method="post" th:object="${cliente}">
-                            <label>Nombre Completo</label>
-                            <input type="text" th:field="*{persona.NombreCompleto}" required>
-
-                            <label>Fecha Nacimiento</label>
-                            <input type="date" th:field="*{persona.fechaDeNacimiento}" required/>
-
-                            <label>Teléfono</label>
-                            <input type="tel" th:field="*{persona.telefono}" required>
+                        <form th:action="@{/guardaCliente}" method="post" th:object="${cliente}">
+                            <label>Nombre</label>
+                            <input type="text" th:field="*{persona.nombre}" required>
 
                             <label>Email</label>
                             <input type="email" th:field="*{persona.correoElectronico}" required>
 
-                            <label>Preferencias</label>
-                            <input type="text" th:field="*{preferencias}" required>
+                            <label>Usuario</label>
+                            <input type="text" th:field="*{usuario}" required>
+
+                            <label>Contraseña</label>
+                            <input type="password" th:field="*{contrasena}" required>
 
                             <button type="submit" class="btn-submit">Agregar</button>
                         </form>
@@ -213,6 +181,31 @@
                             </div>
                         </form>
                     </div>
+                    <!-- Modal para Editar -->
+                    <div class="modal modal-edit">
+                        <span class="close-modal">&times;</span>
+                        <h2>Editar Cliente</h2>
+
+                        <form th:action="@{/cliente/editar}" method="post" th:object="${cliente}">
+
+                            <label>Nombre</label>
+                            <input type="text" th:field="*{persona.nombre}" required>
+
+                            <label>Email</label>
+                            <input type="email" th:field="*{persona.correoElectronico}" required>
+
+                            <label>Usuario</label>
+                            <input type="text" th:field="*{usuario}" required>
+
+                            <label>Contraseña</label>
+                            <input type="password" th:field="*{contrasena}" required>
+
+                            <button type="submit" class="btn-submit">Editar</button>
+
+                        </form>
+
+
+                    </div>
 
                 </div>
 
@@ -224,21 +217,17 @@
                         <tr>
                             <th>ID Cliente</th>
                             <th>Nombre Completo</th>
-                            <th>Fecha Nacimiento</th>
-                            <th>Teléfono</th>
                             <th>Email</th>
-                            <th>Preferencias</th>
+                            <th>Usuario</th>
                             <th class="acciones">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="cliente : ${clientes}">
                             <td th:text="${cliente.idCliente}"></td>
-                            <td th:text="${cliente.persona.NombreCompleto}"></td>
-                            <td th:text="${cliente.persona.fechaDeNacimiento}"></td>
-                            <td th:text="${cliente.persona.telefono}"></td>
+                            <td th:text="${cliente.persona.nombre}"></td>
                             <td th:text="${cliente.persona.correoElectronico}"></td>
-                            <td th:text="${cliente.preferencias}"></td>
+                            <td th:text="${cliente.usuario}"></td>
                             <td class="flex justify-between items-center gap-2">
                                 <div class="add-btn btn_delete">
                                     <button class="text-open-delete" id="open-delete-modal"><svg
@@ -255,7 +244,7 @@
                                     </button>
                                 </div>
 
-                                <div class="add-btn btn_Edit">
+                                <div class="add-btn btn_edit">
                                     <button class="text-open-edit" id="open-edit-modal">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
@@ -265,7 +254,7 @@
                                     </button>
                                 </div>
                             </td>
-                        </tr>                        
+                        </tr>
                     </tbody>
                 </table>
             </div>

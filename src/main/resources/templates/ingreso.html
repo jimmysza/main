@@ -8,8 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="../static/css/login.css">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="../static/css/ingreso.css">
+    <link rel="stylesheet" href="/css/ingreso.css">
     <link rel="stylesheet" href="/fonts/fonts.css">
     <title>Eta - Eventos Toures Actividades</title>
 </head>
@@ -18,14 +18,14 @@
 
     <div class="container-100">
         <nav>
-            <a class="flex justify-center items-center cursor-pointer" href="/indice/index.html">
+            <a class="flex justify-center items-center cursor-pointer"  th:href="@{/indice}">
                 <img src="../static/images/eta_rvbg.webp" class="logo" alt="logo" loading="lazy" />
             </a>
             <ul class="nav-links">
                 <li ">
-                <a href=" /home">Home</a>
+                <a  th:href="@{/indice}" >inicio</a>
                 </li>
-                <li><a href="/registro">Registrarse</a></li>
+                <li><a  th:href="@{/registro}">Registrarse</a></li>
             </ul>
         </nav>
     </div>
