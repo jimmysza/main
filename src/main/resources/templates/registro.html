@@ -22,8 +22,7 @@
         <nav>
             <a class="flex justify-center items-center cursor-pointer" th:href="@{/indice}">
                 <img th:src="@{/images/eta_rvbg.webp}" class="logo" alt="logo" loading="lazy">
-            </a>
-            F
+            </a>    
 
             <ul class="nav-links">
                 <li>
@@ -40,8 +39,10 @@
         <H1>Crea una Cuenta</H1>
         <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
 
-        <form th:action="@{/registro}" method="post" th:object="${cliente}">
+        <!--envia al ubicacion /registro | donde sea PostMapping | usando la entida cliente = cliente.java--->
+        <form th:action="@{/registro}" method="post" th:object="${clienteEntidad}">
 
+            <!--Campos de persona-->
             <div class="containt-input flex justify-start items-center nombre">
                 <div class="info-input flex flex-col">
                     <input placeholder="nombre" type="text" th:field="*{persona.nombre}" required />
@@ -69,6 +70,7 @@
                     </svg>
                 </div>
             </div>
+            <!--Campos de Clientes-->
             <div class="containt-input flex justify-start items-center usuario">
                 <div class="info-input flex flex-col">
                     <input placeholder="usuario" type="text" th:field="*{usuario}" required />
@@ -105,10 +107,18 @@
 
 
 
-    <div th:if="${errorRepetido != null and !#strings.isEmpty(errorRepetido)}" class="error-message show">
+    <div th:if="${errorRepetido != null}" class="error-message show">
     <p th:text="${errorRepetido}"></p>
     <button class="close-repetido">cerrar</button>
 </div>
+
+ <div th:if="${errorRepetidoEmail != null}" class="error-message show">
+    <p th:text="${errorRepetidoEmail}"></p>
+    <button class="close-repetido">cerrar</button>
+</div>
+
+
+
 
 
 <script th:src="@{/js/registro.js}"></script>

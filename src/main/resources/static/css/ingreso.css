@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -19,9 +20,12 @@ body {
 
 
 @media (max-width: 560px) {
-    html, body {
+
+    html,
+    body {
         height: 115vh;
     }
+
     .bg_login {
         height: 115vh;
     }
@@ -31,7 +35,7 @@ body {
 .container-100 {
     margin: 0 auto;
     width: 100%;
-    border-bottom: 1px solid #252525 ;
+    border-bottom: 1px solid #252525;
     position: fixed;
     top: 0;
 }
@@ -78,12 +82,12 @@ nav {
 }
 
 @media (max-width: 700px) {
-    .Formulario{
+    .Formulario {
         align-items: center;
         padding: 50px 20px 0px 20px;
     }
 
-    h1{
+    h1 {
         text-align: center;
     }
 }
@@ -102,8 +106,8 @@ nav {
 .contain-info-more {
     grid-area: info;
     padding: 0px 10px;
-    color: #ffffff;  
-    font-weight: 600;  
+    color: #ffffff;
+    font-weight: 600;
 }
 
 
@@ -122,8 +126,8 @@ nav {
     height: fit-content;
     background-color: #0A0A0A;
     border-radius: 20px;
-    border: 1px solid #252525 ;
-    padding: 20px 20px 5px 20px ;
+    border: 1px solid #252525;
+    padding: 20px 20px 5px 20px;
 }
 
 .Formulario h1 {
@@ -147,7 +151,7 @@ form {
     padding: 0px 40px 10px 20px;
 }
 
-.form-logo{
+.form-logo {
     border: 1px solid #252525;
     margin: 20px 0px;
     width: 90px;
@@ -193,7 +197,7 @@ form {
     cursor: pointer;
 }
 
-.registrarse-contain{
+.registrarse-contain {
     background-color: #1f1f1f;
     border-radius: 10px;
     font-size: 13px;
@@ -204,9 +208,10 @@ form {
     gap: 7px;
 }
 
-.registrarse-contain p{
+.registrarse-contain p {
     color: #747171;
 }
+
 h1 {
     font-size: 50px;
     font-weight: 700;
@@ -214,7 +219,7 @@ h1 {
     padding: 2px 0px;
 }
 
-.login-sub-text{
+.login-sub-text {
     margin-bottom: 25px;
 }
 
@@ -241,4 +246,99 @@ h1 {
 
 .login_grid {
     grid-area: login_grid;
+}
+
+.card-ingreso {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 400px;
+    width: 90%;
+}
+
+.card-ingreso.show {
+    display: block;
+}
+
+
+.header-ingreso {
+    padding: 1.25rem 1rem 1rem 1rem;
+    background-color: #ffffff;
+}
+
+.image-ingreso {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fee2e2;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+}
+
+
+.image-ingreso svg {
+    color: #dc2626;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.content-ingreso {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+.title-ingreso {
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+
+.message-ingreso {
+    margin-top: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.actions-ingreso {
+    margin: 0.75rem 1rem;
+    background-color: #f9fafb;
+}
+
+
+.btn-modal {
+    display: inline-flex;
+    padding: 0.25rem 0rem;
+    color: #000000;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    justify-content: center;
+    width: 100%;
+    background-color: #dc2626;
+    border-radius: 0.375rem;
+    border-width: 1px;
+    border-color: transparent;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-modal:hover {
+    background-color: #982d2d;
+}
+
+button {
+    cursor: pointer;
 }

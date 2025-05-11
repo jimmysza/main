@@ -23,9 +23,4 @@ public class indiceControlador {
     public String getIndice(){
         return "indice";
     }
-
-    @GetMapping("/ingreso")
-    public String getIngreso(){
-        return "ingreso";
-    }
 }
