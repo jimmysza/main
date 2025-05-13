@@ -1,6 +1,14 @@
 package eta.main.modeloEntidad;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "colaborador")
@@ -14,6 +22,9 @@ public class Colaborador {
     @Column(name = "ruc", length = 20)
     private String ruc;
 
+    @Column(name = "identificacion", length = 20)
+    private String identificacion;
+
     @Column(name = "usuario", length = 50, unique = true)
     private String usuario;
 
@@ -24,46 +35,55 @@ public class Colaborador {
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     private Persona persona;
 
-    public Colaborador() {}
+    public Colaborador() {
+    }
+
+    public String getIdentificacion(){
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
 
     public Long getIdColaborador() {
-    return idColaborador;
-}
+        return idColaborador;
+    }
 
-public void setIdColaborador(Long idColaborador) {
-    this.idColaborador = idColaborador;
-}
+    public void setIdColaborador(Long idColaborador) {
+        this.idColaborador = idColaborador;
+    }
 
-public String getRuc() {
-    return ruc;
-}
+    public String getRuc() {
+        return ruc;
+    }
 
-public void setRuc(String ruc) {
-    this.ruc = ruc;
-}
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
+    }
 
-public String getUsuario() {
-    return usuario;
-}
+    public String getUsuario() {
+        return usuario;
+    }
 
-public void setUsuario(String usuario) {
-    this.usuario = usuario;
-}
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
-public String getContrasena() {
-    return contrasena;
-}
+    public String getContrasena() {
+        return contrasena;
+    }
 
-public void setContrasena(String contrasena) {
-    this.contrasena = contrasena;
-}
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
-public Persona getPersona() {
-    return persona;
-}
+    public Persona getPersona() {
+        return persona;
+    }
 
-public void setPersona(Persona persona) {
-    this.persona = persona;
-}
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
 
 }

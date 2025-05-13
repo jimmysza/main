@@ -7,6 +7,6 @@ import eta.main.modeloEntidad.Actividad;
 
 @Repository
 public interface  ActividadRepository extends JpaRepository<Actividad, Long> {
-
+    
 }
 

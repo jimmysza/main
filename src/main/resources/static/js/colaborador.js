@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = openBtn.getAttribute('data-id');
             const deleteBtn = modal.querySelector('#delete-confirm-btn');
             if (deleteBtn && id) {
-                deleteBtn.setAttribute('href', `/cliente/eliminar/${id}`);
+                deleteBtn.setAttribute('href', `/colaborador/eliminar/${id}`);
             }
         }
     );

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+    
+
+    
+</head>
+
+<body>
+    <div class="modal-edits">
+        <h2>Editar Cliente</h2>
+        <form th:action="@{/cliente/editar}" method="post" th:object="${cliente}">
+            <input type="hidden" th:field="*{idCliente}" />
+            <label>Nombre</label>
+            <input type="text" th:field="*{persona.nombre}" required />
+
+            <label>Email</label>
+            <input type="email" th:field="*{persona.correoElectronico}" required />
+
+            <label>Usuario</label>
+            <input type="text" th:field="*{usuario}" required />
+            <div class="btns-edits">
+                <button type="submit" class="btn-submit">Guardar</button>
+                <a th:href="@{/cliente}" class="cancelar-edits">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+    
+    --font-inter: "Inter", sans-serif;
+    --color-medium-blue: #5483b3;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ffffff;
+    font-family: var(--font-inter);
+
+}
+    .cancelar-edits{
+    cursor: pointer;    
+    padding: 7px 20px;
+    font-size: 13px;
+    color: #fff;
+    background-color:#dc2626;
+    border-color: #dc2626;
+    border-radius: 12px;
+}
+.modal-edits{
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+.modal form,
+.modal-edits form {
+    position: absolute;
+    z-index: 300;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 90%;
+    /* Ajustable según diseño */
+    max-width: 500px;
+    /* Opcional para limitar tamaño */
+    background: white;
+    /* Asegura visibilidad */
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.modal form label,
+.modal-edits form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.75rem;
+}
+
+.modal form input,
+.modal-edits form input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.modal form input:focus,
+.modal-edits form input:focus {
+    outline: none;
+}
+form .btn-submit {
+    padding: 7px 20px;
+    color: #fff;
+    background-color: var(--color-medium-blue);
+    border-color: var(--color-medium-blue);
+    border-radius: 12px;
+    font-size: 13px;    
+}
+.btns-edits{
+    display: flex;
+    justify-content: space-between;
+}   
+
+</style>
+</html>

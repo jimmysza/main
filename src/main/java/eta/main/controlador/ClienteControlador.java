@@ -18,6 +18,7 @@ import eta.main.modeloEntidad.Roles;
 import eta.main.repositorio.ClienteRepository;
 import eta.main.repositorio.PersonaRepository;
 import eta.main.repositorio.RolesRepository;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/cliente")
@@ -30,7 +31,7 @@ public class ClienteControlador {
 
     @Autowired
     private ClienteRepository clienteRepository;
-    
+
     @Autowired
     private PersonaRepository personaRepository;
     // Inyecta automáticamente el repositorio de Cliente para realizar operaciones CRUD con clientes.
@@ -50,11 +51,13 @@ public class ClienteControlador {
         // Agrega el nuevo cliente al modelo con el nombre "cliente",
         // para que pueda ser utilizado en el formulario de creación en la vista (ej. con th:object).
 
-        model.addAttribute("clientes", clienteRepository.findByPersona_Roles_IdRol  (1L));
+        model.addAttribute("clientes", clienteRepository.findByPersona_Roles_IdRol(1L));
         // Agrega la lista de todos los clientes existentes al modelo,
         // para mostrarlos en una tabla o lista en la misma vista si se desea.
 
-        return "cliente";
+        model.addAttribute("CantidaCliente", clienteRepository.count());
+
+        return "bd/cliente";
         // Retorna el nombre de la vista (por ejemplo, cliente.html o cliente.jsp) que se debe renderizar.
     }
 
@@ -63,14 +66,16 @@ public class ClienteControlador {
         if (cliente.getPersona() == null) {
             model.addAttribute("error", "Debe ingresar los datos de la persona.");
             // Si no se ha ingresado la persona, muestra un mensaje de error en la vista.
-            return "redirect:/cliente";
+            return "redirect:/bd/cliente";
         }
 
-        Cliente clienteExistente = clienteRepository.findByUsuario(cliente.getUsuario());
+        if (clienteRepository.findByUsuario(cliente.getUsuario()) != null) {
+            return "redirect:/bd/cliente";
+        }
 
-        if (clienteExistente != null) {
-            model.addAttribute("errorRepetido", "El usuario ya está en uso.");
-            return "cliente"; // Redirige a la página de registro con el mensaje de error
+        // Verifica si el correo electrónico ya existe
+        if (personaRepository.findByCorreoElectronico(cliente.getPersona().getCorreoElectronico()) != null) {
+            return "redirect:/bd/cliente";
         }
 
         Optional<Roles> rolPorDefecto = rolesRepository.findById(1L);
@@ -86,7 +91,7 @@ public class ClienteControlador {
             // Si el rol no existe, muestra un mensaje de error en la vista.
         }
 
-        return "redirect:/cliente";
+        return "redirect:/bd/cliente";
         // Redirige a la vista de clientes (con la lista actualizada).
     }
 
@@ -100,9 +105,9 @@ public class ClienteControlador {
             clienteRepository.delete(cliente); // elimina el cliente
             personaRepository.delete(persona); // elimina la persona (si no tiene restricciones)
 
-            return "redirect:/cliente";
+            return "redirect:/bd/cliente";
         } else {
-            return "redirect:/cliente?error=notfound";
+            return "redirect:/bd/cliente?error=notfound";
         }
     }
 
@@ -112,23 +117,37 @@ public class ClienteControlador {
         return clienteRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("/editar-form/{id}")
+    public String mostrarFormularioEdicion(@PathVariable("id") Long id, Model model) {
+        Cliente cliente = clienteRepository.findById(id).orElse(null);
+        model.addAttribute("cliente", cliente);
+        return "bd/edits/cliente-editar"; // Nombre de la nueva vista para editar
+    }
+
     @PostMapping("/editar")
-    public String actualizarCliente(@ModelAttribute("cliente") Cliente cliente, Model model) {
-        if (cliente.getPersona() == null) {
-            model.addAttribute("error", "Debe ingresar los datos de la persona.");
-            return "redirect:/cliente";
-        }
+    public String actualizarCliente(HttpServletRequest request, Model model) {
+        Long idCliente = Long.valueOf(request.getParameter("idCliente"));
+        String nombre = request.getParameter("persona.nombre");
+        String correo = request.getParameter("persona.correoElectronico");
+        String usuario = request.getParameter("usuario");
 
-        Optional<Roles> rolPorDefecto = rolesRepository.findById(1L);
-        if (rolPorDefecto.isPresent()) {
-            cliente.getPersona().setRoles(rolPorDefecto.get());
-            clienteRepository.save(cliente);
-            return "redirect:/cliente";
-        } else {
-            model.addAttribute("error", "No existe el rol.");
-            return "redirect:/cliente";
-        }
+        Optional<Cliente> clienteExistente = clienteRepository.findById(idCliente);
+        if (clienteExistente.isPresent()) {
+            Cliente original = clienteExistente.get();
+            original.setUsuario(usuario);
+            // Si tienes campo de contraseña, agrégalo aquí
+            // original.setContrasena(request.getParameter("contrasena"));
 
+            if (original.getPersona() != null) {
+                original.getPersona().setNombre(nombre);
+                original.getPersona().setCorreoElectronico(correo);
+            }
+
+            Optional<Roles> rolPorDefecto = rolesRepository.findById(1L);
+            rolPorDefecto.ifPresent(r -> original.getPersona().setRoles(r));
+            clienteRepository.save(original);
+        }
+        return "redirect:/bd/cliente";
     }
 
 }

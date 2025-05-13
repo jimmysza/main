@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guía Cartagena</title>
+    <link rel="stylesheet" href="estilosTransporte.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <h1>Todo lo que tienes que saber en Cartagena</h1>
+
+
+    <button class="boton-principal" onclick="mostrarSeccion('vistaTransporte')">Transporte</button>
+    <button class="boton-principal" onclick="mostrarSeccion('vistaPlaya')"> Precios Playa</button>
+
+
+    <div id="vistaTransporte" class="vista-seccion" style="display:none;">
+        <h2>Opciones de transporte confiable</h2>
+        <div class="opciones-transporte">
+            <div class="opcion">
+                <a href="https://www.uber.com/co/es/" target="_blank">
+                    <img src="imagen uber.png" alt="Uber">
+                </a>
+            </div>
+            <div class="opcion">
+                <a href="https://www.transcaribe.gov.co/" target="_blank">
+                    <img src="transcaribe.png" alt="Transcaribe">
+                </a>
+            </div>
+            <div class="opcion">
+                <a href="https://indriver.com/" target="_blank">
+                    <img src="in driver.png" alt="inDriver">
+                </a>
+            </div>
+        </div>
+
+        <div id="mapa" style="height: 300px; width: 100%; margin-top: 30px;"></div>
+    </div>
+
+
+    <div id="vistaPlaya" class="vista-seccion" style="display:none;">
+        <h2>Precios en la playa</h2>
+        <div class="opciones">
+            <div class="opcion" onclick="mostrarSolo('listaCarpas')">
+                <img src="carpas.jpg" alt="Carpas">
+                <p>Carpas: $30.000 COP/día</p>
+                <ul id="listaCarpas" class="lista-oculta">
+                    <li>Bocagrande: $35.000 COP</li>
+                    <li>Centro: $30.000 COP</li>
+                    <li>La Boquilla: $25.000 COP</li>
+                    <li>Playa Blanca: $40.000 y 120.000 COP</li>
+                </ul>
+            </div>
+
+            <div class="opcion" onclick="mostrarSolo('listaComidas')">
+                <img src="comida.jpg" alt="Comidas">
+                <p>Comidas: desde $25.000 COP</p>
+                <ul id="listaComidas" class="lista-oculta">
+                    <li>Bocagrande: $30.000 - $50.000</li>
+                    <li>Centro Histórico: $35.000 - $60.000</li>
+                    <li>La Boquilla: $25.000 - $40.000</li>
+                    <li>Playa Blanca: para esta zona los precios podrian variar por el sitio entre los 40.000 y 120.000
+                        COP</li>
+                </ul>
+            </div>
+
+            <div class="opcion" onclick="mostrarSolo('listaJetski')">
+                <img src="jetski.jpg" alt="Jetski">
+                <p>Jetski: $100.000 COP</p>
+                <ul id="listaJetski" class="lista-oculta">
+                    <li>Bocagrande: $100.000 - 110.000 COP</li>
+                    <li>Castillogrande: $120.000</li>
+                    <li>La Boquilla: $90.000 - 120.000 COP</li>
+                    <li>Playa Blanca: $100.000 - 130.000 COP</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function mostrarSeccion(id) {
+            document.getElementById('vistaTransporte').style.display = 'none';
+            document.getElementById('vistaPlaya').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+
+            if (id === 'vistaTransporte') {
+                setTimeout(inicializarMapa, 500);
+            }
+        }
+
+        function inicializarMapa() {
+            if (window.mapaInstanciado) return;
+
+            if (!navigator.geolocation) {
+                alert("Tu navegador no soporta geolocalización.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                function (pos) {
+                    const lat = pos.coords.latitude;
+                    const lon = pos.coords.longitude;
+
+                    const mapa = L.map('mapa').setView([lat, lon], 15);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(mapa);
+
+                    L.marker([lat, lon]).addTo(mapa)
+                        .bindPopup('Estás justo aquí')
+                        .openPopup();
+
+                    window.mapaInstanciado = true;
+                },
+                function (err) {
+                    alert("No se pudo obtener tu ubicación.");
+                }
+            );
+        }
+
+        function mostrarSolo(idMostrado) {
+            const listas = ['listaCarpas', 'listaComidas', 'listaJetski'];
+            listas.forEach(id => {
+                const lista = document.getElementById(id);
+                if (id === idMostrado) {
+                    lista.style.display = (lista.style.display === 'block') ? 'none' : 'block';
+                } else {
+                    lista.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        .boton-principal {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-principal:hover {
+            background-color: #0056b3;
+        }
+
+        .vista-seccion {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .opciones,
+        .opciones-transporte {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .opcion {
+            width: 160px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .opcion:hover {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .opcion img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .opcion a,
+        .opcion p {
+            display: block;
+            margin-top: 10px;
+            color: #0077cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .opcion a:hover {
+            text-decoration: underline;
+        }
+
+        .lista-oculta {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+            list-style-type: disc;
+            color: #333;
+            text-align: left;
+        }
+    </style>
+
+</body>
+
+</html>

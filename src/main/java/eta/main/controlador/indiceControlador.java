@@ -40,4 +40,9 @@ public class indiceControlador {
 
         return "indice";
     }
+
+    @GetMapping("/transporte")
+    public String MostrarTransporte(){
+        return"TransportePlaya";
+    }
 }
