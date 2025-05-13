@@ -1,5 +1,7 @@
 package eta.main.controlador;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import eta.main.modeloEntidad.Cliente;
 import eta.main.modeloEntidad.Persona;
 import eta.main.repositorio.ClienteRepository;
-import eta.main.repositorio.PersonaRepository;
 import jakarta.servlet.http.HttpSession;
-
 @Controller
 @RequestMapping("/ingreso")
 public class IngresoControlador {
@@ -20,8 +20,6 @@ public class IngresoControlador {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @Autowired
-    private PersonaRepository personaRepository;
 
     @GetMapping
     public String getIngreso(Model model) {
@@ -32,21 +30,24 @@ public class IngresoControlador {
         return "ingreso";
     }
 
-    @PostMapping
-    public String IniciarSesion(Cliente cliente, Model model, HttpSession session) {
-        Cliente clienteExistente = clienteRepository.findByUsuarioAndContrasena(
-                cliente.getUsuario(),
-                cliente.getContrasena()
-        );
+    
 
-        if (clienteExistente != null) {
-            session.setAttribute("usuarioLogueado", clienteExistente);
-            return "redirect:/indice"; // Redirección para evitar reenvío de formulario
-        } else {
-            // Mantener el objeto cliente para que Thymeleaf pueda acceder a los valores
-            model.addAttribute("cliente", cliente);
-            model.addAttribute("ContraseñaIncorrecta", "La Contraseña o Usuario es Incorrecto");
-            return "ingreso";
-        }
+@PostMapping
+public String IniciarSesion(Cliente cliente, Model model, HttpSession session) {
+    Cliente clienteExistente = clienteRepository.findByUsuarioAndContrasena(
+            cliente.getUsuario(),
+            cliente.getContrasena()
+    );
+
+    if (clienteExistente != null) {
+        session.setAttribute("usuarioLogueado", clienteExistente);
+        session.setAttribute("ultimoIngreso", LocalDateTime.now()); // Guarda el último ingreso en sesión
+        return "redirect:/indice";
+    } else {
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("ContraseñaIncorrecta", "La Contraseña o Usuario es Incorrecto");
+        return "ingreso";
     }
+}
+
 }

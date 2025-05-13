@@ -296,6 +296,12 @@ h2 {
     box-sizing: border-box;
 }
 
+.badges {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap ;
+}
+
 .city {
     text-decoration: underline;
     color: var(--color-medium-blue);

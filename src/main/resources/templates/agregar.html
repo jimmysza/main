@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>ETA - Cliente Base de Datos</title>
+</head>
+
+<body>
+    <div class="modal modal-add">
+        <span class="close-modal">&times;</span>
+        <h2>Formulario Cliente</h2>
+
+        <form th:action="@{/cliente}" method="post" th:object="${clienteEntidad}">
+            <input type="hidden" th:field="*{idCliente}" />
+            <input type="hidden" th:field="*{persona.idPersona}" />
+
+            <label>Nombre</label>
+            <input type="text" th:field="*{persona.nombre}" required />
+
+            <label>Email</label>
+            <input type="email" th:field="*{persona.correoElectronico}" required />
+
+            <label>Usuario</label>
+            <input type="text" th:field="*{usuario}" required />
+
+            <label>Contraseña</label>
+            <input type="password" th:field="*{contrasena}" required />
+
+            <button type="submit" class="btn-submit"
+                th:text="*{idCliente} == null ? 'Guardar Nuevo' : 'Actualizar'">Guardar</button>
+            <a th:href="@{/cliente}">Cancelar</a>
+        </form>
+    </div>
+</body>
+
+</html>

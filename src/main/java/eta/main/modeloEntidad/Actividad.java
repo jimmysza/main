@@ -1,7 +1,17 @@
 package eta.main.modeloEntidad;
 
-import jakarta.persistence.*;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "actividad")
@@ -37,8 +47,6 @@ public class Actividad {
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
     private List<Plan> planes;
 
-    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
-    private List<Comentario> comentarios;
 
     public Actividad() {
     }
@@ -115,12 +123,5 @@ public class Actividad {
         this.planes = planes;
     }
 
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(List<Comentario> comentarios) {
-        this.comentarios = comentarios;
-    }
 
 }

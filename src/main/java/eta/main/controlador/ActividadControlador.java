@@ -1,7 +1,5 @@
 package eta.main.controlador;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,18 +8,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import eta.main.modeloEntidad.Cliente;
 import eta.main.modeloEntidad.Persona;
 import eta.main.modeloEntidad.Roles;
 import eta.main.repositorio.ClienteRepository;
-import eta.main.repositorio.PersonaRepository;
 import eta.main.repositorio.RolesRepository;
+import java.util.Optional;
 
 @Controller
-@RequestMapping("/cliente")
-public class ClienteControlador {
+@RequestMapping("/actividad")
+public class ActividadControlador {
 
     @Autowired
     private RolesRepository rolesRepository;
@@ -30,9 +27,6 @@ public class ClienteControlador {
 
     @Autowired
     private ClienteRepository clienteRepository;
-    
-    @Autowired
-    private PersonaRepository personaRepository;
     // Inyecta automáticamente el repositorio de Cliente para realizar operaciones CRUD con clientes.
 
     @GetMapping
@@ -47,11 +41,11 @@ public class ClienteControlador {
         // para evitar errores de null y permitir que el formulario de la vista acceda a los campos de Persona.
 
         model.addAttribute("cliente", nuevoCliente);
-        // Agrega el nuevo cliente al modelo con el nombre "cliente",
+        // Agrega el nuevo cliente al modelo con el nombre "cliente", 
         // para que pueda ser utilizado en el formulario de creación en la vista (ej. con th:object).
 
-        model.addAttribute("clientes", clienteRepository.findByPersona_Roles_IdRol  (1L));
-        // Agrega la lista de todos los clientes existentes al modelo,
+        model.addAttribute("clientes", clienteRepository.findAll());
+        // Agrega la lista de todos los clientes existentes al modelo, 
         // para mostrarlos en una tabla o lista en la misma vista si se desea.
 
         return "cliente";
@@ -59,18 +53,18 @@ public class ClienteControlador {
     }
 
     @PostMapping // guardaCliente recibe dato de la vista y los guarda en cliente
-    public String guardaCliente(@ModelAttribute("cliente") Cliente cliente, Model model) {
+    public String guardaCliente(@ModelAttribute("guardaCliente") Cliente cliente, Model model) {
         if (cliente.getPersona() == null) {
             model.addAttribute("error", "Debe ingresar los datos de la persona.");
             // Si no se ha ingresado la persona, muestra un mensaje de error en la vista.
-            return "redirect:/cliente";
+            return "cliente";
         }
 
         Cliente clienteExistente = clienteRepository.findByUsuario(cliente.getUsuario());
 
         if (clienteExistente != null) {
             model.addAttribute("errorRepetido", "El usuario ya está en uso.");
-            return "cliente"; // Redirige a la página de registro con el mensaje de error
+            return "registro"; // Redirige a la página de registro con el mensaje de error
         }
 
         Optional<Roles> rolPorDefecto = rolesRepository.findById(1L);
@@ -92,43 +86,53 @@ public class ClienteControlador {
 
     @GetMapping("/eliminar/{id}")
     public String eliminarCliente(@PathVariable("id") Long idCliente) {
-        Optional<Cliente> clienteOpt = clienteRepository.findById(idCliente);
-        if (clienteOpt.isPresent()) {
-            Cliente cliente = clienteOpt.get();
-            Persona persona = cliente.getPersona();
-
-            clienteRepository.delete(cliente); // elimina el cliente
-            personaRepository.delete(persona); // elimina la persona (si no tiene restricciones)
-
+        if (clienteRepository.existsById(idCliente)) {
+            clienteRepository.deleteById(idCliente);
+            // Si el cliente existe, se elimina de la base de datos.
             return "redirect:/cliente";
+            // Redirige a la vista de clientes (con la lista actualizada).
         } else {
-            return "redirect:/cliente?error=notfound";
+            return "redirect:/cliente?error=deleteFailed";
+            // Si el cliente no existe, redirige con un mensaje de error.
         }
-    }
-
-    @GetMapping("/editar/{id}")
-    @ResponseBody
-    public Cliente obtenerClienteParaEdicion(@PathVariable("id") Long id) {
-        return clienteRepository.findById(id).orElse(null);
     }
 
     @PostMapping("/editar")
-    public String actualizarCliente(@ModelAttribute("cliente") Cliente cliente, Model model) {
-        if (cliente.getPersona() == null) {
-            model.addAttribute("error", "Debe ingresar los datos de la persona.");
+    public String editarClienteParcial(@ModelAttribute("cliente") Cliente cliente, Model model) {
+        if (cliente.getIdCliente() == null || !clienteRepository.existsById(cliente.getIdCliente())) {
+            model.addAttribute("error", "El cliente con ID proporcionado no existe.");
+            // Si no existe un cliente con el ID proporcionado, muestra un mensaje de error en la vista.
             return "redirect:/cliente";
         }
 
-        Optional<Roles> rolPorDefecto = rolesRepository.findById(1L);
-        if (rolPorDefecto.isPresent()) {
-            cliente.getPersona().setRoles(rolPorDefecto.get());
-            clienteRepository.save(cliente);
-            return "redirect:/cliente";
-        } else {
-            model.addAttribute("error", "No existe el rol.");
-            return "redirect:/cliente";
+        Cliente clienteExistente = clienteRepository.findById(cliente.getIdCliente()).orElseThrow();
+        // Recupera el cliente existente desde la base de datos utilizando el ID proporcionado.
+
+        Roles rolPorDefecto = rolesRepository.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+        // Obtiene el rol por defecto (ID 1), lanzando una excepción si no se encuentra.
+
+        // Actualiza solo si los campos vienen con valores
+        if (cliente.getPersona() != null) {
+            if (cliente.getPersona().getNombre() != null && !cliente.getPersona().getNombre().isBlank()) {
+                clienteExistente.getPersona().setNombre(cliente.getPersona().getNombre());
+                // Si el nombre no está vacío, se actualiza el nombre del cliente existente.
+            }
+
+            if (cliente.getPersona().getCorreoElectronico() != null && !cliente.getPersona().getCorreoElectronico().isBlank()) {
+                clienteExistente.getPersona().setCorreoElectronico(cliente.getPersona().getCorreoElectronico());
+                // Si el correo electrónico no está vacío, se actualiza el correo del cliente existente.
+            }
+
+            // Siempre se asegura que el rol esté presente
+            clienteExistente.getPersona().setRoles(rolPorDefecto);
+            // Asigna el rol por defecto a la persona del cliente.
         }
 
+        clienteRepository.save(clienteExistente);
+        // Guarda los cambios realizados al cliente existente en la base de datos.
+
+        return "redirect:/cliente";
+        // Redirige a la vista de clientes (con la lista actualizada).
     }
-
 }

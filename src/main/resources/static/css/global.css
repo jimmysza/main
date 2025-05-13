@@ -263,6 +263,7 @@ section {
 .badges {
     margin-bottom: 10px;
     display: flex;
+    flex-wrap: wrap ;
 }
 
 .badge {
@@ -272,6 +273,7 @@ section {
     border-radius: 12px;
     font-size: 12px;
     margin-right: 5px;
+    margin-top: 2px;
 }
 
 .badge-star {
@@ -569,7 +571,7 @@ footer .logo-footer {
 }
 
 .menu-link1::after {
-    content: "Clientes";
+    content: "Cliente";
     left: 25px;
     top: -16px;
 }
@@ -580,32 +582,28 @@ footer .logo-footer {
 }
 
 .menu-link3::after {
-    content: "Empresa Colab";
+    content: "Colaboradores";
     top: 85px;
 }
 
 .menu-link4::after {
-    content: "Individual Colab";
+    content: "Reservaciones";
     top: 135px;
 }
 
 .menu-link5::after {
-    content: "Comentario";
+    content: "Planes";
     left: 16px;
     top: 185px;
 }
 
 .menu-link6::after {
-    content: "Planes";
+    content: "Fechas";
     left: 27px;
     top: 235px;
 }
 
-.menu-link7::after {
-    content: "Reservaciones";
-    left: 20px;
-    top: 285px;
-}
+
 
 
 .menu ul {
@@ -755,7 +753,9 @@ footer .logo-footer {
 
 .table_db table {
     width: 100%;
-    border-radius: 16px 16px 0px 0px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    
     overflow: hidden;
     background: #fff;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -763,12 +763,14 @@ footer .logo-footer {
 
 .table_db table thead {
     background: var(--color-blur);
+    border-radius: 8px;
 }
 
 .table_db table thead th {
     padding: 10px 20px;
     font-size: 12px;
     font-weight: 600;
+    
     color: var(--color--black);
 }
 
@@ -779,6 +781,7 @@ footer .logo-footer {
 .table_db table tbody tr {
     border-bottom: 1px solid #e5e2e2;
     text-align: center;
+    border-radius: 8px;
 }
 
 .table_db table tbody tr td {
@@ -969,10 +972,12 @@ footer .logo-footer {
 .btn_delete {
     display: flex;
     background-color: #f00;
+    padding: 6px 10px;
 }
 
 .btn_edit {
     display: flex;
+    padding: 6px 10px;
     background-color: #ffaf00;
 }
 

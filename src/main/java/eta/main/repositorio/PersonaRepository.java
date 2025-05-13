@@ -1,5 +1,7 @@
 package eta.main.repositorio;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,16 +15,7 @@ import eta.main.modeloEntidad.Persona;
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
     Persona findByCorreoElectronico(String correoElectronico);
-    
-    // Declara la interfaz del repositorio para la entidad 'Persona'.
-// Hereda de JpaRepository, lo que permite acceder automáticamente a métodos como:
-// - findAll()
-// - findById(Long id)
-// - save(Persona persona)
-// - deleteById(Long id), etc.
-//
-// El primer parámetro es la entidad que gestiona (Persona).
-// El segundo parámetro es el tipo de la clave primaria
+    List<Persona> findByRoles_IdRol(Long idRol); 
 }
 
 
