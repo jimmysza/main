@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eta.main.modeloEntidad.Actividad;
-import eta.main.modeloEntidad.Admin;
 import eta.main.modeloEntidad.Colaborador;
 import eta.main.repositorio.ActividadRepository;
 import eta.main.repositorio.ColaboradorRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+
 @Controller
-@RequestMapping("/actividad")
-public class ActividadControlador {
+@RequestMapping("/actividadColaboradores")
+public class ActividadColaboradorControlador {
 
     @Autowired
     private ColaboradorRepository colaboradorRepository;
@@ -28,31 +28,35 @@ public class ActividadControlador {
     @Autowired
     private ActividadRepository actividadRepository;
 
-    private void cargarDatosActividad(Model model) {
-        model.addAttribute("ListaActividad", actividadRepository);
-        model.addAttribute("CantidadActividad", actividadRepository.count());
-
+    private void cargarDatosActividad(HttpSession session, Model model) {
+        Colaborador colaborador = (Colaborador) session.getAttribute("usuarioLogueado");
+        if (colaborador != null) {
+            Long idColaborador = colaborador.getIdColaborador();
+            model.addAttribute("ListaActividad", actividadRepository.findByColaborador_IdColaborador(idColaborador));
+            model.addAttribute("CantidadActividad", actividadRepository.countByColaborador_IdColaborador(idColaborador));
+        } else {
+            model.addAttribute("ListaActividad", null);
+            model.addAttribute("CantidadActividad", 0L);
+        }
     }
 
     @GetMapping
-    public String mostrarActividades(Model model, HttpSession session) {
-        Actividad nuevaActividad = new Actividad();
-
-        model.addAttribute("ActividadEntidad", nuevaActividad);
-        model.addAttribute("ListaActividad", actividadRepository.findAll());
-        model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
-        model.addAttribute("CantidadActividad", actividadRepository.count());
-        // Verifica si hay un admin logueado
-        Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
-        if (adminLogueado == null) {
-            return "redirect:/ingreso/admin";
+    public String verActividadesColaborador(HttpSession session, Model model) {
+        Colaborador colaborador = (Colaborador) session.getAttribute("usuarioLogueado");
+        if (colaborador == null) {
+            return "redirect:/ingreso/colaborador";
         }
+        Long idColaborador = colaborador.getIdColaborador();
+        model.addAttribute("ActividadEntidad", new Actividad()); 
+        model.addAttribute("ListaActividad", actividadRepository.findByColaborador_IdColaborador(idColaborador));
+        model.addAttribute("CantidadActividad", actividadRepository.countByColaborador_IdColaborador(idColaborador));
+        model.addAttribute("colaboradorLogueado", colaborador); // <-- AGREGA ESTA LÍNEA
 
-        return "bd/actividad";
+        return "bd/colaboradorActividad";
     }
 
     @PostMapping
-    public String guardarActividad(HttpServletRequest request, Model model) {
+    public String guardarActividad(HttpServletRequest request, Model model, HttpSession session) {
         // Obtener los datos del formulario
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");
@@ -75,11 +79,11 @@ public class ActividadControlador {
             actividadRepository.save(actividad);
         } else {
             model.addAttribute("error", "No existe el colaborador con esa id.");
-            cargarDatosActividad(model);
-            return "bd/actividad";
+            cargarDatosActividad(session, model); // <-- aquí pasas ambos parámetros
+            return "bd/actividadColaboradores";
         }
 
-        return "redirect:/actividad";
+        return "redirect:/actividadColaboradores";
     }
 
     @GetMapping("/eliminar/{id}")
@@ -88,10 +92,10 @@ public class ActividadControlador {
         if (actividadOpt.isPresent()) {
             Actividad actividad = actividadOpt.get();
             actividadRepository.delete(actividad);
-            return "redirect:/actividad";
+            return "redirect:/actividadColaboradores";
         } else {
 
-            return "redirect:/actividad?error=notfound";
+            return "redirect:/actividadColaboradores?error=notfound";
         }
     }
 
@@ -110,7 +114,7 @@ public class ActividadControlador {
     }
 
     @PostMapping("/editar")
-    public String actualizarActividad(HttpServletRequest request, Model model) {
+    public String actualizarActividad(HttpServletRequest request, Model model, HttpSession session) {
         Long idActividad = Long.valueOf(request.getParameter("idActividad"));
         Long idColaborador = Long.valueOf(request.getParameter("idColaborador"));
         String titulo = request.getParameter("titulo");
@@ -133,17 +137,13 @@ public class ActividadControlador {
                 original.setColaborador(colaboradorOpt.get());
             } else {
                 model.addAttribute("error", "No existe el colaborador con esa id.");
-                cargarDatosActividad(model);
-                return "bd/actividad";
+                cargarDatosActividad(session, model);
+                return "bd/actividadColaboradores";
             }
 
             actividadRepository.save(original);
         }
-        return "redirect:/actividad";
+        return "redirect:/actividadColaboradores";
     }
-
-    // Este método maneja las solicitudes GET para ver el detalle de una actividad específica según su ID.
-
-
 
 }

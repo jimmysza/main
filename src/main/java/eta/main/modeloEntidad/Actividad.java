@@ -22,9 +22,6 @@ public class Actividad {
     @Column(name = "id_actividad")
     private Long idActividad;
 
-    @ManyToOne
-    @JoinColumn(name = "id_colaborador")
-    private Colaborador colaborador;
 
     @Column(name = "titulo", length = 100)
     private String titulo;
@@ -41,12 +38,12 @@ public class Actividad {
     @Column(name = "categoria", length = 50)
     private String categoria;
 
-    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
-    private List<ActividadFecha> fechas;
+    @ManyToOne()
+    @JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")
+    private Colaborador colaborador;
 
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
     private List<Plan> planes;
-
 
     public Actividad() {
     }
@@ -107,13 +104,6 @@ public class Actividad {
         this.categoria = categoria;
     }
 
-    public List<ActividadFecha> getFechas() {
-        return fechas;
-    }
-
-    public void setFechas(List<ActividadFecha> fechas) {
-        this.fechas = fechas;
-    }
 
     public List<Plan> getPlanes() {
         return planes;

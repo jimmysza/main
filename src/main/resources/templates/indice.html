@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/indexs.css">
+    <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="/css/indexs.css">
     <link rel="stylesheet" href="/css/fonts/fonts.css">
 
@@ -28,14 +28,15 @@
                     <img src="/images/logo_rework_nav.jpg" class="logo" alt="logo" />
                 </div>
                 <ul class="nav-links">
-                    <li class="open-btn">
-                        <a href="#">Explorar</a>
+                    <li>
+                        <a href="#tendencias">Tendencias</a>
                     </li>
-                    <li><a href="/buscador">Guardado</a></li>
-                    <li><a href="#">Asistente</a></li>
+                    <li><a href="#comparte">comparte</a></li>
+                    <li><a href="#turismo">Turismo</a></li>
                 </ul>
                 <div class="sign-contain">
-                    <a th:href="@{/registro}" class="sign-up">registrate</a>
+                    <a th:href="@{/ingreso/cliente}" class="sign-up login-btn">inicia sesion</a>
+                    <a th:href="@{/registro/cliente}" class="sign-up">registrate</a>
                 </div>
             </nav>
         </div>
@@ -44,7 +45,7 @@
                 <div class="gradient"></div>
             </div>
             <h1 class="flex justify-center">
-                Bienvenido
+                Bienvenido&nbsp;
                 <div th:if="${nombreUsuario != null}">
                     <span th:text="${nombreUsuario}"></span>
                 </div>
@@ -52,57 +53,55 @@
 
 
 
+
         </div>
 
 
     </section>
 
-
-
-
-    <section class="Trending">
+    <section class="Trending" id="tendencias">
         <div class="top-trending">
             <h2 class="h2_trendi">Tendencias, <a href="#" class="city">Cartagena de Indias</a></h2>
         </div>
         <div class="container-activities">
+            <div th:each="actividadesEntidad : ${actividades}">
 
-            <a th:href="@{/actividades}" th:each="actividadesEntidad : ${actividades}">
-                <div class="cardd">
-                    <div class="container-bookmark">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
-                            class="bookmark">
-                            <path fill="currentColor"
-                                d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
-                            </path>
-                        </svg>
-                    </div>
 
-                    <img src="/images/card1.webp" alt="The Hills Guest House">
-
-                    <div class="card-content">
-                        <div class="card-title" th:text="${actividadesEntidad.titulo}"></div>
-                        <div class="card-description" th:text="${actividadesEntidad.descripcion}"></div>
-                        <div class="badges">
-                            
-                            
-                            <span class="badge" th:text="${actividadesEntidad.ubicacion}"></span>
-                            <span class="badge" th:text="${actividadesEntidad.categoria}"></span>
-                            <span class="badge" th:text="${actividadesEntidad.cupoMaximo}"></span>
-                            
-
+                <a th:href="@{/indice/actividad/{id}(id=${actividadesEntidad.idActividad})}">
+                    <div class="cardd">
+                        <div class="container-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                class="bookmark">
+                                <path fill="currentColor"
+                                    d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
+                                </path>
+                            </svg>
                         </div>
+                        <img src="../images/card2.webp" alt="The Hills Guest House">
+                        <!--<div class="price">$620</div>-->
+                        <div class="card-content">
+                            <div class="card-title" th:text="${actividadesEntidad.titulo}"></div>
+                            <div class="card-description" th:text="${actividadesEntidad.descripcion}"></div>
+                            <div class="badges">
+                                <span class="badge" th:text="${actividadesEntidad.ubicacion}"></span>
+                                <span class="badge" th:text="${actividadesEntidad.categoria}"></span>
+                                <div class="badge">cupo: <span th:text="${actividadesEntidad.cupoMaximo}"></span> </div>
+                            </div>
+                        </div>
+                        <button class="reserve-btn">Reserva</button>
                     </div>
-                    <button class="reserve-btn">Reserva</button>
-                </div>
-            </a>
+                </a>
 
+
+            </div>
         </div>
+
     </section>
 
 
 
 
-    <section class="social">
+    <section class="social" id="comparte">
         <div class="flex">
             <div class="w-70 social-container-info">
                 <h2>Comparte, Tu Plan</h2>
@@ -170,7 +169,7 @@
         </div>
     </section>
 
-    <section class="turism">
+    <section class="turism" id="turismo">
         <h2>Todo lo que tienes que saber en <span>Cartagena</span></h2>
         <div class="container_turism">
             <a th:href="@{/indice/transporte}">
@@ -224,16 +223,13 @@
                     <a href="">Crear Actividad</a>
                 </div>
                 <div class="links-footer">
-                    <a href="" class="font-bold">Empresa</a>
-                    <a href="">Acerca de Ept</a>
-                    <a href="/cliente">Clientes</a>
-                    <a href="/colaborador">Colaboradores</a>
-                    <a href="/actividad">Actividades</a>
+                    <a href="" class="font-bold">Colaboradores</a>
+                    <a href="/registro/colaborador">Registrate</a>
+                    <a href="/ingreso/colaborador">Inicia Sesion</a>
                 </div>
                 <div class="links-footer">
-                    <a href="" class="font-bold">Comunidad</a>
-                    <a href="">Soporte</a>
-                    <a href="">Regala EPT pluss </a>
+                    <a href="" class="font-bold">Admin</a>
+                    <a href="/ingreso/admin">Inicia Sesion</a>
                 </div>
             </div>
 

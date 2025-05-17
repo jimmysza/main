@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Actividad</title>
+    <link rel="stylesheet" href="../../../static/css/global.css">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+
+</head>
+
+<body>
+    <div class="modal-edits">
+        <form th:action="@{/actividad/editar}" method="post" th:object="${ActividadEntidad}">
+            
+            <input type="hidden" name="idActividad" th:field="*{idActividad}" />
+
+            <p class="title-modals">Agregar Actividad</p>
+
+            <label>titulo</label>
+            <input type="text" name="titulo" th:field="*{titulo}" required>
+
+            <label>Colaborador</label>
+            <select name="idColaborador" required>
+                <option value="" disabled>Selecciona un colaborador</option>
+                <option th:each="col : ${listaColaboradores}" th:value="${col.idColaborador}"
+                    th:selected="${col.idColaborador} == ${ActividadEntidad.colaborador.idColaborador}"
+                    th:text="${col.persona.nombre + ' (' + col.idColaborador + ')'}"></option>
+            </select>
+
+            <label>descripcion</label>
+            <textarea name="descripcion" th:field="*{descripcion}" required></textarea>
+
+
+            <label>Cupo maximo</label>
+            <input type="number" name="cupoMaximo" th:field="*{cupoMaximo}" required>
+
+            <label>Ubicacion</label>
+            <input type="text" name="ubicacion" th:field="*{ubicacion}" required>
+
+
+            <label>Categoria</label>
+            <input type="text" name="categoria" th:field="*{categoria}" required>
+
+
+            <div class="btns-edits">
+                <button type="submit" class="btn-submit">Guardar</button>
+                <a th:href="@{/return "bd/actividad";}" class="cancelar-edits">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>

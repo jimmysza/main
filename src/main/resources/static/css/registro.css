@@ -14,7 +14,7 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #000000;
+    background-color: #fff9f9;
     background-size: cover;
 }
 
@@ -48,7 +48,7 @@ nav {
     transform: translateX(-50%);
     z-index: 134;
     width: 100%;
-    background-color: #000000;
+    background-color: var(--color-medium-blue);
     max-width: 1351px;
     gap: 60px;
 }
@@ -140,6 +140,7 @@ form {
     max-width: 794px;
     display: grid;
     justify-content: center;
+    place-items: center;
     grid-template-areas:
         "nombre"
         "email"
@@ -150,7 +151,7 @@ form {
     ;
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 0px 40px 10px 20px;
+    padding: 0px 20px 10px 20px;
 }
 
 .form-logo {
@@ -161,6 +162,7 @@ form {
 }
 
 .containt-input {
+    width: 100%;
     justify-content: space-between;
     border: 0.5px solid #3d3c3c;
     color: white;
@@ -193,6 +195,7 @@ form {
 }
 
 .btn {
+    width: 100%;
     background: #eef4f7;
     color: #000000;
     font-size: 14px;

@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
     <link rel="stylesheet" href="/css/servicio.css">
-    <link rel="stylesheet" href="../static/css/servicio.css">
     <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/servicio.css">
     <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>ETA - Buscando Eventos, Toures & Actividades en Cartagena </title>
@@ -47,27 +47,22 @@
         </div>
     </nav>
     <section class="encabezado">
-        <h1>Isla Cholon</h1>
-        <div class="badges">
-            <span class="badge badge-star">5
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path fill="currentColor"
-                        d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
-                    </path>
-                </svg>
-            </span>
-            <span class="badge">2,9 km</span>
-            <span class="badge">Eta. 1hr</span>
-            <span class="badge">easy</span>
-            <a href="/sign_up/signup.html">
-                <span class="badge">Cartagena de Indias</span>
-            </a>
-        </div>
-    </section>
+    <h1 th:text="${actividadEntidad.titulo}"></h1>
+    <div class="badges">
+        <span class="badge" th:text="${actividadEntidad.ubicacion}"></span>
+        <span class="badge" th:text="${actividadEntidad.categoria}"></span>
+        <p class="badge">
+            Cupo:
+            <span th:text="${actividadEntidad.cupoMaximo}"></span>
+        </p>
+    </div>
+</section>
     <section class="sticky-container">
         <nav id="navbar">
             <ul>
-                <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                <!--
+                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                -->
                 <li><a href="#info" class="nav-link">Info</a></li>
                 <li><a href="#map" class="nav-link">Mapa</a></li>
                 <li><a href="#planes" class="nav-link">Planes</a></li>
@@ -89,29 +84,34 @@
             </div>
         </nav>
     </section>
-
+    <!--
     <section class="galeria-container" id="galeria">
-        <div class="galeria">
-            <div class="big">
-                <img src="/images/Cholon Island/1.jpg" alt="" class="galeria-item" />
-            </div>
-            <div class="small">
-                <img src="/images/Cholon Island/2.jpg" alt="" class="galeria-item space hide-cell" />
-                <img src="/images/Cholon Island/3.jpg" alt="" class="galeria-item hide-cell" />
-            </div>
-            <div class="small small-final">
-                <img src="/images/Cholon Island/4.jpg" alt="" class="galeria-item space hide-cell right-top" />
-                <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide-cell right-bottom" />
-            </div>
-            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
-            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
-            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
-            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide " />
-            <img src="/images/Cholon Island/5.jpg" alt="" class="galeria-item hide" />
-            <img src="/images/Cholon Island/5.jpg" class="galeria-item hide">
+    <div class="galeria">
+        <div class="big" th:if="${imagenes.size() > 0}">
+            <img th:src="@{${imagenes[0]}}" alt="" class="galeria-item" />
         </div>
-    </section>
 
+        <div class="small" th:if="${imagenes.size() > 2}">
+            <img th:src="@{${imagenes[1]}}" alt="" class="galeria-item space hide-cell" />
+            <img th:src="@{${imagenes[2]}}" alt="" class="galeria-item hide-cell" />
+        </div>
+
+        <div class="small small-final" th:if="${imagenes.size() > 4}">
+            <img th:src="@{${imagenes[3]}}" alt="" class="galeria-item space hide-cell right-top" />
+            <img th:src="@{${imagenes[4]}}" alt="" class="galeria-item hide-cell right-bottom" />
+        </div>
+
+        <div th:each="img, i : ${imagenes}" th:if="${i.index >= 5}">
+            <img th:src="@{${img}}" alt="" class="galeria-item hide" />
+        </div>
+    </div>
+</section>
+    
+    -->
+    
+
+
+<!--MODAL IMGS-->
     <div class="modal" id="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-image" />
@@ -122,10 +122,13 @@
     <section id="info" class="contenido flex">
         <div class="propuesta-valor flex flex-col">
             <div class="colaborador flex items-center">
-                <img src="/images/perfil_colaborador.jpg" alt="Foto del colaborador" class="colaborador-foto">
+                <!--
+                    <img src="/images/perfil_colaborador.jpg" alt="Foto del colaborador" class="colaborador-foto">
+                -->
                 <div class="colaborador-texto">
-                    <h3>Jimmy</h3>
-                    <p>Alfitrion</p>
+                    <!-- Solo muestra el nombre si existe colaborador -->
+                    <h3 th:if="${actividadEntidad.colaborador != null}" th:text="${actividadEntidad.colaborador.persona.nombre}"></h3>m 
+                    <p>Colaborador</p>
                 </div>
             </div>
             <div class="tiempo flex justify-start">
@@ -438,7 +441,7 @@
         </div>
     </section>
 
-    
+
     </section>
     </div>
 

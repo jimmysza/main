@@ -15,6 +15,8 @@ public interface ColaboradorRepository extends JpaRepository<Colaborador, Long> 
     Colaborador findByContrasena(String contrasena);
 
     Colaborador findByIdentificacion(String identificacion);
+    
+    Colaborador findByRuc(String ruc);
 
     Colaborador findByUsuarioAndContrasena(String usuario, String contrasena);
 

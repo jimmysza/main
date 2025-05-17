@@ -100,6 +100,12 @@
 
                 </ul>
             </div>
+            <a class="btn-salir-admin" th:href="@{/ingreso/colaborador}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m14 7l-5 5l5 5" />
+                </svg>
+            </a>
         </div>
 
         <div class="main-content">
@@ -110,6 +116,7 @@
                     <img src="/images/perfil_colaborador.jpg" alt="Profile Picture">
                 </div>
                 -->
+                <span th:text="${adminLogueado.usuario}"></span>
             </div>
 
             <div class="filtro_db">
@@ -234,9 +241,9 @@
                         <tr>
                             <th>ID Colaborador</th>
                             <th>Nombre</th>
+                            <th>Email</th>
                             <th>ruc</th>
                             <th>Identificacion</th>
-                            <th>Email</th>
                             <th>Usuario</th>
                             <th class="acciones">Acciones</th>
                         </tr>
@@ -245,9 +252,9 @@
                         <tr th:each="colaboradorEntidad : ${ListaColaborador}">
                             <td th:text="${colaboradorEntidad.idColaborador}"></td>
                             <td th:text="${colaboradorEntidad.persona.nombre}"></td>
+                            <td th:text="${colaboradorEntidad.persona.correoElectronico}"></td>
                             <td th:text="${colaboradorEntidad.ruc}"></td>
                             <td th:text="${colaboradorEntidad.Identificacion}"></td>
-                            <td th:text="${colaboradorEntidad.persona.correoElectronico}"></td>
                             <td th:text="${colaboradorEntidad.usuario}"></td>
                             <td class="flex justify-between items-center gap-2">
 

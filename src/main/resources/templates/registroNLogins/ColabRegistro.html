@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/input/registroColab.css}">
+    <link rel="stylesheet" th:href="@{/fonts/fonts.css}">
+
+    <title>Eta - Colaboradores - Eventos Toures Actividades</title>
+</head>
+
+<body>
+
+    <div class="container-100">
+        <nav>
+            <a class="flex justify-center items-center cursor-pointer" th:href="@{/indice}">
+                <img th:src="@{/images/eta_rvbg.webp}" class="logo" alt="logo" loading="lazy">
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a th:href="@{/indice}">Inicio</a>
+                </li>
+                <li><a th:href="@{/ingreso/colaborador}">Inicia Sesion</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section class="Formulario">
+
+        <img class="form-logo rounded-full" th:src="@{/images/Logo.webp}" alt="logo">
+
+        <H1>Crea una Cuenta como Colaborador</H1>
+        <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
+
+        <!--envia al ubicacion /registro | donde sea PostMapping | usando la entida cliente = cliente.java--->
+        <form th:action="@{/registro/colaborador}" method="post" th:object="${colaboradorEntidad}">
+
+            <!--Campos de persona-->
+            <div class="containt-input flex justify-start items-center nombre">
+                <div class="info-input flex flex-col">
+                    <input placeholder="nombre" type="text" th:field="*{persona.nombre}" required />
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M20.005 5.995h-1v2h1v8h-1v2h1c1.103 0 2-.897 2-2v-8c0-1.102-.898-2-2-2m-14 4H15v4H6.005z"
+                            stroke-width="0.4" stroke="currentColor" />
+                        <path fill="currentColor"
+                            d="M17.005 17.995V4H20V2h-8v2h3.005v1.995h-11c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h11V20H12v2h8v-2h-2.995zm-13-2v-8h11v8z"
+                            stroke-width="0.4" stroke="currentColor" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="containt-input flex justify-start items-center email">
+                <div class="info-input flex flex-col">
+                    <input placeholder="email" type="email" th:field="*{persona.correoElectronico}" required />
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z" />
+                    </svg>
+                </div>
+            </div>
+            <!--Campos de Colaboradores-->
+
+
+
+            <div class="containt-input flex justify-start items-center identificacion">
+                <div class="info-input flex flex-col">
+                    <input placeholder="identificacion" type="text" th:field="*{identificacion}" required />
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="#fff"
+                            d="M18 13q.425 0 .713-.288T19 12t-.288-.712T18 11h-3q-.425 0-.712.288T14 12t.288.713T15 13zm0-3q.425 0 .713-.288T19 9t-.288-.712T18 8h-3q-.425 0-.712.288T14 9t.288.713T15 10zm-9 3q-.9 0-1.625.163t-1.275.512q-.525.325-.8.738t-.275.887q0 .3.225.5t.55.2h6.4q.325 0 .55-.213t.225-.537q0-.425-.275-.825t-.8-.75q-.55-.35-1.275-.513T9 13m0-1q.825 0 1.412-.587T11 10t-.587-1.412T9 8t-1.412.588T7 10t.588 1.413T9 12m-5 8q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm0-2h16V6H4zm0 0V6z"
+                            stroke-width="0.5" stroke="#fff" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="containt-input flex justify-start items-center ruc">
+                <div class="info-input flex flex-col">
+                    <input placeholder="ruc" type="text" th:field="*{ruc}" required />
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+	<path fill="#fff" d="M8.171 11c0-2.09 1.733-3.75 3.829-3.75s3.829 1.66 3.829 3.75s-1.733 3.75-3.83 3.75c-2.095 0-3.828-1.66-3.828-3.75M12 8.75c-1.305 0-2.33 1.026-2.33 2.25s1.024 2.25 2.329 2.25s2.329-1.026 2.329-2.25s-1.024-2.25-2.33-2.25m-.998-5a.75.75 0 0 0 0 1.5h2a.75.75 0 0 0 0-1.5z" stroke-width="0.5" stroke="#fff" />
+	<path fill="#fff" d="M10.367 1.25h3.266c1.092 0 1.958 0 2.655.057c.714.058 1.317.18 1.869.46a4.75 4.75 0 0 1 2.075 2.077c.281.55.403 1.154.461 1.868c.057.697.057 1.563.057 2.655v7.266c0 1.092 0 1.958-.057 2.655c-.058.714-.18 1.317-.46 1.869a4.75 4.75 0 0 1-2.076 2.075c-.552.281-1.155.403-1.869.461c-.697.057-1.563.057-2.655.057h-3.266c-1.092 0-1.958 0-2.655-.057c-.714-.058-1.317-.18-1.868-.46a4.75 4.75 0 0 1-2.076-2.076c-.281-.552-.403-1.155-.461-1.869c-.057-.697-.057-1.563-.057-2.655V8.367c0-1.092 0-1.958.057-2.655c.058-.714.18-1.317.46-1.868a4.75 4.75 0 0 1 2.077-2.076c.55-.281 1.154-.403 1.868-.461c.697-.057 1.563-.057 2.655-.057M7.834 2.802c-.62.05-1.005.147-1.31.302a3.25 3.25 0 0 0-1.42 1.42c-.155.305-.251.69-.302 1.31c-.051.63-.052 1.434-.052 2.566v7.2c0 1.133 0 1.937.052 2.566v.009a3.77 3.77 0 0 1 2.415-2.302l.984-.315q.256-.081.514-.152c.599-.163 1.164.035 1.556.291c.368.241.978.539 1.729.539c.75 0 1.361-.298 1.73-.539c.391-.256.956-.454 1.554-.291q.259.07.515.152l.984.316a3.77 3.77 0 0 1 2.414 2.301l.001-.009c.051-.63.052-1.433.052-2.566V8.4c0-1.132 0-1.937-.052-2.566c-.05-.62-.147-1.005-.302-1.31a3.25 3.25 0 0 0-1.42-1.42c-.305-.155-.69-.251-1.31-.302c-.63-.051-1.434-.052-2.566-.052h-3.2c-1.132 0-1.937 0-2.566.052m-1.31 18.094c.305.155.69.251 1.31.302c.63.051 1.434.052 2.566.052h3.2c1.133 0 1.937 0 2.566-.052c.62-.05 1.005-.147 1.31-.302q.4-.206.727-.507l-.363-1.532c-.19-.718-.753-1.311-1.514-1.555l-.985-.315q-.224-.072-.452-.134c-.049-.013-.17-.011-.339.1c-.51.333-1.406.783-2.55.783s-2.04-.45-2.55-.783c-.17-.111-.29-.113-.34-.1q-.226.062-.451.134l-.985.315c-.761.244-1.324.837-1.514 1.555l-.363 1.532q.327.301.728.507" stroke-width="0.5" stroke="#fff" />
+</svg>
+                </div>
+            </div>
+
+            <div class="containt-input flex justify-start items-center usuario">
+                <div class="info-input flex flex-col">
+                    <input placeholder="usuario" type="text" th:field="*{usuario}" required />
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26">
+                        <path fill="currentColor"
+                            d="M16.563 15.9c-.159-.052-1.164-.505-.536-2.414h-.009c1.637-1.686 2.888-4.399 2.888-7.07c0-4.107-2.731-6.26-5.905-6.26c-3.176 0-5.892 2.152-5.892 6.26c0 2.682 1.244 5.406 2.891 7.088c.642 1.684-.506 2.309-.746 2.397c-3.324 1.202-7.224 3.393-7.224 5.556v.811c0 2.947 5.714 3.617 11.002 3.617c5.296 0 10.938-.67 10.938-3.617v-.811c0-2.228-3.919-4.402-7.407-5.557"
+                            stroke-width="0.4" stroke="currentColor" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="containt-input flex justify-start items-center contraseña">
+                <div class="info-input flex flex-col">
+                    <input placeholder="Contraseña" type="password" th:field="*{contrasena}" required />
+                </div>
+                <div class="icon-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                        <path fill="currentColor"
+                            d="M21 2a8.998 8.998 0 0 0-8.612 11.612L2 24v6h6l10.388-10.388A9 9 0 1 0 21 2m0 16a7 7 0 0 1-2.032-.302l-1.147-.348l-.847.847l-3.181 3.181L12.414 20L11 21.414l1.379 1.379l-1.586 1.586L9.414 23L8 24.414l1.379 1.379L7.172 28H4v-3.172l9.802-9.802l.848-.847l-.348-1.147A7 7 0 1 1 21 18" />
+                        <circle cx="22" cy="10" r="2" fill="currentColor" />
+                    </svg>
+                </div>
+            </div>
+
+            <!--botones-->
+            <button type="submit" class="btn login_grid">Registrate</button>
+            <div class="registrarse-contain">
+                <p>ya eres un Colaborador en eta?</p>
+                <a th:href="@{/registro/colaborador}">Inicia Sesion</a>
+            </div>
+        
+
+        </form>
+    </section>
+
+
+
+    <div th:if="${errorRepetido != null}" class="error-message show">
+        <p th:text="${errorRepetido}"></p>
+        <button class="close-repetido">cerrar</button>
+    </div>
+
+    <div th:if="${errorRepetidoEmail != null}" class="error-message show">
+        <p th:text="${errorRepetidoEmail}"></p>
+        <button class="close-repetido">cerrar</button>
+    </div>
+
+
+
+
+
+    <script th:src="@{/js/registro.js}"></script>
+
+</body>

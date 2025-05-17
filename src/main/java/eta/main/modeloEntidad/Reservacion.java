@@ -1,7 +1,15 @@
 package eta.main.modeloEntidad;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "reservaciones")
@@ -15,10 +23,6 @@ public class Reservacion {
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
-
-    @ManyToOne
-    @JoinColumn(name = "id_actividad_fecha")
-    private ActividadFecha actividadFecha;
 
     @Column(name = "fecha_reservacion")
     private LocalDateTime fechaReservacion;
@@ -44,13 +48,6 @@ public class Reservacion {
         this.cliente = cliente;
     }
 
-    public ActividadFecha getActividadFecha() {
-        return actividadFecha;
-    }
-
-    public void setActividadFecha(ActividadFecha actividadFecha) {
-        this.actividadFecha = actividadFecha;
-    }
 
     public LocalDateTime getFechaReservacion() {
         return fechaReservacion;

@@ -26,9 +26,9 @@
 
             <ul class="nav-links">
                 <li>
-                    <a th:href="@{/indice}">Home</a>
+                    <a th:href="@{/indice}">Inicio</a>
                 </li>
-                <li><a th:href="@{/ingreso}">Inicia Sesion</a></li>
+                <li><a th:href="@{/ingreso/cliente}">Inicia Sesion</a></li>
             </ul>
         </nav>
     </div>
@@ -40,7 +40,7 @@
         <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
 
         <!--envia al ubicacion /registro | donde sea PostMapping | usando la entida cliente = cliente.java--->
-        <form th:action="@{/registro}" method="post" th:object="${clienteEntidad}">
+        <form th:action="@{/registro/cliente}" method="post" th:object="${clienteEntidad}">
 
             <!--Campos de persona-->
             <div class="containt-input flex justify-start items-center nombre">
@@ -99,7 +99,7 @@
             <button type="submit" class="btn login_grid">Registrate</button>
             <div class="registrarse-contain">
                 <p>ya tienes cuenta en eta?</p>
-                <a th:href="@{/ingreso}">Inicia Sesion</a>     
+                <a th:href="@{/ingreso/cliente}">Inicia Sesion</a>     
             </div>
 
         </form>

@@ -99,6 +99,12 @@
 
                 </ul>
             </div>
+            <a class="btn-salir-admin" th:href="@{/ingreso/colaborador}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m14 7l-5 5l5 5" />
+                </svg>
+            </a>
         </div>
 
         <div class="main-content">
@@ -109,6 +115,7 @@
                     <img src="/images/perfil_colaborador.jpg" alt="Profile Picture">
                 </div>
                 -->
+                <span th:text="${adminLogueado.usuario}"></span>
             </div>
 
             <div class="filtro_db">

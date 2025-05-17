@@ -48,7 +48,7 @@ nav {
     transform: translateX(-50%);
     z-index: 134;
     width: 100%;
-    background-color:var(--color-medium-blue);
+    background-color: var(--color-medium-blue);
     max-width: 1351px;
     gap: 60px;
 }
@@ -120,6 +120,7 @@ nav {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    margin-bottom: 100px;
     margin-top: 100px;
     width: 100%;
     max-width: 428px;
@@ -139,13 +140,18 @@ form {
     width: 100%;
     max-width: 794px;
     display: grid;
+    justify-content: center;
     place-items: center;
     grid-template-areas:
-        "usuario "
+        "nombre"
+        "email"
+        "identificacion"
+        "ruc"
+        "usuario"
         "contraseña"
         "login_grid"
-        "google"
-        "info";
+
+    ;
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0px 20px 10px 20px;
@@ -171,6 +177,10 @@ form {
 .info-input {
     width: 100%;
     font-size: 15px;
+}
+
+.info-input  input{
+    background-color: #0A0A0A;
 }
 
 .info-input input::placeholder {
@@ -215,6 +225,7 @@ form {
 }
 
 h1 {
+    text-align: center;
     font-size: 50px;
     font-weight: 700;
     color: white;
@@ -230,117 +241,66 @@ h1 {
     grid-area: nombre;
 }
 
-.apellido {
-    grid-area: apellido;
+.email {
+    grid-area: email;
 }
 
 .usuario {
     grid-area: usuario;
 }
 
+.identificacion {
+    grid-area: identificacion;
+}
+
+.ruc {
+    grid-area: ruc;
+}
+
 .contraseña {
     grid-area: contraseña;
 }
 
-.google {
-    grid-area: google;
-}
 
 .login_grid {
     grid-area: login_grid;
 }
 
-.card-ingreso {
-    display: none;
-    position: fixed;
+/* Estilo del modal */
+.error-message {
+    display: none; /* Inicialmente oculto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    max-width: 400px;
-    width: 90%;
+    background-color: #1f1f1f;
+    color: white;
+    border-radius: 20px;
+    padding: 30px 60px;
+    gap: 40px;
+    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+    font-size: 14px;
 }
 
-.card-ingreso.show {
-    display: block;
+/* Se muestra cuando tiene la clase "show" */
+.error-message.show {
+    display: flex; /* Muestra el modal */
 }
 
-
-.header-ingreso {
-    padding: 1.25rem 1rem 1rem 1rem;
-    background-color: #ffffff;
+/* Estilo del botón de cerrar */
+.close-repetido {
+    background-color: red;
+    color: white;
+    border-radius: 14px;
+    padding: 6px 14px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 10px;
+    border: none; /* Elimina el borde por defecto */
 }
 
-.image-ingreso {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fee2e2;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 9999px;
-}
-
-
-.image-ingreso svg {
-    color: #dc2626;
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-
-.content-ingreso {
-    margin-top: 0.75rem;
-    text-align: center;
-}
-
-.title-ingreso {
-    color: #111827;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5rem;
-}
-
-.message-ingreso {
-    margin-top: 0.5rem;
-    color: #6b7280;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-}
-
-.actions-ingreso {
-    margin: 0.75rem 1rem;
-    background-color: #f9fafb;
-}
-
-
-.btn-modal {
-    display: inline-flex;
-    padding: 0.25rem 0rem;
-    color: #000000;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 500;
-    justify-content: center;
-    width: 100%;
-    background-color: #dc2626;
-    border-radius: 0.375rem;
-    border-width: 1px;
-    border-color: transparent;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.btn-modal:hover {
-    background-color: #982d2d;
-}
-
-button {
-    cursor: pointer;
+.close-repetido:hover {
+    background-color: darkred; /* Cambio de color cuando el usuario pasa el ratón */
 }

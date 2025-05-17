@@ -36,7 +36,7 @@ body {
 
     --font-inter: "Inter", sans-serif;
     --font-logo: 'extenda-80-peta', sans-serif;
-   
+
     --font-poppins: "Poppins", sans-serif;
     --font-work-sans: "Work Sans", sans-serif;
 }
@@ -230,13 +230,13 @@ section {
     padding-bottom: 12px;
 }
 
-
 .cardd img {
     width: 100%;
-    height: 280px;
+    max-height: 280px;
     object-fit: cover;
     display: block;
 }
+
 
 .card-content {
     padding: 10px 20px 10px 20px;
@@ -249,18 +249,26 @@ section {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .card-description {
     color: #b7b7b7;
     font-size: 13px;
     margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    min-height: 61px;
 }
 
 .badges {
     margin-bottom: 10px;
     display: flex;
-    flex-wrap: wrap ;
 }
 
 .badge {
@@ -270,7 +278,6 @@ section {
     border-radius: 12px;
     font-size: 12px;
     margin-right: 5px;
-    margin-top: 2px;
 }
 
 .badge-star {
@@ -346,6 +353,7 @@ section {
 .card:hover .blur {
     opacity: 1;
 }
+
 
 
 /*footer*/
@@ -514,12 +522,27 @@ footer .logo-footer {
     width: 100%;
     max-width: 110px;
     height: 100vh;
-    padding: 20px 0px;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.btn-salir-admin {
+    margin-top: 163px;
+    width: 48px;
+    height: 48px;
+    background-color: #9abadc96;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
 }
 
 .side-bar:hover {
     transition: all 0.3s ease-in-out;
 }
+
 
 
 
@@ -689,16 +712,16 @@ footer .logo-footer {
     justify-content: space-between;
     gap: 20px;
     align-items: flex-end;
-    padding: 0px 18px;
+    padding: 0px 18px 0px 0px;
     font-size: 12px;
     margin: 10px 0px;
 }
 
-.filtro_db-main{
+.filtro_db-main {
     justify-content: space-evenly;
 }
 
-.filtro-function{
+.filtro-function {
     display: flex;
     padding: 10px 15px;
     background-color: var(--color-white);
@@ -709,7 +732,7 @@ footer .logo-footer {
     align-items: center;
 }
 
-.svgc{
+.svgc {
     padding: 0px 12px 0px 5px;
 }
 
@@ -719,12 +742,12 @@ footer .logo-footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items:flex-start;
+    align-items: flex-start;
     gap: 1px;
-    
+
 }
 
-.cantidades{
+.cantidades {
     font-size: 20px;
     font-weight: 700;
 }
@@ -768,7 +791,7 @@ footer .logo-footer {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
-    
+
     overflow: hidden;
     background: #fff;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -783,7 +806,7 @@ footer .logo-footer {
     padding: 10px 20px;
     font-size: 12px;
     font-weight: 600;
-    
+
     color: var(--color--black);
 }
 
@@ -891,6 +914,7 @@ footer .logo-footer {
     padding-top: 60px;
     left: 0;
     top: 0;
+    padding: 20px;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -899,6 +923,29 @@ footer .logo-footer {
     justify-content: center;
 }
 
+.modal-edits {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.title-modals {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    padding-bottom: 15px;
+}
 
 .modal form,
 .modal-edits form {
@@ -909,6 +956,8 @@ footer .logo-footer {
     transform: translate(-50%, -50%);
     display: block;
     width: 90%;
+    height: 90%;
+    overflow-y: scroll;
     /* Ajustable según diseño */
     max-width: 500px;
     /* Opcional para limitar tamaño */
@@ -927,8 +976,13 @@ footer .logo-footer {
     font-size: 0.75rem;
 }
 
+
 .modal form input,
-.modal-edits form input {
+.modal-edits form input,
+.modal-edits form textarea,
+.modal-edits form select,
+.modal form textarea,
+.modal form select {
     width: 100%;
     padding: 0.5rem 0.75rem;
     margin-bottom: 1.25rem;
@@ -1121,20 +1175,20 @@ button {
     background-color: var(--color-medium-blue);
     border-color: var(--color-medium-blue);
     border-radius: 12px;
-    font-size: 13px;    
+    font-size: 13px;
 }
 
-.btns-edits{
+.btns-edits {
     display: flex;
     justify-content: space-between;
 }
 
-.cancelar-edits{
-    cursor: pointer;    
+.cancelar-edits {
+    cursor: pointer;
     padding: 7px 20px;
     font-size: 13px;
     color: #fff;
-    background-color:#dc2626;
+    background-color: #dc2626;
     border-color: #dc2626;
     border-radius: 12px;
 }
