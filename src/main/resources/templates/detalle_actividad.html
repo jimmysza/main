@@ -18,7 +18,7 @@
 <body>
     <nav>
         <div class="contain-nav flex">
-            <a href="/indice/index.html" class="center logo-ept">
+            <a href="/indice" class="center logo-ept">
                 <img src="/images/eta_rvbg.webp" class="logo" alt="logo" loading="lazy" />
             </a>
             <div class="search">
@@ -33,36 +33,35 @@
             </div>
             <ul class="nav-links">
                 <li>
-                    <a href="#">Explorar</a><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                        viewBox="0 0 24 24" {...props}>
-                        <path fill="currentColor" fill-rule="evenodd" d="m6 7l6 6l6-6l2 2l-8 8l-8-8z"></path>
-                    </svg>
+                    <a href="/indice#tendencias">Tendencia</a>
                 </li>
-                <li><a href="#">Guardado</a></li>
-                <li><a href="#">Asistente</a></li>
+                <li><a href="/indice#comparte">comparte</a></li>
+                <li><a href="/indice#turismo">Turismo</a></li>
             </ul>
             <div class="log-contain center">
                 <a href="#" class="log-in">Log In</a>
             </div>
         </div>
     </nav>
+
+
     <section class="encabezado">
-    <h1 th:text="${actividadEntidad.titulo}"></h1>
-    <div class="badges">
-        <span class="badge" th:text="${actividadEntidad.ubicacion}"></span>
-        <span class="badge" th:text="${actividadEntidad.categoria}"></span>
-        <p class="badge">
-            Cupo:
-            <span th:text="${actividadEntidad.cupoMaximo}"></span>
-        </p>
-    </div>
-</section>
-    <section class="sticky-container">
+        <h1 th:text="${actividadEntidad.titulo}"></h1>
+        <div class="badges">
+            <span class="badge" th:text="${actividadEntidad.ubicacion}"></span>
+            <span class="badge" th:text="${actividadEntidad.categoria}"></span>
+            <p class="badge">
+                Cupo:
+                <span th:text="${actividadEntidad.cupoMaximo}"></span>
+            </p>
+        </div>
+    </section>
+
+    <!---
+<section class="sticky-container">
         <nav id="navbar">
             <ul>
-                <!--
-                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
-                -->
+                <li><a href="#galeria" class="nav-link">Galeria</a></li>
                 <li><a href="#info" class="nav-link">Info</a></li>
                 <li><a href="#map" class="nav-link">Mapa</a></li>
                 <li><a href="#planes" class="nav-link">Planes</a></li>
@@ -84,6 +83,9 @@
             </div>
         </nav>
     </section>
+--->
+
+
     <!--
     <section class="galeria-container" id="galeria">
     <div class="galeria">
@@ -108,10 +110,10 @@
 </section>
     
     -->
-    
 
 
-<!--MODAL IMGS-->
+
+    <!--MODAL IMGS-->
     <div class="modal" id="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-image" />
@@ -127,11 +129,14 @@
                 -->
                 <div class="colaborador-texto">
                     <!-- Solo muestra el nombre si existe colaborador -->
-                    <h3 th:if="${actividadEntidad.colaborador != null}" th:text="${actividadEntidad.colaborador.persona.nombre}"></h3>m 
+                    <h3 th:if="${actividadEntidad.colaborador != null}"
+                        th:text="${actividadEntidad.colaborador.persona.nombre}"></h3>
                     <p>Colaborador</p>
                 </div>
             </div>
-            <div class="tiempo flex justify-start">
+
+            <!--
+             <div class="tiempo flex justify-start">
                 <div class="card-time flex flex-col justify-end">
                     <div class="flex hours justify-end">
                         <p>5<span>hr</span></p>
@@ -161,18 +166,14 @@
                     <p class="title-time"></p>ida y vuelta</p>
                 </div>
             </div>
+            -->
+
             <div class="contenido-texto">
-                <p>La Isla Cholon es un destino turístico popular en Cartagena, Colombia, conocido por sus hermosas
-                    playas,
-                    aguas cristalinas y ambiente relajado. Es un lugar ideal para disfrutar de actividades acuáticas
-                    como
-                    snorkel, buceo y paseos en bote. La isla también cuenta con restaurantes y bares donde los
-                    visitantes
-                    pueden disfrutar de la gastronomía local y cócteles refrescantes. Además, Cholon es famosa por su
-                    vibrante vida nocturna, con fiestas en la playa que atraen a turistas y lugareños por igual.</p>
+                <div th:text="${actividadEntidad.descripcion}"></div>
             </div>
         </div>
-        <div class="categorias">
+        <!--
+         <div class="categorias">
             <h3>Categorias</h3>
             <div class="card-categorias-contain">
                 <div class="card-categorias">
@@ -213,12 +214,14 @@
                 </div>
             </div>
         </div>
+        -->
+
     </section>
 
 
 
-
-    <section id="map" class="map-container flex gap-10">
+    <!--
+     <section id="map" class="map-container flex gap-10">
         <div class="incluido">
             <h3>Incluido</h3>
             <div class="contain-incluido">
@@ -276,6 +279,8 @@
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </section>
+    -->
+
 
 
     <!--por hacer-->
@@ -297,10 +302,10 @@
     <section id="planes" class="planes">
         <div class="p-bg"></div>
         <div class="containt-cards-prices">
-            <div class="card-plans">
+            <div class="card-plans" th:each="plan : ${ListaPlanes}">
                 <div class="head-card-plan">
-                    <p class="plan-nombre">Free Plan</p>
-                    <p class="plan-precio">Free</p>
+                    <p class="text-white text-[42px] font-bold" th:text="${plan.titulo}"></p>
+                    <p class="plan-precio" th:text="${plan.precio}"></p>
                 </div>
                 <div class="body-card-plan">
                     <div class="wrap-body-plans">
@@ -310,128 +315,7 @@
                             <path fill="#fff"
                                 d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
                         </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Cocte Bienvenida</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>4 personas</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                </div>
-                <div class="contain-btn flex center">
-                    <button>Compra</button>
-                </div>
-            </div>
-            <div class="card-plans">
-                <div class="head-card-plan">
-                    <p class="plan-nombre">Free Plan</p>
-                    <p class="plan-precio">Free</p>
-                </div>
-                <div class="body-card-plan">
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye sombrilla</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                </div>
-                <div class="contain-btn flex center">
-                    <button>Compra</button>
-                </div>
-            </div>
-            <div class="card-plans">
-                <div class="head-card-plan">
-                    <p class="plan-nombre">Free Plan</p>
-                    <p class="plan-precio">Free</p>
-                </div>
-                <div class="body-card-plan">
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
-                    </div>
-                    <div class="wrap-body-plans">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                            <path fill="#fff"
-                                d="M11.5 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11m7.484 10.982l.602.798a7 7 0 0 1-.003 8.441l-.603.797l-1.595-1.206l.603-.797a5 5 0 0 0 .002-6.03l-.602-.798z" />
-                            <path fill="#fff"
-                                d="m16.19 15.091l.604.798a3.5 3.5 0 0 1-.002 4.22l-.603.798l-1.595-1.206l.603-.798a1.5 1.5 0 0 0 0-1.809l-.602-.798zM12.876 14a6.47 6.47 0 0 0-1.376 4c0 1.509.514 2.897 1.376 4H2v-2a6 6 0 0 1 6-6z" />
-                        </svg>
-                        <p>Incluye Viaje en Lancha</p>
+                        <p th:text="${plan.descripcion}"></p>
                     </div>
                 </div>
                 <div class="contain-btn flex center">
@@ -445,53 +329,52 @@
     </section>
     </div>
 
-
+    <!--
+    
     <section class="contain-quizas">
 
         <div class="contain-title-reseña center az">
             <h3 class="c-t-r-20">Quizás te interese</h3>
         </div>
-        <div class="contain-grid-quizas">
+         <div class="container-activities">
+            <div th:each="actividadesEntidad : ${actividadesSinId}">
 
-            <div class="cardd">
-                <div class="container-bookmark">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="bookmark">
-                        <path fill="currentColor"
-                            d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
-                        </path>
-                    </svg>
-                </div>
 
-                <img src="/images/card1.webp" alt="The Hills Guest House">
-
-                <div class="card-content">
-                    <div class="card-title">Isla Cholon</div>
-                    <div class="card-description">Disfruta de una fiesta movible alrededor de toda cartagena. final
-                        feliz en
-                        una de las mejores discoteca en cartagena</div>
-                    <div class="badges">
-                        <span class="badge">2,9 km</span>
-                        <span class="badge">Eta. 1hr</span>
-                        <span class="badge badge-star">5
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="#fff">
-                                <path fill="#fff"
-                                    d="M12 2l2.5 6.1l6.5.5l-5 4.3l1.5 6.5L12 16.4l-5 4.3l1.5-6.5l-5-4.3l6.5-.5L12 2z">
+                <a th:href="@{/detalle/actividadDetalle/{id}(id=${actividadesEntidad.idActividad})}">
+                    <div class="cardd">
+                        <div class="container-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                class="bookmark">
+                                <path fill="currentColor"
+                                    d="M16 2H8C6.3 2 5 3.3 5 5v16c0 .2 0 .3.1.5c.3.5.9.6 1.4.4l5.5-3.2l5.5 3.2c.2.1.3.1.5.1c.6 0 1-.4 1-1V5c0-1.7-1.3-3-3-3">
                                 </path>
                             </svg>
-                        </span>
-
-
+                        </div>
+                        <img src="../images/card2.webp" alt="imgs actividad">
+                        
+                        <div class="card-content">
+                            <div class="card-title" th:text="${actividadesEntidad.titulo}"></div>
+                            <div class="card-description" th:text="${actividadesEntidad.descripcion}"></div>
+                            <div class="badges">
+                                <span class="badge" th:text="${actividadesEntidad.ubicacion}"></span>
+                                <span class="badge" th:text="${actividadesEntidad.categoria}"></span>
+                                <div class="badge">cupo: <span th:text="${actividadesEntidad.cupoMaximo}"></span> </div>
+                            </div>
+                        </div>
+                        <button class="reserve-btn">Reserva</button>
                     </div>
-                </div>
-                <button class="reserve-btn">Reserva</button>
+                </a>
+
+
             </div>
         </div>
 
     </section>
+-->
 
-    <footer id="footer">
+   <footer>
         <div class="info-footer flex flex-col">
+
             <div class="links-container-footer">
                 <div class="flex justify-start con-logo-footer">
                     <a href="" class="logo-footer"><span>eta</span>®</a>
@@ -512,46 +395,46 @@
                     <a href="">Crear Actividad</a>
                 </div>
                 <div class="links-footer">
-                    <a href="" class="font-bold">Empresa</a>
-                    <a href="">Acerca de Ept</a>
-                    <a href="">Empleo</a>
-                    <a href="">Afiliados</a>
-                    <a href="">Influencers</a>
+                    <a href="" class="font-bold">Colaboradores</a>
+                    <a href="/registro/colaborador">Registrate</a>
+                    <a href="/ingreso/colaborador">Inicia Sesion</a>
                 </div>
                 <div class="links-footer">
-                    <a href="" class="font-bold">Comunidad</a>
-                    <a href="">Soporte</a>
-                    <a href="">Regala EPT pluss </a>
+                    <a href="" class="font-bold">Admin</a>
+                    <a href="/ingreso/admin">Inicia Sesion</a>
                 </div>
             </div>
 
             <div class="social_footer mt-7  grid grid-cols-3">
-                <div class="download flex flex-col items-start justify-start">
-                    <p>Una aplicacion para disfruta al maximo de [city]</p>
+
+                <div class="download flex flex-col gap-2 items-start justify-start">
+                    <p class="font-bold">Una aplicacion para disfruta al maximo </p>
                     <div class="flex gap-4 mt-4px">
                         <a href=""><img src="/images/appstore.webp" alt="apple" class="w-[125px]  "></a>
                         <a href="andor"><img src="/images/googleplay.webp" alt="android" class="w-[130px]"></a>
                     </div>
                 </div>
-                <div class="sponsor flex flex-col items-start justify-start">
-                    <p>Miembros de EPT</p>
+
+                <div class="sponsor flex flex-col items-start justify-start gap-1">
+                    <p class="font-bold">Miembros de EPT</p>
                     <div class="flex gap-3.5 mt-4px">
                         <a href=""><img class="w-[130px]" src="/images/fiscalia.webp" alt="fiscalia" /></a>
                         <a href=""><img class="w-[130px]" src="/images/ministerio.webp" alt="ministerio" /></a>
                         <a href="" class="white-bg w-[130px]"><img src="/images/alcadia.webp" alt="alcadia" /></a>
                     </div>
                 </div>
-                <div class="social_medias_links flex flex-col items-start justify-start">
-                    <p>Conectate con nosotros</p>
-                    <div class="icon_social flex gap-3 mt-4px">
-                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+
+                <div class="social_medias_links justify-center">
+                    <p class="font-bold">Conectate con nosotros</p>
+                    <div class="icon_social flex gap-5 mt-4px justify-center">
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                                 {...props}>
                                 <path fill="currentColor"
                                     d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3">
                                 </path>
                             </svg></a>
                         <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
                                 {...props}>
                                 <path fill="currentColor"
                                     d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95">
@@ -559,7 +442,7 @@
                             </svg>
                         </a>
                         <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
                                 {...props}>
                                 <path fill="currentColor"
                                     d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48">
@@ -567,7 +450,7 @@
                             </svg>
                         </a>
                         <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
                                 {...props}>
                                 <path fill="currentColor"
                                     d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z" />
@@ -575,8 +458,10 @@
                         </a>
                     </div>
                 </div>
+
             </div>
-            <div class="copyright grid">
+
+            <div class="copyright">
                 <div class="info_copy flex flex-col">
                     <p>© 2025-2025 EPT, LLC</p>
                     <p>EPT® y EPT Mountain Design son marcas registradas de EPT, LLC tanto en Estados Unidos como en
@@ -588,17 +473,16 @@
                         <a href="condi">condiciones</a>
                     </div>
                 </div>
-                <div class="languages flex justify-center">
+                <div class="idiomas flex center">
                     <select name="" id="">
                         <option value="">español</option>
                         <option value="">English</option>
                     </select>
                 </div>
-
             </div>
         </div>
     </footer>
-    <script src="servicio.js"></script>
+
 </body>
 
 </html>

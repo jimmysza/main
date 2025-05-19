@@ -12,7 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/input/registroColab.css}">
     <link rel="stylesheet" th:href="@{/fonts/fonts.css}">
 
-    <title>Eta - Colaboradores - Eventos Toures Actividades</title>
+    <title>Eta - Registrarse - Admin - Eventos Toures Actividades</title>
 </head>
 
 <body>
@@ -24,9 +24,6 @@
             </a>
 
             <ul class="nav-links">
-                <li>
-                    <a th:href="@{/indice}">Inicio</a>
-                </li>
                 <li><a th:href="@{/ingreso/admin}">Inicia Sesion</a></li>
             </ul>
         </nav>
@@ -36,7 +33,7 @@
         <img class="form-logo rounded-full" th:src="@{/images/Logo.webp}" alt="logo">
 
         <H1>Crea una Cuenta como Admin</H1>
-        <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
+        <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos- admin</p>
 
         <!--envia al ubicacion /registro | donde sea PostMapping | usando la entida cliente = cliente.java--->
         <form th:action="@{/registro/admin}" method="post" th:object="${adminEntidad}">

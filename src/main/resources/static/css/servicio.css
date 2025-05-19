@@ -714,7 +714,7 @@ body {
 .card-plans {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    background-color: #3e3e3e46;
+    background-color: #3e3e3e; 
     backdrop-filter: blur(10px);
     width: 95%;
     gap: 10px;
@@ -723,14 +723,16 @@ body {
 .head-card-plan {
     display: flex;
     flex-direction: column;
+    font-size: 42px;
+    color: #fff;
     padding: 34px 25px 10px 25px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.plan-nombre {
-    font-size: 16px;
-    color: #fff;
-    font-weight: 600;
+.plan-titulo {
+    font-size: 42px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
 }
 
 .plan-precio {
@@ -800,4 +802,9 @@ body {
 .az{
     border-top: 1px solid black;
     padding: 60px 0px 20px 0px;
+}
+
+/*detalle actividad*/
+.contain-quizas{
+    padding-bottom: 20px;
 }

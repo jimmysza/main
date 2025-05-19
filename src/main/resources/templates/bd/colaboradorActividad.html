@@ -20,17 +20,32 @@
             </a>
             <div class="menu">
                 <ul>
-                    <li>
-                        <a class="blur-back" th:href="@{/ingreso/colaborador}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
-                                <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m14 7l-5 5l5 5" />
+                    <li class="menu-linkColabAct menu-link">
+                        <a th:href="@{/PlanesColaborador}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#000"
+                                    d="M15 16h3q.425 0 .713-.288T19 15V9q0-.425-.288-.712T18 8h-3q-.425 0-.712.288T14 9v6q0 .425.288.713T15 16m1-2v-4h1v4zm-7 2h3q.425 0 .713-.288T13 15V9q0-.425-.288-.712T12 8H9q-.425 0-.712.288T8 9v6q0 .425.288.713T9 16m1-2v-4h1v4zm-3 1V9q0-.425-.288-.712T6 8t-.712.288T5 9v6q0 .425.288.713T6 16t.713-.288T7 15m-5 3V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20H4q-.825 0-1.412-.587T2 18m2 0h16V6H4zm0 0V6z"
+                                    stroke-width="0.4" stroke="#000" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="menu-link menu-link2">
+                        <a th:href="@{/actividadColaboradores}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#000"
+                                    d="M20 12c0-.76.43-1.42 1.06-1.76c.6-.33.94-1.01.94-1.7V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.89-1.99 1.99v2.55c0 .69.33 1.37.94 1.69C3.58 10.58 4 11.24 4 12s-.43 1.43-1.06 1.76c-.6.33-.94 1.01-.94 1.7V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-2.54c0-.69-.34-1.37-.94-1.7c-.63-.34-1.06-1-1.06-1.76m-5.5 4.1L12 14.5l-2.5 1.61c-.38.24-.87-.11-.75-.55l.75-2.88l-2.3-1.88a.503.503 0 0 1 .29-.89l2.96-.17l1.08-2.75c.17-.42.77-.42.93 0l1.08 2.76l2.96.17c.45.03.64.6.29.89l-2.3 1.88l.76 2.86c.12.45-.37.8-.75.55"
+                                    stroke-width="0.4" stroke="#000" />
                             </svg>
                         </a>
                     </li>
                 </ul>
             </div>
-
+            <a class="btn-salir-admin btn-colabAct" th:href="@{/ingreso/colaborador}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m14 7l-5 5l5 5" />
+                </svg>
+            </a>
         </div>
 
         <div class="main-content">
@@ -157,7 +172,6 @@
                     <thead>
                         <tr>
                             <th>ID Actividad</th>
-                            <th>ID Colaborador</th>
                             <th>Titulo</th>
                             <th>Descripcion</th>
                             <th>Cupo maximo</th>
@@ -169,7 +183,6 @@
                     <tbody>
                         <tr th:each="ActividadEntidad : ${ListaActividad}">
                             <td th:text="${ActividadEntidad.idActividad}"></td>
-                            <td th:text="${ActividadEntidad.colaborador.idColaborador}"></td>
                             <td th:text="${ActividadEntidad.titulo}"></td>
                             <td th:text="${ActividadEntidad.descripcion}"></td>
                             <td th:text="${ActividadEntidad.cupoMaximo}"></td>
@@ -196,7 +209,7 @@
 
                                 <div class="add-btn btn_edit">
                                     <a class="btn-edit"
-                                        th:href="@{/actividad/editar-form/{id}(id=${ActividadEntidad.idActividad})}">
+                                        th:href="@{/actividadColaboradores/editarColab-form/{id}(id=${ActividadEntidad.idActividad})}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
                                             <path fill="#000"
@@ -221,23 +234,6 @@
     <script th:src="@{/js/actividad.js}"></script>
     <script src="../../static/js/actividad.js"></script>
 </body>
-<style>
-    .menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        height: 100%;
-    }
 
-    .blur-back {
-        width: 40px;
-        height: 40px;
-        background-color: #9abadc96;
-        border-radius: 100%;
-        padding: 20px;
-        cursor: pointer;
-    }
-</style>
 
 </html>

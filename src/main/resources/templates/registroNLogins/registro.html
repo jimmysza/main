@@ -13,7 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/registro.css}">
     <link rel="stylesheet" th:href="@{/fonts/fonts.css}">
 
-    <title>Eta - Eventos Toures Actividades</title>
+    <title>Eta - Registro - Cliente - Eventos Toures Actividades</title>
 </head>
 
 <body>
@@ -25,9 +25,7 @@
             </a>    
 
             <ul class="nav-links">
-                <li>
-                    <a th:href="@{/indice}">Inicio</a>
-                </li>
+                
                 <li><a th:href="@{/ingreso/cliente}">Inicia Sesion</a></li>
             </ul>
         </nav>
@@ -37,7 +35,7 @@
         <img class="form-logo rounded-full" th:src="@{/images/Logo.webp}" alt="logo">
 
         <H1>Crea una Cuenta</H1>
-        <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
+        <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos - cliente</p>
 
         <!--envia al ubicacion /registro | donde sea PostMapping | usando la entida cliente = cliente.java--->
         <form th:action="@{/registro/cliente}" method="post" th:object="${clienteEntidad}">

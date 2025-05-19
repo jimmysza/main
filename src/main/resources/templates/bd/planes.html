@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../static/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>ETA - Cliente Base de Datos </title>
+    <title>ETA - Actividades Base de Datos </title>
 
 </head>
 
@@ -22,20 +22,19 @@
                 <ul>
                     <li class="menu-link menu-link1">
                         <a th:href="@{/cliente}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <g fill="none" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                                    <path d="M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1">
-                                        <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
-                                            values="28;0" />
-                                    </path>
-                                    <path
-                                        d="M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z">
-                                        <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s"
-                                            values="28;0" />
-                                    </path>
-                                </g>
-                            </svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1">
+                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="28;0" />
+                                </path>
+                                <path
+                                    d="M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z">
+                                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s"
+                                        values="28;0" />
+                                </path>
+                            </g>
+                        </svg>
                         </a>
                     </li>
 
@@ -96,29 +95,30 @@
 
         <div class="main-content">
             <div class="header_db">
-                <h1> Cliente - Base de Datos</h1>
+                <h1> Planes - Base de Datos</h1>
                 <!--                        
                 <div class="profile">
                     <img src="/images/perfil_colaborador.jpg" alt="Profile Picture">
                 </div>
                 -->
-                <span th:text="${adminLogueado.usuario}"></span>
+                <span th:text="${adminLogueado != null ? adminLogueado.usuario : ''}"></span>
+
             </div>
 
             <div class="filtro_db">
                 <div class="filtro-function">
                     <div class="svgc">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 28 28">
-                                <path fill="#000"
-                                    d="M9.5 14a4.5 4.5 0 1 0 0-9a4.5 4.5 0 0 0 0 9m7.6 7.619c.763.235 1.714.381 2.9.381c6 0 6-3.75 6-3.75A2.25 2.25 0 0 0 23.75 16h-6.656a3.24 3.24 0 0 1 .904 2.25v.555l-.003.083a5.5 5.5 0 0 1-.154.99a6.1 6.1 0 0 1-.74 1.74M23.5 10.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0M2 18.25A2.25 2.25 0 0 1 4.25 16h10.5A2.25 2.25 0 0 1 17 18.25v.5S17 24 9.5 24S2 18.75 2 18.75z"
-                                    stroke-width="0.4" stroke="#000" />
-                            </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24">
+                            <path fill="#000"
+                                d="M20 12c0-.76.43-1.42 1.06-1.76c.6-.33.94-1.01.94-1.7V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.89-1.99 1.99v2.55c0 .69.33 1.37.94 1.69C3.58 10.58 4 11.24 4 12s-.43 1.43-1.06 1.76c-.6.33-.94 1.01-.94 1.7V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-2.54c0-.69-.34-1.37-.94-1.7c-.63-.34-1.06-1-1.06-1.76m-5.5 4.1L12 14.5l-2.5 1.61c-.38.24-.87-.11-.75-.55l.75-2.88l-2.3-1.88a.503.503 0 0 1 .29-.89l2.96-.17l1.08-2.75c.17-.42.77-.42.93 0l1.08 2.76l2.96.17c.45.03.64.6.29.89l-2.3 1.88l.76 2.86c.12.45-.37.8-.75.55"
+                                stroke-width="0.4" stroke="#000" />
+                        </svg>
                     </div>
 
                     <div class="filtro-eazy">
-                        <p>Cantidad de Colaboradores</p>
-                        <span class="cantidades" th:text="${CantidadColaborador}"></span>
+                        <p>Cantidad de Planes</p>
+                        <span class="cantidades" th:text="${CantidadPlanes}"></span>
                     </div>
                 </div>
                 <div class="flex gap-1">
@@ -150,31 +150,42 @@
                     <!-- Modal para Agregar -->
                     <div class="modal modal-add">
                         <span class="close-modal">&times;</span>
-                        <h2>Agregar Colaborador</h2>
 
-                        <form th:action="@{/colaborador}" method="post" th:object="${colaboradorEntidad}">
-                            <label>Nombre</label>
-                            <input type="text" th:field="*{persona.nombre}" required>
+                        <form th:action="@{/planes}" method="post" th:object="${planEntidad}">
+                            <p class="title-modals">Agregar Planes</p>
 
-                            <label>Email</label>
-                            <input type="email" th:field="*{persona.correoElectronico}" required>
+                            <!-- Select de colaboradores -->
+                            <label>Colaborador</label>
+                            <select id="colaboradorSelect" name="idColaborador" required>
+                                <option value="" disabled selected>Selecciona un colaborador</option>
+                                <option th:each="colab : ${listaColaboradores}" th:value="${colab.idColaborador}"
+                                    th:text="${colab.persona.nombre}"></option>
+                            </select>
 
-                            <label>Identificacion</label>
-                            <input type="text" th:field="*{identificacion}" required>
+                            <!-- Select de actividades (se llenará dinámicamente) -->
+                            <label>Actividad</label>
+                            <select id="actividadSelect" name="idActividad" required>
+                                <option value="" disabled selected>Selecciona una actividad</option>
+                                <option th:each="act : ${listaActividades}" th:value="${act.idActividad}"
+                                    th:text="${act.titulo + ' (' + act.idActividad + ')'}"
+                                    th:data-colab="${act.colaborador.idColaborador}">
+                                </option>
+                            </select>
 
-                            <label>Ruc</label>
-                            <input type="text" th:field="*{ruc}" required>
 
+                            <label>Título</label>
+                            <input type="text" th:field="*{titulo}" required>
 
-                            <label>Usuario</label>
-                            <input type="text" th:field="*{usuario}" required>
+                            <label>Precio</label>
+                            <input type="number" step="0.01" th:field="*{precio}" required>
 
-                            <label>Contraseña</label>
-                            <input type="password" th:field="*{contrasena}" required>
+                            <label>Descripción</label>
+                            <textarea th:field="*{descripcion}" required></textarea>
 
                             <button type="submit" class="btn-submit">Agregar</button>
                         </form>
                     </div>
+
 
                     <!-- Modal para Eliminar , borre close btn-->
                     <div class="modal modal-delete">
@@ -189,9 +200,9 @@
                                     </svg>
                                 </div>
                                 <div class="content">
-                                    <span class="title">Eliminando Colaborador</span>
+                                    <span class="title">Eliminando Plan</span>
                                     <p class="message">
-                                        Estas Seguro que tu quieres eliminar el colaborador? todos sus datos sera
+                                        Estas Seguro que tu quieres eliminar el Plan? todos sus datos sera
                                         permanentemente eliminado.
                                         this action no puedes ser undone
                                     </p>
@@ -212,34 +223,30 @@
                 </div>
 
             </div>
-            <!-- Tabla de Clientes -->
+            <!-- Tabla de Plan -->
             <div class="table_db">
                 <table>
                     <thead>
                         <tr>
+                            <th>ID Actividad</th>
                             <th>ID Colaborador</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>ruc</th>
-                            <th>Identificacion</th>
-                            <th>Usuario</th>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
                             <th class="acciones">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="colaboradorEntidad : ${ListaColaborador}">
-                            <td th:text="${colaboradorEntidad.idColaborador}"></td>
-                            <td th:text="${colaboradorEntidad.persona.nombre}"></td>
-                            <td th:text="${colaboradorEntidad.persona.correoElectronico}"></td>
-                            <td th:text="${colaboradorEntidad.ruc}"></td>
-                            <td th:text="${colaboradorEntidad.Identificacion}"></td>
-                            <td th:text="${colaboradorEntidad.usuario}"></td>
+                        <tr th:each="planEntidad : ${listaPlanes}">
+                            <td th:text="${planEntidad.actividad.idActividad}"></td>
+                            <td th:text="${planEntidad.actividad.colaborador.idColaborador}"></td>
+                            <td th:text="${planEntidad.titulo}"></td>
+                            <td th:text="${planEntidad.descripcion}"></td>
+                            <td th:text="${planEntidad.precio}"></td>
                             <td class="flex justify-between items-center gap-2">
-
-
                                 <div class="add-btn btn_delete">
                                     <button class="text-open-delete" id="open-delete-modal"
-                                        th:attr="data-id=${colaboradorEntidad.idColaborador}" type="button"><svg
+                                        th:attr="data-id=${planEntidad.idPlan}" type="button"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
                                             <g fill="none">
@@ -255,7 +262,7 @@
 
                                 <div class="add-btn btn_edit">
                                     <a class="btn-edit"
-                                        th:href="@{/colaborador/editar-form/{id}(id=${colaboradorEntidad.idColaborador})}">
+                                        th:href="@{/planes/editar/{id}(id=${planEntidad.idPlan})}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
                                             <path fill="#000"
@@ -274,11 +281,11 @@
                 </table>
             </div>
 
+
+
     </section>
-
-    <script th:src="@{/js/colaborador.js}"></script>
-
-
+    <script th:src="@{/js/planes.js}"></script>
 </body>
+
 
 </html>

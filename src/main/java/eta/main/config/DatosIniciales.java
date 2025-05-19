@@ -1,13 +1,13 @@
 package eta.main.config;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.CommandLineRunner;//permite ejecutar codigo al iniciar la aplicacion
+import org.springframework.context.annotation.Bean;//permite definir beans
+import org.springframework.context.annotation.Configuration;//permite definir configuraciones
 
 import eta.main.modeloEntidad.Roles;
-import eta.main.repositorio.RolesRepository;
+import eta.main.repositorio.RolesRepository;// llama su repository
 
-
+// esta clase genera valores iniciales en la tabla roles
 
 @Configuration
 public class DatosIniciales {

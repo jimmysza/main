@@ -47,8 +47,9 @@ public class ActividadColaboradorControlador {
             return "redirect:/ingreso/colaborador";
         }
         Long idColaborador = colaborador.getIdColaborador();
-        model.addAttribute("ActividadEntidad", new Actividad()); 
+        model.addAttribute("ActividadEntidad", new Actividad());
         model.addAttribute("ListaActividad", actividadRepository.findByColaborador_IdColaborador(idColaborador));
+        model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
         model.addAttribute("CantidadActividad", actividadRepository.countByColaborador_IdColaborador(idColaborador));
         model.addAttribute("colaboradorLogueado", colaborador); // <-- AGREGA ESTA LÍNEA
 
@@ -105,12 +106,12 @@ public class ActividadColaboradorControlador {
         return actividadRepository.findById(id).orElse(null);
     }
 
-    @GetMapping("/editar-form/{id}")
-    public String mostrarFormularioEdicion(@PathVariable("id") Long id, Model model) {
+    @GetMapping("/editarColab-form/{id}")
+    public String mostrarFormularioEdicionColab(@PathVariable("id") Long id, Model model) {
         Actividad actividad = actividadRepository.findById(id).orElse(null);
         model.addAttribute("ActividadEntidad", actividad);
         model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
-        return "bd/edits/actividad-editar";
+        return "bd/edits/actColab-editar";
     }
 
     @PostMapping("/editar")

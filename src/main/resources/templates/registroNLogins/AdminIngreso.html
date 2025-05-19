@@ -16,7 +16,7 @@
     <link rel="stylesheet" th:href="@{/css/ingreso.css}">
     <link rel="stylesheet" th:href="@{/fonts/fonts.css}">
 
-    <title>Eta - Eventos Toures Actividades</title>
+    <title>Eta - Inicio Sesion - Admin - Eventos Toures Actividades</title>
 </head>
 
 <body>
@@ -27,8 +27,7 @@
                 <img th:src="@{/images/eta_rvbg.webp}" class="logo" alt="logo" loading="lazy" />
             </a>
             <ul class="nav-links">
-                <li><a th:href="@{/indice}">inicio</a></li>
-                <li><a th:href="@{/registro/admin}">Registrarse</a></li>
+                <!--<li><a th:href="@{/registro/admin}">Registrarse</a></li>-->
             </ul>
         </nav>
     </div>
@@ -36,8 +35,8 @@
     <section class="Formulario">
         <img class="form-logo rounded-full" th:src="@{/images/Logo.webp}" alt="Logo">
 
-        <h1>Continua con tu Sesion</h1>
-        <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>
+        <h1>Continua como Administrador</h1>
+       <!-- <p class="text-mayus login-sub-text">Bienvenido, ingresa tus datos</p>-->
 
         <form th:action="@{/ingreso/admin}" method="post" th:object="${adminEntidad}">
             <div class="containt-input flex justify-start items-center usuario">
@@ -85,5 +84,5 @@
     <!-- JavaScript con ruta Thymeleaf -->
     <script th:src="@{/js/ingreso.js}"></script>
 </body>
-
+st
 </html>

@@ -11,7 +11,7 @@
 
 <body>
     <div class="modal-edits">
-        <form th:action="@{/actividad/editar}" method="post" th:object="${ActividadEntidad}">
+        <form th:action="@{/actividadColaboradores/editar}" method="post" th:object="${ActividadEntidad}">
             
             <input type="hidden" name="idActividad" th:field="*{idActividad}" />
 
@@ -45,7 +45,7 @@
 
             <div class="btns-edits">
                 <button type="submit" class="btn-submit">Guardar</button>
-                <a th:href="@{/actividad}" class="cancelar-edits">Cancelar</a>
+                <a th:href="@{/actividadColaboradores}" class="cancelar-edits">Cancelar</a>
             </div>
         </form>
     </div>

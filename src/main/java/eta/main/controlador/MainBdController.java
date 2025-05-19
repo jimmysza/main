@@ -42,8 +42,6 @@ public class MainBdController {
     @Autowired
     private RolesRepository rolesRepository;
 
-    @Autowired
-    private AdminRepository adminRepository;
 
     @GetMapping
     public String MostrarMainBd(Model model, HttpSession session ) {

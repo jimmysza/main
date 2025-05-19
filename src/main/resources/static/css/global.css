@@ -41,6 +41,10 @@ body {
     --font-work-sans: "Work Sans", sans-serif;
 }
 
+.container-100{
+    background-color: var(--color-medium-blue);
+}
+
 section {
     width: 100%;
     max-width: 1351px;
@@ -527,7 +531,7 @@ footer .logo-footer {
 }
 
 .btn-salir-admin {
-    margin-top: 163px;
+    margin-top: 200px;
     width: 48px;
     height: 48px;
     background-color: #9abadc96;
@@ -538,6 +542,8 @@ footer .logo-footer {
     cursor: pointer;
     padding: 0;
 }
+
+
 
 .side-bar:hover {
     transition: all 0.3s ease-in-out;
@@ -592,32 +598,32 @@ footer .logo-footer {
 
 .menu-link1::after {
     content: "Cliente";
-    left: 25px;
+    left: 16px;
     top: -16px;
 }
 
 .menu-link2::after {
     content: "Actividades";
-
+    left: 4px;
     top: 35px;
 }
 
 .menu-link3::after {
     content: "Colaboradores";
-    left: 9px;
+    left: -4px;
     top: 85px;
 }
 
 .menu-link4::after {
     content: "Reservaciones";
-    left: 9px;
+    left: -4px;
     top: 135px;
 }
 
 .menu-link5::after {
     content: "Planes";
-    left: 30px;
-    top: 185px;
+    left: 16px;
+    top: 190px;
 }
 
 .menu-link6::after {
@@ -1193,4 +1199,14 @@ button {
     border-radius: 12px;
 }
 
-/*Componente*/
+/*Colaborado seccion controlador de bs*/
+
+ .menu-linkColabAct::after{
+    content: "Planes";
+        left: 20px;
+        top: -16px;
+    }
+
+    .btn-colabAct{
+        margin-top: 365px;
+}

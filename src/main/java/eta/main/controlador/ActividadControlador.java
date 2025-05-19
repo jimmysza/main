@@ -38,15 +38,18 @@ public class ActividadControlador {
     public String mostrarActividades(Model model, HttpSession session) {
         Actividad nuevaActividad = new Actividad();
 
-        model.addAttribute("ActividadEntidad", nuevaActividad);
-        model.addAttribute("ListaActividad", actividadRepository.findAll());
-        model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
-        model.addAttribute("CantidadActividad", actividadRepository.count());
-        // Verifica si hay un admin logueado
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
         if (adminLogueado == null) {
             return "redirect:/ingreso/admin";
         }
+
+        model.addAttribute("ActividadEntidad", nuevaActividad);
+        model.addAttribute("ListaActividad", actividadRepository.findAll());
+        model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
+        model.addAttribute("CantidadActividad", actividadRepository.count());
+    
+        
+        model.addAttribute("adminLogueado", adminLogueado);
 
         return "bd/actividad";
     }

@@ -105,8 +105,7 @@ public class IngresoControlador {
         );
 
         if (adminExistente != null) {
-            session.setAttribute("adminLogueado", adminExistente);
-            session.setAttribute("ultimoIngresoAdmin", LocalDateTime.now());
+            session.setAttribute("adminLogueado", adminExistente); // guardar el admin en la sesión
             return "redirect:/main";
         } else {
             System.out.println("ERROR LOGIN ADMIN: Usuario: " + admin.getUsuario() + " - Contraseña incorrecta o usuario no existe.");

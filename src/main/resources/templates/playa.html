@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guía Cartagena - Precios Playa</title>
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+
+<body>
+    <div class="container-100">
+        <nav>
+            <a class="flex justify-center items-center cursor-pointer" th:href="@{/indice}">
+                <img th:src="@{/images/eta_rvbg.webp}" class="logo" alt="logo" loading="lazy" />
+            </a>
+        </nav>
+    </div>
+    <h1>Precios en la playa de Cartagena</h1>
+    <div class="opciones">
+        <div class="opcion" onclick="mostrarSolo('listaCarpas')">
+            <img th:src="@{/images/carpa.jpg}" alt="Carpas" loading="lazy">
+            <p>Carpas: $30.000 COP/día</p>
+
+            <ul>
+                <li>Bocagrande: $35.000 COP</li>
+                <li>Centro: $30.000 COP</li>
+                <li>La Boquilla: $25.000 COP</li>
+                <li>Playa Blanca: $40.000 y 120.000 COP</li>
+            </ul>
+        </div>
+        <div class="opcion" onclick="mostrarSolo('listaComidas')">
+            <img th:src="@{/images/corrientazo.jpg}" alt="Comida" loading="lazy">
+            <p>Comidas: desde $25.000 COP</p>
+            <ul id="listaComidas" >
+                <li>Bocagrande: $30.000 - $50.000</li>
+                <li>Centro Histórico: $35.000 - $60.000</li>
+                <li>La Boquilla: $25.000 - $40.000</li>
+                <li>Playa Blanca: para esta zona los precios podrían variar por el sitio entre los 40.000 y 120.000 COP</li>
+            </ul>
+        </div>
+        <div class="opcion" onclick="mostrarSolo('listaJetski')">
+            <img th:src="@{/images/jetski.jpg}" alt="Jetski" loading="lazy">
+            <p>Jetski: $100.000 COP</p>
+            <ul id="listaJetski" >
+                <li>Bocagrande: $100.000 - 110.000 COP</li>
+                <li>Castillogrande: $120.000</li>
+                <li>La Boquilla: $90.000 - 120.000 COP</li>
+                <li>Playa Blanca: $100.000 - 130.000 COP</li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            margin-top: 200px;
+        }
+        .opciones {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .opcion {
+            width: 160px;
+            height: 150px;
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .opcion:hover {
+            height: 450px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .opcion img {
+            width: 100px;
+            height: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .opcion ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+            padding: 5px;
+            
+        }
+
+        .opcion ul li{
+            list-style: none;
+            
+        }
+        .opcion p {
+            display: block;
+            margin-top: 10px;
+            color: #0077cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container-100 {
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid #252525;
+    position: fixed;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    padding: 15px 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 134;
+    width: 100%;
+    background-color: var(--color-medium-blue);
+    max-width: 1351px;
+    gap: 60px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    color: var(--color-white);
+    font-weight: 400;
+    gap: 80px;
+    padding: 0 20px;
+}
+
+.nav-links li {
+    display: flex;
+}
+
+.nav-links li a {
+    z-index: 2;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--color-white);
+    font-family: var(--font-inter);
+}
+
+.logo {
+    z-index: 2;
+    object-fit: cover;
+    width: 100px;
+    margin-left: 60px;
+    height: 35px;
+}
+    </style>
+</body>
+</html>

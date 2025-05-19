@@ -4,13 +4,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.Model;//Se usa para pasar datos del backend al frontend (por ejemplo, una lista de clientes que se mostrará en una vista HTML).
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute; //Vincula datos del formulario a un objeto.
+import org.springframework.web.bind.annotation.PathVariable;//extrae el variables de la URL
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseBody;//Indica que el valor retornado se envía directamente como respuesta HTTP 
 
 import eta.main.modeloEntidad.Admin;
 import eta.main.modeloEntidad.Cliente;
@@ -35,25 +35,27 @@ public class ClienteControlador {
     @Autowired
     private PersonaRepository personaRepository;
 
+
     @GetMapping
     public String mostrarClientes(Model model, HttpSession session) {
-        // Verifica si hay un admin logueado
+        // crea adminLogueado q es el objeto admin que se guardó en la sesió
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
         if (adminLogueado == null) {
             return "redirect:/ingreso/admin";
         }
             
-        Cliente nuevoCliente = new Cliente();
-        nuevoCliente.setPersona(new Persona());
+        Cliente nuevoCliente = new Cliente(); // crea un nuevo cliente vacío
+        nuevoCliente.setPersona(new Persona()); // también le asigna una nueva persona vacía
 
-        model.addAttribute("cliente", nuevoCliente);
-        model.addAttribute("clientes", clienteRepository.findByPersona_Roles_IdRol(1L));
-        model.addAttribute("adminLogueado", adminLogueado);
-        model.addAttribute("CantidadCliente", clienteRepository.count());
+        // hace q pueda usar esto en el html
+        model.addAttribute("cliente", nuevoCliente); //usar cliente como nuevo cliente
+        model.addAttribute("clientes", clienteRepository.findByPersona_Roles_IdRol(1L)); //trae todos los personas con id rol 1
+        model.addAttribute("adminLogueado", adminLogueado); // para mostrar el admin logueado en la vista
+        model.addAttribute("CantidadCliente", clienteRepository.count());// cuenta la cantidad de clientes
 
         return "bd/cliente";
     }
-
+    // mehtod post, 
     @PostMapping
     public String guardaCliente(@ModelAttribute("cliente") Cliente cliente, Model model, HttpSession session) {
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
@@ -75,9 +77,11 @@ public class ClienteControlador {
             model.addAttribute("error", "El correo electrónico ya está en uso.");
             return "redirect:/cliente";
         }
-
+        //busca en roles por id 1, valida si existe el alguno con id = 1
         Optional<Roles> rolPorDefecto = rolesRepository.findById(1L);
+        //verifica si existe el rol por defecto
         if (rolPorDefecto.isPresent()) {
+            //acede a la persona del cliente y le asigna el rol por defecto
             cliente.getPersona().setRoles(rolPorDefecto.get());
             clienteRepository.save(cliente);
         } else {
@@ -107,12 +111,13 @@ public class ClienteControlador {
         return "redirect:/cliente";
     }
 
+    //devuelve un cliente en formato JSON
     @GetMapping("/editar/{id}")
     @ResponseBody
     public Cliente obtenerClienteParaEdicion(@PathVariable("id") Long id) {
         return clienteRepository.findById(id).orElse(null);
     }
-
+    //muestra el formulario de edición
     @GetMapping("/editar-form/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") Long id, Model model, HttpSession session) {
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
@@ -124,7 +129,7 @@ public class ClienteControlador {
         model.addAttribute("cliente", cliente);
         return "bd/edits/cliente-editar";
     }
-
+    //actualiza el cliente
     @PostMapping("/editar")
     public String actualizarCliente(HttpServletRequest request, Model model, HttpSession session) {
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");

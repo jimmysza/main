@@ -45,14 +45,17 @@ public class ColaboradorController {
         Colaborador nuevoColaborador = new Colaborador();
         nuevoColaborador.setPersona(new Persona());
 
-        model.addAttribute("colaboradorEntidad", nuevoColaborador);
-        model.addAttribute("ListaColaborador", colaboradorRepository.findByPersona_Roles_IdRol(2L));
-        model.addAttribute("CantidadColaborador", colaboradorRepository.count());
-        // Verifica si hay un admin logueado
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
         if (adminLogueado == null) {
             return "redirect:/ingreso/admin";
         }
+
+        model.addAttribute("colaboradorEntidad", nuevoColaborador);
+        model.addAttribute("ListaColaborador", colaboradorRepository.findByPersona_Roles_IdRol(2L));
+        model.addAttribute("adminLogueado", adminLogueado);
+        model.addAttribute("CantidadColaborador", colaboradorRepository.count());
+        // Verifica si hay un admin logueado
+        
         return "bd/colaborador";
     }
 

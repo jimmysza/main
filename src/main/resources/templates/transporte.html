@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guía Cartagena - Transporte</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="container-100">
+        <nav>
+            <a class="flex justify-center items-center cursor-pointer" th:href="@{/indice}">
+                <img th:src="@{/images/eta_rvbg.webp}" class="logo" alt="logo" loading="lazy" />
+            </a>
+            
+        </nav>
+    </div>
+    <h1>Opciones de transporte confiable en Cartagena</h1>
+    <div class="opciones-transporte">
+        <div class="opcion">
+            <a href="https://www.uber.com/co/es/" target="_blank">
+                <img th:src="@{/images/uber.jpg}" alt="uber" loading="lazy">
+            </a>
+        </div>
+        <div class="opcion">
+            <a href="https://www.transcaribe.gov.co/" target="_blank">
+                <img th:src="@{/images/transcaribe.jpg}"  loading="lazy" alt="Transcaribe">
+            </a>
+        </div>
+        <div class="opcion">
+            <a href="https://indriver.com/" target="_blank">
+                <img th:src="@{/images/indrive.jpg}" alt="indrive" loading="lazy">
+            </a>
+        </div>
+    </div>
+    <div id="mapa" style="height: 300px; width: 100%; margin-top: 30px;"></div>
+
+    <script>
+        window.onload = function () {
+            setTimeout(inicializarMapa, 500);
+        };
+
+        function inicializarMapa() {
+            if (window.mapaInstanciado) return;
+
+            if (!navigator.geolocation) {
+                alert("Tu navegador no soporta geolocalización.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                function (pos) {
+                    const lat = pos.coords.latitude;
+                    const lon = pos.coords.longitude;
+
+                    const mapa = L.map('mapa').setView([lat, lon], 15);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(mapa);
+
+                    L.marker([lat, lon]).addTo(mapa)
+                        .bindPopup('Estás justo aquí')
+                        .openPopup();
+
+                    window.mapaInstanciado = true;
+                },
+                function (err) {
+                    alert("No se pudo obtener tu ubicación.");
+                }
+            );
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            margin-top: 200px;
+        }
+        .opciones-transporte {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .opcion {
+            width: 160px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .opcion:hover {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .opcion img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .opcion a {
+            display: block;
+            margin-top: 10px;
+            color: #0077cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .opcion a:hover {
+            text-decoration: underline;
+        }
+
+        .container-100 {
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid #252525;
+    position: fixed;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    padding: 15px 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 134;
+    width: 100%;
+    background-color: var(--color-medium-blue);
+    max-width: 1351px;
+    gap: 60px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    color: var(--color-white);
+    font-weight: 400;
+    gap: 80px;
+    padding: 0 20px;
+}
+
+.nav-links li {
+    display: flex;
+}
+
+.nav-links li a {
+    z-index: 2;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--color-white);
+    font-family: var(--font-inter);
+}
+
+.logo {
+    z-index: 2;
+    object-fit: cover;
+    width: 100px;
+    margin-left: 60px;
+    height: 35px;
+}
+    </style>
+</body>
+</html>
