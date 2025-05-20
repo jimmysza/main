@@ -1032,13 +1032,15 @@ footer .logo-footer {
     width: 50px;
 }
 
-.modal-delete .form-delete {
+.modal-delete form {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 60px 20px;
     width: 400px;
     max-width: 350px;
+    height: 360px;
+    overflow: hidden;
     gap: 50px;
 }
 
@@ -1081,6 +1083,8 @@ footer .logo-footer {
 
 /* From Uiverse.io by Yaya12085 */
 .card {
+    width: 430px;
+    height: 360px;
     overflow: hidden;
     position: relative;
     background-color: #ffffff;

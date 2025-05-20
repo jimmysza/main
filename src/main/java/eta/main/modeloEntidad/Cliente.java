@@ -35,8 +35,9 @@ public class Cliente {
 
     // Relación uno a uno con la entidad Persona.
     @OneToOne(cascade = CascadeType.ALL) // Relación de tipo "uno a uno" con la entidad Persona.
-    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona") // Mapea la relación con la columna "id_persona" de la tabla "persona".
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona") 
     private Persona persona;
+    
 
     // Constructor por defecto (requerido por JPA).
     public Cliente() {}

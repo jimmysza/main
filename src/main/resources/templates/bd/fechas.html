@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="../../static/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title> ETA - Cliente Base de Datos </title>
+    <title>ETA - Actividades Base de Datos </title>
 
 </head>
 
 <body>
     <section class="container-manager ">
-        
         <div class="side-bar flex flex-col">
             <a th:href="@{/main}" class="logo-manager">
                 <img th:src="@{/images/logoInBlack.webp}" alt="">
@@ -75,7 +74,7 @@
                         </a>
                     </li>
                     <li class="menu-link menu-link5">
-                        <a th:href="@{/planes}">
+                        <a th:href="@{/fechas}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="#000"
                                     d="M15 16h3q.425 0 .713-.288T19 15V9q0-.425-.288-.712T18 8h-3q-.425 0-.712.288T14 9v6q0 .425.288.713T15 16m1-2v-4h1v4zm-7 2h3q.425 0 .713-.288T13 15V9q0-.425-.288-.712T12 8H9q-.425 0-.712.288T8 9v6q0 .425.288.713T9 16m1-2v-4h1v4zm-3 1V9q0-.425-.288-.712T6 8t-.712.288T5 9v6q0 .425.288.713T6 16t.713-.288T7 15m-5 3V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20H4q-.825 0-1.412-.587T2 18m2 0h16V6H4zm0 0V6z"
@@ -85,9 +84,20 @@
                     </li>
                     <li class="menu-link menu-link6">
                         <a th:href="@{/fechas}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M7.25 6.258V6.5a.75.75 0 0 0 1.5 0v-.25h6.5v.25a.75.75 0 0 0 1.5 0v-.242q.166.006.302.017c.288.023.425.065.515.111c.236.12.427.311.547.547c.046.09.088.227.111.514c.024.296.025.68.025 1.253v.55H5.75V8.7c0-.572 0-.957.025-1.253c.023-.287.065-.424.111-.514a1.25 1.25 0 0 1 .547-.547c.09-.046.227-.088.514-.111a6 6 0 0 1 .303-.017M10.5 7a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5z" clip-rule="evenodd" opacity="0.5"/><path fill="#000" d="M8.5 14a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m0 3.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12 17.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0"/><path fill="#000" fill-rule="evenodd" d="M8 3.25a.75.75 0 0 1 .75.75v.75h6.5V4a.75.75 0 0 1 1.5 0v.758q.228.006.425.022c.38.03.736.098 1.073.27a2.75 2.75 0 0 1 1.202 1.202c.172.337.24.693.27 1.073c.03.365.03.81.03 1.345v7.66c0 .535 0 .98-.03 1.345c-.03.38-.098.736-.27 1.073a2.75 2.75 0 0 1-1.201 1.202c-.338.172-.694.24-1.074.27c-.365.03-.81.03-1.344.03H8.17c-.535 0-.98 0-1.345-.03c-.38-.03-.736-.098-1.073-.27a2.75 2.75 0 0 1-1.202-1.2c-.172-.338-.24-.694-.27-1.074c-.03-.365-.03-.81-.03-1.344V8.67c0-.535 0-.98.03-1.345c.03-.38.098-.736.27-1.073A2.75 2.75 0 0 1 5.752 5.05c.337-.172.693-.24 1.073-.27q.197-.016.425-.022V4A.75.75 0 0 1 8 3.25M7.25 6.5v-.242a6 6 0 0 0-.303.017c-.287.023-.424.065-.514.111a1.25 1.25 0 0 0-.547.547c-.046.09-.088.227-.111.514c-.024.296-.025.68-.025 1.253v.55h12.5V8.7c0-.572 0-.957-.025-1.253c-.023-.287-.065-.424-.111-.514a1.25 1.25 0 0 0-.547-.547c-.09-.046-.227-.088-.515-.111a6 6 0 0 0-.302-.017V6.5a.75.75 0 0 1-1.5 0v-.25h-6.5v.25a.75.75 0 0 1-1.5 0m11 3.75H5.75v6.05c0 .572 0 .957.025 1.252c.023.288.065.425.111.515c.12.236.311.427.547.547c.09.046.227.088.514.111c.296.024.68.025 1.253.025h7.6c.572 0 .957 0 1.252-.025c.288-.023.425-.065.515-.111a1.25 1.25 0 0 0 .547-.547c.046-.09.088-.227.111-.515c.024-.295.025-.68.025-1.252z" clip-rule="evenodd"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M7.25 6.258V6.5a.75.75 0 0 0 1.5 0v-.25h6.5v.25a.75.75 0 0 0 1.5 0v-.242q.166.006.302.017c.288.023.425.065.515.111c.236.12.427.311.547.547c.046.09.088.227.111.514c.024.296.025.68.025 1.253v.55H5.75V8.7c0-.572 0-.957.025-1.253c.023-.287.065-.424.111-.514a1.25 1.25 0 0 1 .547-.547c.09-.046.227-.088.514-.111a6 6 0 0 1 .303-.017M10.5 7a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5z"
+                                    clip-rule="evenodd" opacity="0.5" />
+                                <path fill="#000"
+                                    d="M8.5 14a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m0 3.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12 17.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0" />
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M8 3.25a.75.75 0 0 1 .75.75v.75h6.5V4a.75.75 0 0 1 1.5 0v.758q.228.006.425.022c.38.03.736.098 1.073.27a2.75 2.75 0 0 1 1.202 1.202c.172.337.24.693.27 1.073c.03.365.03.81.03 1.345v7.66c0 .535 0 .98-.03 1.345c-.03.38-.098.736-.27 1.073a2.75 2.75 0 0 1-1.201 1.202c-.338.172-.694.24-1.074.27c-.365.03-.81.03-1.344.03H8.17c-.535 0-.98 0-1.345-.03c-.38-.03-.736-.098-1.073-.27a2.75 2.75 0 0 1-1.202-1.2c-.172-.338-.24-.694-.27-1.074c-.03-.365-.03-.81-.03-1.344V8.67c0-.535 0-.98.03-1.345c.03-.38.098-.736.27-1.073A2.75 2.75 0 0 1 5.752 5.05c.337-.172.693-.24 1.073-.27q.197-.016.425-.022V4A.75.75 0 0 1 8 3.25M7.25 6.5v-.242a6 6 0 0 0-.303.017c-.287.023-.424.065-.514.111a1.25 1.25 0 0 0-.547.547c-.046.09-.088.227-.111.514c-.024.296-.025.68-.025 1.253v.55h12.5V8.7c0-.572 0-.957-.025-1.253c-.023-.287-.065-.424-.111-.514a1.25 1.25 0 0 0-.547-.547c-.09-.046-.227-.088-.515-.111a6 6 0 0 0-.302-.017V6.5a.75.75 0 0 1-1.5 0v-.25h-6.5v.25a.75.75 0 0 1-1.5 0m11 3.75H5.75v6.05c0 .572 0 .957.025 1.252c.023.288.065.425.111.515c.12.236.311.427.547.547c.09.046.227.088.514.111c.296.024.68.025 1.253.025h7.6c.572 0 .957 0 1.252-.025c.288-.023.425-.065.515-.111a1.25 1.25 0 0 0 .547-.547c.046-.09.088-.227.111-.515c.024-.295.025-.68.025-1.252z"
+                                    clip-rule="evenodd" />
+                            </svg>
                         </a>
                     </li>
+
+
                 </ul>
             </div>
             <a class="btn-salir-admin" th:href="@{/ingreso/admin}">
@@ -100,38 +110,35 @@
 
         <div class="main-content">
             <div class="header_db">
-                <h1> Administrar Clientes</h1>
+                <h1> Administrar tus Fechas</h1>
                 <!--                        
                 <div class="profile">
                     <img src="/images/perfil_colaborador.jpg" alt="Profile Picture">
                 </div>
                 -->
-                <span th:if="${adminLogueado != null}" th:text="${adminLogueado.usuario}"></span>
-                <span th:if="${adminLogueado == null}">No admin logueado</span>
+                <span th:text="${adminLogueado != null ? adminLogueado.usuario : ''}"></span>
+
             </div>
 
             <div class="filtro_db">
                 <div class="filtro-function">
                     <div class="svgc">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                                <path d="M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1">
-                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="28;0" />
-                                </path>
-                                <path
-                                    d="M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z">
-                                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s"
-                                        values="28;0" />
-                                </path>
-                            </g>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#000" fill-rule="evenodd"
+                                d="M7.25 6.258V6.5a.75.75 0 0 0 1.5 0v-.25h6.5v.25a.75.75 0 0 0 1.5 0v-.242q.166.006.302.017c.288.023.425.065.515.111c.236.12.427.311.547.547c.046.09.088.227.111.514c.024.296.025.68.025 1.253v.55H5.75V8.7c0-.572 0-.957.025-1.253c.023-.287.065-.424.111-.514a1.25 1.25 0 0 1 .547-.547c.09-.046.227-.088.514-.111a6 6 0 0 1 .303-.017M10.5 7a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5z"
+                                clip-rule="evenodd" opacity="0.5" />
+                            <path fill="#000"
+                                d="M8.5 14a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m0 3.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12 17.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0" />
+                            <path fill="#000" fill-rule="evenodd"
+                                d="M8 3.25a.75.75 0 0 1 .75.75v.75h6.5V4a.75.75 0 0 1 1.5 0v.758q.228.006.425.022c.38.03.736.098 1.073.27a2.75 2.75 0 0 1 1.202 1.202c.172.337.24.693.27 1.073c.03.365.03.81.03 1.345v7.66c0 .535 0 .98-.03 1.345c-.03.38-.098.736-.27 1.073a2.75 2.75 0 0 1-1.201 1.202c-.338.172-.694.24-1.074.27c-.365.03-.81.03-1.344.03H8.17c-.535 0-.98 0-1.345-.03c-.38-.03-.736-.098-1.073-.27a2.75 2.75 0 0 1-1.202-1.2c-.172-.338-.24-.694-.27-1.074c-.03-.365-.03-.81-.03-1.344V8.67c0-.535 0-.98.03-1.345c.03-.38.098-.736.27-1.073A2.75 2.75 0 0 1 5.752 5.05c.337-.172.693-.24 1.073-.27q.197-.016.425-.022V4A.75.75 0 0 1 8 3.25M7.25 6.5v-.242a6 6 0 0 0-.303.017c-.287.023-.424.065-.514.111a1.25 1.25 0 0 0-.547.547c-.046.09-.088.227-.111.514c-.024.296-.025.68-.025 1.253v.55h12.5V8.7c0-.572 0-.957-.025-1.253c-.023-.287-.065-.424-.111-.514a1.25 1.25 0 0 0-.547-.547c-.09-.046-.227-.088-.515-.111a6 6 0 0 0-.302-.017V6.5a.75.75 0 0 1-1.5 0v-.25h-6.5v.25a.75.75 0 0 1-1.5 0m11 3.75H5.75v6.05c0 .572 0 .957.025 1.252c.023.288.065.425.111.515c.12.236.311.427.547.547c.09.046.227.088.514.111c.296.024.68.025 1.253.025h7.6c.572 0 .957 0 1.252-.025c.288-.023.425-.065.515-.111a1.25 1.25 0 0 0 .547-.547c.046-.09.088-.227.111-.515c.024-.295.025-.68.025-1.252z"
+                                clip-rule="evenodd" />
                         </svg>
                     </div>
 
                     <div class="filtro-eazy">
-                        <p>Cantidad de clientes</p>
-                        <span class="cantidades" th:text="${CantidaCliente}"></span>
+                        <p>Cantidad de Fechas</p>
+                        <span class="cantidades" th:text="${CantidadFechas}"></span>
                     </div>
                 </div>
                 <div class="flex gap-1">
@@ -163,24 +170,31 @@
                     <!-- Modal para Agregar -->
                     <div class="modal modal-add">
                         <span class="close-modal">&times;</span>
-                        <h2>Agregar Cliente</h2>
 
-                        <form th:action="@{/cliente}" method="post" th:object="${cliente}">
-                            <label>Nombre</label>
-                            <input type="text" th:field="*{persona.nombre}" required>
+                        <form th:action="@{/fechas}" method="post" th:object="${fechasEntidad}">
+                            <p class="title-modals">Agregar Fechas</p>
 
-                            <label>Email</label>
-                            <input type="email" th:field="*{persona.correoElectronico}" required>
 
-                            <label>Usuario</label>
-                            <input type="text" th:field="*{usuario}" required>
+                            <!-- Select de actividades (se llenará dinámicamente) -->
+                            <label>Actividad</label>
+                            <select name="id_actividad" required>
+                                <option value="" disabled selected>Selecciona una actividad</option>
+                                <option th:each="act : ${listaActividades}" th:value="${act.idActividad}"
+                                    th:text="${act.titulo}"></option>
+                            </select>
 
-                            <label>Contraseña</label>
-                            <input type="password" th:field="*{contrasena}" required>
+
+                            <label>Dia</label>
+                            <input type="date" th:field="*{dia}" required>
+
+                            <label>Hora</label>
+                            <input type="datetime" step="0.01" th:field="*{hora}" required>
+
 
                             <button type="submit" class="btn-submit">Agregar</button>
                         </form>
                     </div>
+
 
                     <!-- Modal para Eliminar , borre close btn-->
                     <div class="modal modal-delete">
@@ -195,9 +209,9 @@
                                     </svg>
                                 </div>
                                 <div class="content">
-                                    <span class="title">Eliminando Cliente</span>
+                                    <span class="title">Eliminando Fecha</span>
                                     <p class="message">
-                                        Estas Seguro que tu quieres eliminar el cliente? todos sus datos sera
+                                        Estas Seguro que tu quieres eliminar la Fecha? todos sus datos sera
                                         permanentemente eliminado.
                                         this action no puedes ser undone
                                     </p>
@@ -212,33 +226,34 @@
                     </div>
                     <!-- Modal para Editar -->
 
-                </div>
-            </div>
 
-            <!-- Tabla de Clientes -->
+
+
+                </div>
+
+            </div>
+            <!-- Tabla de Plan -->
             <div class="table_db">
                 <table>
                     <thead>
                         <tr>
-                            <th>ID Cliente</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Usuario</th>
+                            <th>id Fecha</th>
+                            <th>Actividad</th>
+                            <th>Dia</th>
+                            <th>hora</th>
                             <th class="acciones">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="cliente : ${clientes}">
-                            <td th:text="${cliente.idCliente}"></td>
-                            <td th:text="${cliente.persona.nombre}"></td>
-                            <td th:text="${cliente.persona.correoElectronico}"></td>
-                            <td th:text="${cliente.usuario}"></td>
+                        <tr th:each="fechasEntidad : ${listaFechas}">
+                            <td th:text="${fechasEntidad.idFecha}"></td>
+                            <td th:text="${fechasEntidad.actividad.idActividad}"></td>
+                            <td th:text="${fechasEntidad.dia}"></td>
+                            <td th:text="${fechasEntidad.hora}"></td>
                             <td class="flex justify-between items-center gap-2">
-
-
                                 <div class="add-btn btn_delete">
                                     <button class="text-open-delete" id="open-delete-modal"
-                                        th:attr="data-id=${cliente.idCliente}" type="button"><svg
+                                        th:attr="data-id=${fechasEntidad.idFecha}" type="button"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
                                             <g fill="none">
@@ -251,9 +266,9 @@
                                         </svg>
                                     </button>
                                 </div>
-
                                 <div class="add-btn btn_edit">
-                                    <a class="btn-edit" th:href="@{/cliente/editar-form/{id}(id=${cliente.idCliente})}">
+                                    <a class="btn-edit"
+                                        th:href="@{/fechas/editar-form/{id}(id=${fechasEntidad.idFecha})}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
                                             <path fill="#000"
@@ -262,18 +277,21 @@
                                         </svg>
                                     </a>
                                 </div>
+
+
+
+
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+
+
 
     </section>
-
-    <script th:src="@{/js/cliente.js}"></script>
-    <script src="../static/js/cliente.js"></script>
-
+    <script th:src="@{/js/fechas.js}"></script>
 </body>
+
 
 </html>

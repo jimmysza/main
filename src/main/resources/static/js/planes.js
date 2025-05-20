@@ -45,19 +45,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
-            const colaboradorSelect = document.getElementById('colaboradorSelect');
-            const actividadSelect = document.getElementById('actividadSelect');
+    
+    // Obtiene el elemento <select> del colaborador por su ID
+    const colaboradorSelect = document.getElementById('colaboradorSelect');
 
-            function filtrarActividades() {
-                const colabId = colaboradorSelect.value;
-                Array.from(actividadSelect.options).forEach(opt => {
-                    if (!opt.value) return; // Ignora la opción por defecto
-                    opt.style.display = (opt.getAttribute('data-colab') === colabId) ? '' : 'none';
-                });
-                actividadSelect.value = '';
-            }
+    // Obtiene el elemento <select> de actividad por su ID
+    const actividadSelect = document.getElementById('actividadSelect');
 
-            colaboradorSelect.addEventListener('change', filtrarActividades);
-            filtrarActividades(); // Inicializa al cargar
+    // Función que filtra las actividades según el colaborador seleccionado
+    function filtrarActividades() {
+        // Obtiene el ID del colaborador actualmente seleccionado
+        const colabId = colaboradorSelect.value;
+
+        // Recorre todas las opciones del <select> de actividades
+        Array.from(actividadSelect.options).forEach(opt => {
+            // Si la opción no tiene valor (ej. la opción "Selecciona una actividad"), la ignora
+            if (!opt.value) return;
+
+            // Compara el atributo "data-colab" de la opción con el ID del colaborador seleccionado
+            // Si coinciden, muestra la opción; si no, la oculta
+            opt.style.display = (opt.getAttribute('data-colab') === colabId) ? '' : 'none';
         });
+
+        // Limpia la selección actual del <select> de actividad
+        actividadSelect.value = '';
+    }
+
+    // Asocia la función anterior al evento "change" del <select> de colaborador
+    // Cada vez que el usuario cambia el colaborador, se filtran las actividades
+    colaboradorSelect.addEventListener('change', filtrarActividades);
+
+    // Ejecuta la función una vez al cargar la página para filtrar inicialmente
+    filtrarActividades();
+});

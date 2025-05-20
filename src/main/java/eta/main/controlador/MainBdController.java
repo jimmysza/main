@@ -11,11 +11,13 @@ import eta.main.repositorio.ActividadRepository;
 import eta.main.repositorio.AdminRepository;
 import eta.main.repositorio.ClienteRepository;
 import eta.main.repositorio.ColaboradorRepository;
+import eta.main.repositorio.FechasRepository;
 import eta.main.repositorio.PersonaRepository;
 import eta.main.repositorio.PlanRepository;
 import eta.main.repositorio.ReservacionRepository;
 import eta.main.repositorio.RolesRepository;
 import jakarta.servlet.http.HttpSession;
+import eta.main.repositorio.FechasRepository;
 
 @Controller
 @RequestMapping("/main")
@@ -42,6 +44,9 @@ public class MainBdController {
     @Autowired
     private RolesRepository rolesRepository;
 
+    @Autowired
+    private FechasRepository fechasRepository;
+
 
     @GetMapping
     public String MostrarMainBd(Model model, HttpSession session ) {
@@ -52,6 +57,7 @@ public class MainBdController {
         model.addAttribute("CantidadReservacion", reservacionRepository.count());
         model.addAttribute("CantidadRoles", rolesRepository.count());
         model.addAttribute("CantidadActividad", actividadRepository.count());
+        model.addAttribute("CantidadFechas", fechasRepository.count());
 
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
         if (adminLogueado == null) {

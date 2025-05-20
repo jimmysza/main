@@ -41,6 +41,7 @@ public class PlanesController {
         if (adminLogueado == null) {
             return "redirect:/ingreso/admin";
         }
+
         model.addAttribute("planEntidad", new Plan());
         model.addAttribute("listaPlanes", planRepository.findAll());
         model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
@@ -107,10 +108,13 @@ public class PlanesController {
 
     @PostMapping("/editar")
     public String actualizarPlan(HttpServletRequest request, Model model, HttpSession session) {
+        
+        
         Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
         if (adminLogueado == null) {
             return "redirect:/ingreso/admin";
         }
+
         Long idPlan = Long.valueOf(request.getParameter("idPlan"));
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");

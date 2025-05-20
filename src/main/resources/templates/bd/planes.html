@@ -14,7 +14,7 @@
 
 <body>
     <section class="container-manager ">
-        <div class="side-bar flex flex-col">
+       <div class="side-bar flex flex-col">
             <a th:href="@{/main}" class="logo-manager">
                 <img th:src="@{/images/logoInBlack.webp}" alt="">
             </a>
@@ -22,19 +22,20 @@
                 <ul>
                     <li class="menu-link menu-link1">
                         <a th:href="@{/cliente}">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                                <path d="M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1">
-                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="28;0" />
-                                </path>
-                                <path
-                                    d="M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z">
-                                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s"
-                                        values="28;0" />
-                                </path>
-                            </g>
-                        </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <path d="M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1">
+                                        <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
+                                            values="28;0" />
+                                    </path>
+                                    <path
+                                        d="M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z">
+                                        <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s"
+                                            values="28;0" />
+                                    </path>
+                                </g>
+                            </svg>
                         </a>
                     </li>
 
@@ -81,8 +82,11 @@
                             </svg>
                         </a>
                     </li>
-                    
-
+                    <li class="menu-link menu-link6">
+                        <a th:href="@{/fechas}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M7.25 6.258V6.5a.75.75 0 0 0 1.5 0v-.25h6.5v.25a.75.75 0 0 0 1.5 0v-.242q.166.006.302.017c.288.023.425.065.515.111c.236.12.427.311.547.547c.046.09.088.227.111.514c.024.296.025.68.025 1.253v.55H5.75V8.7c0-.572 0-.957.025-1.253c.023-.287.065-.424.111-.514a1.25 1.25 0 0 1 .547-.547c.09-.046.227-.088.514-.111a6 6 0 0 1 .303-.017M10.5 7a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5z" clip-rule="evenodd" opacity="0.5"/><path fill="#000" d="M8.5 14a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m0 3.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12 17.5a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4.75-4.75a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0"/><path fill="#000" fill-rule="evenodd" d="M8 3.25a.75.75 0 0 1 .75.75v.75h6.5V4a.75.75 0 0 1 1.5 0v.758q.228.006.425.022c.38.03.736.098 1.073.27a2.75 2.75 0 0 1 1.202 1.202c.172.337.24.693.27 1.073c.03.365.03.81.03 1.345v7.66c0 .535 0 .98-.03 1.345c-.03.38-.098.736-.27 1.073a2.75 2.75 0 0 1-1.201 1.202c-.338.172-.694.24-1.074.27c-.365.03-.81.03-1.344.03H8.17c-.535 0-.98 0-1.345-.03c-.38-.03-.736-.098-1.073-.27a2.75 2.75 0 0 1-1.202-1.2c-.172-.338-.24-.694-.27-1.074c-.03-.365-.03-.81-.03-1.344V8.67c0-.535 0-.98.03-1.345c.03-.38.098-.736.27-1.073A2.75 2.75 0 0 1 5.752 5.05c.337-.172.693-.24 1.073-.27q.197-.016.425-.022V4A.75.75 0 0 1 8 3.25M7.25 6.5v-.242a6 6 0 0 0-.303.017c-.287.023-.424.065-.514.111a1.25 1.25 0 0 0-.547.547c-.046.09-.088.227-.111.514c-.024.296-.025.68-.025 1.253v.55h12.5V8.7c0-.572 0-.957-.025-1.253c-.023-.287-.065-.424-.111-.514a1.25 1.25 0 0 0-.547-.547c-.09-.046-.227-.088-.515-.111a6 6 0 0 0-.302-.017V6.5a.75.75 0 0 1-1.5 0v-.25h-6.5v.25a.75.75 0 0 1-1.5 0m11 3.75H5.75v6.05c0 .572 0 .957.025 1.252c.023.288.065.425.111.515c.12.236.311.427.547.547c.09.046.227.088.514.111c.296.024.68.025 1.253.025h7.6c.572 0 .957 0 1.252-.025c.288-.023.425-.065.515-.111a1.25 1.25 0 0 0 .547-.547c.046-.09.088-.227.111-.515c.024-.295.025-.68.025-1.252z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <a class="btn-salir-admin" th:href="@{/ingreso/admin}">
@@ -157,7 +161,9 @@
                             <!-- Select de colaboradores -->
                             <label>Colaborador</label>
                             <select id="colaboradorSelect" name="idColaborador" required>
+                                
                                 <option value="" disabled selected>Selecciona un colaborador</option>
+                                <!--recorre colaboradores, asigna su id, pero muestra el nombre-->
                                 <option th:each="colab : ${listaColaboradores}" th:value="${colab.idColaborador}"
                                     th:text="${colab.persona.nombre}"></option>
                             </select>
@@ -228,8 +234,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID Actividad</th>
-                            <th>ID Colaborador</th>
+                            <th>Actividad</th>
+                            <th>Colaborador</th>
                             <th>Titulo</th>
                             <th>Descripcion</th>
                             <th>Precio</th>
@@ -238,8 +244,8 @@
                     </thead>
                     <tbody>
                         <tr th:each="planEntidad : ${listaPlanes}">
-                            <td th:text="${planEntidad.actividad.idActividad}"></td>
-                            <td th:text="${planEntidad.actividad.colaborador.idColaborador}"></td>
+                            <td th:text="${planEntidad.actividad.titulo}"></td>
+                            <td th:text="${planEntidad.actividad.colaborador.usuario}"></td>
                             <td th:text="${planEntidad.titulo}"></td>
                             <td th:text="${planEntidad.descripcion}"></td>
                             <td th:text="${planEntidad.precio}"></td>
@@ -259,10 +265,8 @@
                                         </svg>
                                     </button>
                                 </div>
-
                                 <div class="add-btn btn_edit">
-                                    <a class="btn-edit"
-                                        th:href="@{/planes/editar/{id}(id=${planEntidad.idPlan})}">
+                                    <a class="btn-edit" th:href="@{/planes/editar-form/{id}(id=${planEntidad.idPlan})}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24">
                                             <path fill="#000"
