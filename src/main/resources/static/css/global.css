@@ -358,7 +358,14 @@ section {
     opacity: 1;
 }
 
-
+.perfilCliente a{
+    color: var(--color-medium-blue);
+    text-decoration: underline;
+    background-color: var(--color-white);
+    border-radius: 20px;
+    padding: 4px 24px;
+    font-weight: 700;
+}
 
 /*footer*/
 

@@ -41,7 +41,7 @@
 
                 <!-- Mostrar perfil solo si hay cliente logueado -->
                 <div class="perfilCliente" th:if="${clienteLogueado != null}">
-                    <a th:text="${clienteLogueado.persona.nombre}" th:href="/clientePerfil" ></a>
+                    <a th:href="@{/clientePerfil}" th:text="${clienteLogueado.persona.nombre}"></a>
                 </div>
             </nav>
         </div>
@@ -69,9 +69,7 @@
             <h2 class="h2_trendi">Tendencias, <a href="#" class="city">Cartagena de Indias</a></h2>
         </div>
         <div class="container-activities">
-            <div th:each="actividadesEntidad : ${actividades}">
-
-
+            <div th:each="actividadesEntidad : ${actividades}" class="card-activity">
                 <a th:href="@{/detalle/actividad/{id}(id=${actividadesEntidad.idActividad})}">
                     <div class="cardd">
                         <div class="container-bookmark">

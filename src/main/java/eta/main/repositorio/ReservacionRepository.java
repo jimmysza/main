@@ -12,5 +12,6 @@ public interface ReservacionRepository extends JpaRepository<Reservacion, Long> 
 
     long countByActividadColaboradorIdColaborador(Long idColaborador);
     List<Reservacion> findByActividadColaboradorIdColaborador(Long idColaborador);
+    List<Reservacion> findByClienteIdCliente(Long idCliente);
 
 }

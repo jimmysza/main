@@ -14,5 +14,7 @@ public interface FechasRepository extends JpaRepository<Fechas, Long> {
     List<Fechas> findByActividad_IdActividad(Long idActividad); // Encuentra fechas por actividad.
 
     List<Fechas> findByActividadColaboradorIdColaborador(Long idColaborador);
+
+    
     
 }

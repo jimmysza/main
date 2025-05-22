@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+</html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
+
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/fonts/fonts.css">
+
+    <title>ETA - Perfil Cliente</title>
+</head>
+
+<body>
+    <nav>
+        <a th:href="@{/indice}" class="flex justify-center items-center">
+            
+            <img src="/images/logoinBlack.webp" class="logo" alt="logo" />
+        </a>
+        <!-- Mostrar perfil solo si hay cliente logueado -->
+        <div class="perfilCliente">
+            <a th:text="${clienteLogueado.persona.nombre}"></a>
+        </div>
+    </nav>
+
+    <div class="modal modal-delete">
+        <form class="card">
+            <div class="header">
+                <div class="image">
+                    <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                            stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                </div>
+                <div class="content">
+                    <span class="title">Eliminando Reservacion</span>
+                    <p class="message">
+                        Estas Seguro que tu quieres eliminar la Reservacion? todos sus datos sera
+                        permanentemente eliminado.
+                        this action no puedes ser undone
+                    </p>
+                </div>
+                <div class="actions">
+                    <a id="delete-confirm-btn" class="delete-btn desactivate">Eliminar</a>
+
+                    <button class="cancel close-btn-modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="box personal">
+        <h2>Informacion Personal</h2>
+        <!-- Mostrar solo si existe clienteLogueado y persona -->
+        <div class="show-info" th:if="${clienteLogueado != null and clienteLogueado.persona != null}">
+            <div class="flex flex-col items-center">
+                <h4>Nombre</h4>
+                <p th:text="${clienteLogueado.persona.nombre}"></p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h4>Usuario</h4>
+                <p th:text="${clienteLogueado.usuario}"></p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h4>Contraseña</h4>
+                <p th:text="${clienteLogueado.contrasena}"></p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h4>Email</h4>
+                <p th:text="${clienteLogueado.persona.correoElectronico}"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="box Reservacion">
+        <h2>Reservaciones</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Reservacion</th>
+                    <th>Colaborador</th>
+                    <th>Actividad</th>
+                    <th>Plan</th>
+                    <th>Fecha</th>
+                    <th class="acciones">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="forReservacion : ${reservaciones}">
+                    <td th:text="${forReservacion.idReservacion}"></td>
+                    <td
+                        th:text="${forReservacion.actividad.titulo + ' (' + forReservacion.actividad.idActividad + ')'}">
+                    </td>
+                    <td
+                        th:text="${forReservacion.actividad.colaborador.usuario + ' (' + forReservacion.actividad.colaborador.idColaborador + ')'}">
+                    </td>
+                    <td th:text="${forReservacion.plan?.titulo + ' (' + forReservacion.plan?.idPlan + ')'}">
+                    </td>
+                    <td th:text="${ '(' + forReservacion.fecha.dia + ') , (' + forReservacion.fecha.hora  + ')' }">
+                    </td>
+                    <td class="flex justify-between items-center gap-2">
+                        <div class="add-btn btn_delete">
+                            <button class="text-open-delete" id="open-delete-modal"
+                                th:attr="data-id=${forReservacion.idReservacion}" type="button"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path fill="#fff" d="M8 21h8a2 2 0 0 0 2-2V7H6v12a2 2 0 0 0 2 2"
+                                            opacity="0.16" />
+                                        <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2.5"
+                                            d="M14 11v6m-4-6v6M6 7v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7M4 7h16M7 7l2-4h6l2 4" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="add-btn btn_edit">
+                            <a class="btn-edit"
+                                th:href="@{/clientePerfil/editar-form/{id}(id=${forReservacion.idReservacion})}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"
+                                        stroke-width="0.4" stroke="#ffaf00" />
+                                </svg>
+                            </a>
+                        </div>
+
+
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script th:src="@{/js/perfil.js}"></script>
+</body>
+
+</html>

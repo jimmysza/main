@@ -1,0 +1,85 @@
+body{
+    background-color: #f6f6f6;
+}
+
+p, td{
+    color:white;
+    font-weight: 600;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 134;
+    width: 100%;
+    max-width: 1367px;
+    margin: 0 auto;
+}
+
+.logo{
+    z-index: 2;
+    object-fit: cover;
+    width: 7    0px;
+    height: 30px;
+}
+
+.box{
+    width: 100%;
+    max-width: 1268px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 60px;
+    background: #cdcccc; /* color de fondo base */
+    border-radius: 20px; /* opcional, para bordes redondeados */
+    padding: 35px;
+    box-shadow: 
+    inset -33px -33px 46px rgba(255, 255, 255, 0.64),
+    inset 28px 28px 54px rgba(13, 39, 80, 0.16);
+}
+
+.personal{
+    height: 160px;
+    
+}
+
+h2{
+    padding: 0px 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--font-poppins);
+    color: var(--color-black);
+    margin-bottom: 1rem;
+}
+
+h4, th  {
+    font-weight: 700;
+    font-family: var(--font-poppins);
+    color: var(--color-light-blue); 
+}
+
+
+.Reservacion{
+    min-height: 150px;
+    height: fit-content;
+}
+
+.show-info{
+    display:grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    grid-template-rows:  1fr;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+

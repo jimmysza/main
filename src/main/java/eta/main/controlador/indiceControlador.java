@@ -1,4 +1,4 @@
-package eta.main.controlador;
+    package eta.main.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +28,7 @@ public class indiceControlador {
 
         // Extraer cliente desde la sesión
         Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
+        model.addAttribute("clienteLogueado", cliente);
         if (cliente != null) {
             if (cliente.getPersona() != null) {
                 String nombreCompleto = cliente.getPersona().getNombre();

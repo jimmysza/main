@@ -279,14 +279,14 @@ dialog {
 .Trending {
     position: relative;
     width: 100%;
-    max-width: 1351px;
+    max-width: 1500px;
     margin: 0 auto;
     height: fit-content;
-    padding: 3.5rem 4rem 1rem 4rem;
+    padding: 3.5rem 2rem 1rem 2rem;
 }
 
 h2 {
-    padding: 0px 10px;
+    padding: 0px 2.1rem;
     font-size: 2rem;
     font-weight: 700;
     font-family: var(--font-poppins);
@@ -302,11 +302,21 @@ h2 {
 .container-activities {
     display: flex;
     width: 100%;
-    height: max-content;
+    height: fit-content;
+    flex-wrap: wrap; /* <-- Corrección aquí */
     position: relative;
-    overflow-x: scroll;
     gap: 1rem;
     box-sizing: border-box;
+    justify-content: flex-start; /* o space-between */
+}
+
+
+.card-activity {
+    flex: 1 1 calc(25% - 0.8rem);
+    max-width: calc(25% - 0.8rem);
+    min-width: 250px; /* Opcional, para evitar que se hagan muy pequeñas */
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
 }
 
 .badges {
