@@ -26,14 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal de Eliminar con ID dinámico
     setupModal(
-        document.querySelectorAll('.text-open-delete'),
-        '.modal-delete',
-        '.close-btn-modal',
+        document.querySelectorAll('.text-open-delete'),'.modal-delete','.close-btn-modal',
         (openBtn, modal) => {
+
+            //coge el id value de data-id de dicho btn
             const id = openBtn.getAttribute('data-id');
             const deleteBtn = modal.querySelector('#delete-confirm-btn');
+
+            // si existe btn y id redirige a la url de eliminar
             if (deleteBtn && id) {
                 deleteBtn.setAttribute('href', `/planes/eliminar/${id}`);
+                //<a id="delete-confirm-btn" href="/planes/eliminar/5">Sí, eliminar</a>
             }
         }
     );

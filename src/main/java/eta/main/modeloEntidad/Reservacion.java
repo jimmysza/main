@@ -31,6 +31,10 @@ public class Reservacion {
     @JoinColumn(name = "id_actividad")
     private Actividad actividad;
 
+    @ManyToOne
+    @JoinColumn(name = "id_plan")
+    private Plan plan;
+
 
     public Reservacion() {
         
@@ -43,6 +47,13 @@ public class Reservacion {
 
     public void setIdReservacion(Long idReservacion) {
         this.idReservacion = idReservacion;
+    }
+
+    public Plan getPlan() {
+        return plan;
+    }
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
 
     public Cliente getCliente() {

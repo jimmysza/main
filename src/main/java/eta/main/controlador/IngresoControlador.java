@@ -1,7 +1,5 @@
 package eta.main.controlador;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,11 +65,10 @@ public class IngresoControlador {
         );
 
         if (clienteExistente != null) {
-            session.setAttribute("usuarioLogueado", clienteExistente);
-            session.setAttribute("ultimoIngreso", LocalDateTime.now());
+            session.setAttribute("clienteLogueado", clienteExistente);
             return "redirect:/indice";
         } else {
-            System.out.println("ERROR LOGIN CLIENTE: Usuario: " + cliente.getUsuario() + " - Contraseña incorrecta o usuario no existe.");
+            System.out.println("ERROR LOGIN CLIENTE: Usuario: " + cliente.getUsuario() + " - Contraseña incorrecta o usuario no existe." + cliente.getContrasena());
             model.addAttribute("cliente", cliente);
             model.addAttribute("ContraseñaIncorrecta", "La Contraseña o Usuario es Incorrecto");
             return "registroNLogins/ingreso";
@@ -80,22 +77,28 @@ public class IngresoControlador {
 
     @PostMapping("/colaborador")
     public String IniciarSesionColaborador(Colaborador colaborador, Model model, HttpSession session) {
+        System.out.println("Intento de login: " + colaborador.getUsuario() + colaborador.getContrasena());
+
         Colaborador colaboradorExistente = colaboradorRepository.findByUsuarioAndContrasena(
                 colaborador.getUsuario(),
                 colaborador.getContrasena()
         );
 
         if (colaboradorExistente != null) {
-            session.setAttribute("usuarioLogueado", colaboradorExistente);
-            session.setAttribute("ultimoIngresoColaborador", LocalDateTime.now());
-            return "redirect:/actividadColaboradores";
+            session.setAttribute("ColaboradorLogueado", colaboradorExistente);
+            return "redirect:/actividadColaboradores"; 
+
         } else {
-            System.out.println("ERROR LOGIN COLABORADOR: Usuario: " + colaborador.getUsuario() + " - Contraseña incorrecta o usuario no existe.");
+            System.out.println("ERROR LOGIN CLIENTE: Usuario: " + colaborador.getUsuario() + " - Contraseña incorrecta o usuario no existe." + colaborador.getContrasena());
             model.addAttribute("colaboradorEntidad", colaborador);
             model.addAttribute("ContraseñaIncorrecta", "La Contraseña o Usuario es Incorrecto");
+
+
             return "registroNLogins/ColabIngreso";
         }
     }
+
+    
 
     @PostMapping("/admin")
     public String IniciarSesionAdmin(Admin admin, Model model, HttpSession session) {

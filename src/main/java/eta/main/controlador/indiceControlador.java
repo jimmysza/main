@@ -21,6 +21,7 @@ public class indiceControlador {
     // ...existing code...
     @GetMapping
     public String getIndice(Model model, HttpSession session) {
+        
         Actividad nuevaActividad = new Actividad();
         model.addAttribute("actividadEntidad", nuevaActividad);
         model.addAttribute("actividades", actividadRepository.findAll());

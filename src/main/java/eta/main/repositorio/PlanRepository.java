@@ -10,7 +10,7 @@ import eta.main.modeloEntidad.Plan;
 @Repository
 public interface PlanRepository extends JpaRepository<Plan, Long> {
 
-    long countByActividad_Colaborador_IdColaborador(Long idColaborador);
+    long countByActividadColaboradorIdColaborador(Long idColaborador);
 
     List<Plan> findByActividad_Colaborador_IdColaborador(Long idColaborador);
 

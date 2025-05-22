@@ -3,37 +3,55 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Editar Fechas</title>
+    <title>Editar reservacion</title>
 </head>
 
 <body>
-    <div class="modal-edits">
-        <h2>Editar Fechas</h2>
-        <form th:action="@{/fechas/actualizar}" method="post" th:object="${fechasEntidad}">
-            <input type="hidden" th:field="*{idFecha}" />
+    <div class="modal-edits" >
+        <h2>Editar Reservacion</h2>
+        <form th:action="@{/reservacionColaborador/actualizar}" method="post" th:object="${ReservacionEntidad}">
+            <input type="hidden" th:field="*{idReservacion}" />
 
-            <!-- Select de actividades -->            
             <label>Actividad</label>
             <select th:field="*{actividad.idActividad}" required>
-                <option value="" disabled>Selecciona una actividad</option>
+                <option value="" disabled >Selecciona una actividad</option>
                 <option th:each="act : ${listaActividades}" th:value="${act.idActividad}"
-                    th:text="${act.titulo + ' (' + act.idActividad + ')'}">
+                    th:text="${act.titulo + ' (' + act.idActividad + ')'}"></option>
+            </select>
+
+            <label>Fechas</label>            
+            <select required th:field="*{fecha.idFecha}">
+                <option value="" disabled>Selecciona una fecha</option>
+                <option th:each="f : ${listaFechas}" th:value="${f.idFecha}" th:data-act="${f.actividad.idActividad}"
+                    th:text="${f.dia + ', ' + f.hora}">
                 </option>
             </select>
 
-            <label>Dia</label>
-            <input type="date" th:field="*{dia}" required>
+            <label>Plan</label> 
+            <!--lo vincula con el atributo plan.idPlan-->
+            <select required th:field="*{plan.idPlan}">
+                <option value="" disabled>Selecciona un plan</option>
+                <option th:each="p : ${ListaPlanes}" 
+                th:value="${p.idPlan}" 
+                th:data-act="${p.actividad.idActividad}"
+                    th:text="${p.titulo + ', ' + p.precio + ' (' + p.idPlan + ')'}"></option>
+            </select>
 
-            <label>Hora</label> 
-            <input type="time" th:field="*{hora}" required>
-
+            <label>Cliente</label>
+            <select th:field="*{cliente.idCliente}" required>
+                <option value="" disabled>Selecciona un cliente</option>
+                <option th:each="cli : ${listaClientes}" th:value="${cli.idCliente}"
+                    th:text="${cli.usuario + ' (' + cli.idCliente + ')'}"></option>
+            </select>
             <div class="btns-edits">
                 <button type="submit" class="btn-submit">Guardar</button>
-                <a th:href="@{/fechas}" class="cancelar-edits">Cancelar</a>
+                <a th:href="@{/reservacionColaborador}" class="cancelar-edits">Cancelar</a>
             </div>
         </form>
     </div>
+    <script th:src="@{/js/reservacionColaboradores.js}"></script>
 </body>
+
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 

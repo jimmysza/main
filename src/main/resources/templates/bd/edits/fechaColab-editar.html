@@ -9,7 +9,7 @@
 <body>
     <div class="modal-edits">
         <h2>Editar Fechas</h2>
-        <form th:action="@{/fechas/actualizar}" method="post" th:object="${fechasEntidad}">
+        <form th:action="@{/fechasColaboradores/actualizar}" method="post" th:object="${fechasEntidad}">
             <input type="hidden" th:field="*{idFecha}" />
 
             <!-- Select de actividades -->            
@@ -29,7 +29,7 @@
 
             <div class="btns-edits">
                 <button type="submit" class="btn-submit">Guardar</button>
-                <a th:href="@{/fechas}" class="cancelar-edits">Cancelar</a>
+                <a th:href="@{/fechasColaboradores}" class="cancelar-edits">Cancelar</a>
             </div>
         </form>
     </div>

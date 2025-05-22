@@ -40,12 +40,7 @@ public class RegistroControlador {
     private ColaboradorRepository colaboradorRepository;
 
     @Autowired
-    private AdminRepository adminRepository; 
-
-    private void cargarDatosColaborador(Model model) {
-        model.addAttribute("ListaColaborador", colaboradorRepository.findByPersona_Roles_IdRol(2L));
-        model.addAttribute("CantidadColaborador", colaboradorRepository.count());
-    }
+    private AdminRepository adminRepository;
 
     @GetMapping("/cliente")
     public String mostrarFormularioRegistroCliente(Model model) {
@@ -68,31 +63,34 @@ public class RegistroControlador {
     }
 
     @GetMapping("/admin")
-public String mostrarFormularioRegistroAdmin(Model model) {
-    if (!model.containsAttribute("adminEntidad")) {
-        Admin admin = new Admin();
-        admin.setPersona(new Persona());
-        model.addAttribute("adminEntidad", admin);
+    public String mostrarFormularioRegistroAdmin(Model model) {
+        if (!model.containsAttribute("adminEntidad")) {
+            Admin admin = new Admin();
+            admin.setPersona(new Persona());
+            model.addAttribute("adminEntidad", admin);
+        }
+        return "registroNLogins/AdminRegistro";
     }
-    return "registroNLogins/AdminRegistro";
-}
 
     @PostMapping("/cliente")
     public String guardarRegistroCliente(Cliente cliente, RedirectAttributes redirectAttributes) {
         if (cliente.getPersona() == null) {
             redirectAttributes.addFlashAttribute("error", "Debe ingresar los datos de la persona.");
             redirectAttributes.addFlashAttribute("clienteEntidad", cliente);
+            System.out.println("Error: " + cliente.getPersona());
             return "redirect:/registro/cliente";
         }
 
         if (clienteRepository.findByUsuario(cliente.getUsuario()) != null) {
             redirectAttributes.addFlashAttribute("errorRepetido", "El usuario ya está en uso.");
             redirectAttributes.addFlashAttribute("clienteEntidad", cliente);
+            System.out.println("Error: " + cliente.getUsuario());
             return "redirect:/registro/cliente";
         }
 
         if (personaRepository.findByCorreoElectronico(cliente.getPersona().getCorreoElectronico()) != null) {
             redirectAttributes.addFlashAttribute("errorRepetidoEmail", "El correo electrónico ya está en uso.");
+            System.out.println("Error: " + cliente.getPersona().getCorreoElectronico());
             redirectAttributes.addFlashAttribute("clienteEntidad", cliente);
             return "redirect:/registro/cliente";
         }
@@ -101,6 +99,7 @@ public String mostrarFormularioRegistroAdmin(Model model) {
         if (rolPorDefecto.isPresent()) {
             cliente.getPersona().setRoles(rolPorDefecto.get());
         } else {
+            System.out.println("Error: No existe el rol por defecto.");
             redirectAttributes.addFlashAttribute("error", "No existe el rol por defecto.");
             redirectAttributes.addFlashAttribute("clienteEntidad", cliente);
             return "redirect:/registro/cliente";
@@ -109,6 +108,7 @@ public String mostrarFormularioRegistroAdmin(Model model) {
         try {
             clienteRepository.save(cliente);
         } catch (DataIntegrityViolationException e) {
+            System.out.println("Error: " + e.getMessage());
             redirectAttributes.addFlashAttribute("error", "Error al guardar los datos. Intente nuevamente.");
             redirectAttributes.addFlashAttribute("clienteEntidad", cliente);
             return "redirect:/registro/cliente";
@@ -121,31 +121,31 @@ public String mostrarFormularioRegistroAdmin(Model model) {
     public String guardarRegistroColaborador(@ModelAttribute("colaboradorEntidad") Colaborador colaborador, Model model) {
         if (colaborador.getPersona() == null) {
             model.addAttribute("error", "Debe ingresar los datos de la persona.");
-            cargarDatosColaborador(model);
+            
             return "registroNLogins/ColabRegistro";
         }
 
         if (colaboradorRepository.findByUsuario(colaborador.getUsuario()) != null) {
             model.addAttribute("error", "El usuario ya está en uso.");
-            cargarDatosColaborador(model);
+            
             return "registroNLogins/ColabRegistro";
         }
 
         if (personaRepository.findByCorreoElectronico(colaborador.getPersona().getCorreoElectronico()) != null) {
             model.addAttribute("error", "El correo electrónico ya está en uso.");
-            cargarDatosColaborador(model);
+            
             return "registroNLogins/ColabRegistro";
         }
 
         if (colaboradorRepository.findByIdentificacion(colaborador.getIdentificacion()) != null) {
             model.addAttribute("error", "La identificación ya está en uso.");
-            cargarDatosColaborador(model);
+            
             return "registroNLogins/ColabRegistro";
         }
 
         if (colaboradorRepository.findByRuc(colaborador.getRuc()) != null) {
             model.addAttribute("error", "El RUC ya está en uso.");
-            cargarDatosColaborador(model);
+            
             return "registroNLogins/ColabRegistro";
         }
 
@@ -155,7 +155,7 @@ public String mostrarFormularioRegistroAdmin(Model model) {
             colaboradorRepository.save(colaborador);
         } else {
             model.addAttribute("error", "No existe el rol.");
-            cargarDatosColaborador(model);
+            
             return "registroNLogins/ColabRegistro";
         }
 

@@ -302,7 +302,9 @@
     <section id="planes" class="planes">
         <div class="p-bg"></div>
         <div class="containt-cards-prices">
+
             <div class="card-plans" th:each="plan : ${ListaPlanes}">
+
                 <div class="head-card-plan">
                     <p class="text-white text-[42px] font-bold" th:text="${plan.titulo}"></p>
                     <p class="plan-precio" th:text="${plan.precio}"></p>
@@ -319,9 +321,10 @@
                     </div>
                 </div>
                 <div class="contain-btn flex center">
-                    <button>Compra</button>
+                    <a th:href="@{/pasarela/{idPlan}(idPlan=${plan.idPlan})}">Compra</a>
                 </div>
             </div>
+
         </div>
     </section>
 

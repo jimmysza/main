@@ -34,9 +34,14 @@
                     <li><a href="#comparte">comparte</a></li>
                     <li><a href="#turismo">Turismo</a></li>
                 </ul>
-                <div class="sign-contain">
+                <div class="sign-contain" th:if="${clienteLogueado == null}">
                     <a th:href="@{/ingreso/cliente}" class="sign-up login-btn">inicia sesion</a>
                     <a th:href="@{/registro/cliente}" class="sign-up">registrate</a>
+                </div>
+
+                <!-- Mostrar perfil solo si hay cliente logueado -->
+                <div class="perfilCliente" th:if="${clienteLogueado != null}">
+                    <a th:text="${clienteLogueado.persona.nombre}" th:href="/clientePerfil" ></a>
                 </div>
             </nav>
         </div>

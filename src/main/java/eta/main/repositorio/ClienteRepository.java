@@ -19,6 +19,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     List<Cliente> findByPersona_Roles_IdRol(Long idRol);
 
+
+
     // JpaRepository ya proporciona métodos comunes como save(), findAll(), findById(), delete(), etc.
     // Puedes agregar métodos personalizados aquí si es necesario, por ejemplo:
     // Cliente findByUsuario(String usuario);

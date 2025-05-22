@@ -42,7 +42,7 @@ public class ActividadColaboradorControlador {
 
     @GetMapping
     public String verActividadesColaborador(HttpSession session, Model model) {
-        Colaborador colaborador = (Colaborador) session.getAttribute("usuarioLogueado");
+        Colaborador colaborador = (Colaborador) session.getAttribute("ColaboradorLogueado"); // <--- CORREGIDO
         if (colaborador == null) {
             return "redirect:/ingreso/colaborador";
         }
@@ -51,7 +51,7 @@ public class ActividadColaboradorControlador {
         model.addAttribute("ListaActividad", actividadRepository.findByColaborador_IdColaborador(idColaborador));
         model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
         model.addAttribute("CantidadActividad", actividadRepository.countByColaborador_IdColaborador(idColaborador));
-        model.addAttribute("colaboradorLogueado", colaborador); // <-- AGREGA ESTA LÍNEA
+        model.addAttribute("colaboradorLogueado", colaborador);
 
         return "bd/colaboradorActividad";
     }

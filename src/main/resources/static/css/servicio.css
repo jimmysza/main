@@ -777,7 +777,7 @@ body {
     padding: 30px;
 }
 
-.contain-btn button{
+.contain-btn a{
     font-size: 14px;
     font-weight: 800;
     padding: 8px 20px;

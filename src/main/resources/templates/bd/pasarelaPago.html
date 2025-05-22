@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/pasarela.css}">
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/pasarela.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo_rework.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title> ETA - Pasarela de Pago </title>
+
+</head>
+
+<body>
+    <div class="sidebar-pasarela">
+        <h1>Pasarela de Pago</h1>
+
+        <form th:action="@{/pasarela}" method="post" th:object="${ReservacionEntidad}" autocomplete="off">
+
+            <label>Actividad</label>
+            <p th:text="${actividad != null ? actividad.titulo : 'No disponible'}"></p>
+
+
+            <label>Plan</label>
+            <p th:text="${plan != null ? plan.titulo : 'No disponible'}"></p>
+
+            <label>Cliente</label>
+            <p th:text="${clienteLogueado.persona.nombre}"></p>
+
+            <label>Fecha</label>
+            <select th:field="*{fecha.idFecha}" required>
+                <option value="" disabled>Selecciona una fecha</option>
+                <option th:each="f : ${listaFechas}" th:value="${f.idFecha}" th:text="${f.dia + ', ' + f.hora}">
+                </option>
+            </select>
+            
+            <button type="submit" class="btn-submit">Agregar</button>
+        </form>
+
+    </div>
+    <div class="contain-imga">
+        <img src="/images/background.jpg" class="logo" alt="img" />
+        <div class="gradient"></div>
+        <a th:href="@{/detalle/actividad/{id}(id=${idActividad})}" class="btn-back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<path fill="#fff" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z" stroke-width="0.5" stroke="#fff" />
+</svg>
+        </a>
+    </div>
+    <div th:if="${mensaje}" class="alert alert-success" th:text="${mensaje}"></div>
+    <script th:if="${mensaje}">
+        setTimeout(function () {
+            window.location.href = /*[[@{/indice}]]*/ '/indice';
+        }, 2000);
+    </script>
+</body>
+
+</html>

@@ -19,7 +19,7 @@
                 <option th:each="act : ${listaActividades}"
                         th:value="${act.idActividad}"
                         th:text="${act.titulo + ' (' + act.idActividad + ')'}"
-                        th:selected="${planEntidad.actividad != null and planEntidad.actividad.idActividad == act.idActividad}">
+                        th:selected="${planEntidad.actividad != null and planEntidad.activi  dad.idActividad == act.idActividad}">
                 </option>
             </select>
 

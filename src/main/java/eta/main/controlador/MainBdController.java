@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import eta.main.modeloEntidad.Admin;
 import eta.main.repositorio.ActividadRepository;
-import eta.main.repositorio.AdminRepository;
 import eta.main.repositorio.ClienteRepository;
 import eta.main.repositorio.ColaboradorRepository;
 import eta.main.repositorio.FechasRepository;
@@ -17,7 +16,6 @@ import eta.main.repositorio.PlanRepository;
 import eta.main.repositorio.ReservacionRepository;
 import eta.main.repositorio.RolesRepository;
 import jakarta.servlet.http.HttpSession;
-import eta.main.repositorio.FechasRepository;
 
 @Controller
 @RequestMapping("/main")

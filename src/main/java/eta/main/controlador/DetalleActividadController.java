@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import eta.main.modeloEntidad.Actividad;
 import eta.main.repositorio.ActividadRepository;
 import eta.main.repositorio.PlanRepository;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/detalle")
@@ -23,8 +24,12 @@ public class DetalleActividadController {
     private PlanRepository planRepository;
 
     @GetMapping("/actividad/{id}")
-    public String detalleActividadIndice(@PathVariable Long id, Model model) {
+    public String detalleActividadIndice(@PathVariable Long id, Model model, HttpSession session) {
 
+        session.setAttribute("idActividad", id);
+
+
+        
         // Busca la actividad en la base de datos usando el ID proporcionado en la URL.
         Actividad actividad = actividadRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Actividad no encontrada: " + id));

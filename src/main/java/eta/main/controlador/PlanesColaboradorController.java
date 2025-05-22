@@ -35,12 +35,13 @@ public class PlanesColaboradorController {
     private PlanRepository planRepository;
 
     private void cargarPlanes(HttpSession session, Model model) {
-        Colaborador colaborador = (Colaborador) session.getAttribute("usuarioLogueado");
+        Colaborador colaborador = (Colaborador) session.getAttribute("ColaboradorLogueado");
+        
         if (colaborador != null) {
             Long idColaborador = colaborador.getIdColaborador();
             model.addAttribute("ListaPLanes", planRepository.findByActividad_Colaborador_IdColaborador(idColaborador));
             model.addAttribute("ListaActividad", actividadRepository.findByColaborador_IdColaborador(idColaborador));
-            model.addAttribute("CantidadPlanes", planRepository.countByActividad_Colaborador_IdColaborador(idColaborador));
+            model.addAttribute("CantidadPlanes", planRepository.countByActividadColaboradorIdColaborador(idColaborador));
         } else {
             model.addAttribute("ListaPLanes", null);
             model.addAttribute("CantidadPlanes", 0L);
@@ -49,15 +50,19 @@ public class PlanesColaboradorController {
 
     @GetMapping
     public String verPlanesColaboradores(HttpSession session, Model model) {
-        Colaborador colaborador = (Colaborador) session.getAttribute("usuarioLogueado");
+        
+        Colaborador colaborador = (Colaborador) session.getAttribute
+        ("ColaboradorLogueado");
+
         if (colaborador == null) {
             return "redirect:/ingreso/colaborador";
         }
+
         Long idColaborador = colaborador.getIdColaborador();
         model.addAttribute("planEntidad", new Plan());
         model.addAttribute("listaPlanes", planRepository.findByActividad_Colaborador_IdColaborador(idColaborador));
         model.addAttribute("listaActividades", actividadRepository.findByColaborador_IdColaborador(idColaborador));
-        model.addAttribute("cantidadPlanes", planRepository.countByActividad_Colaborador_IdColaborador(idColaborador));
+        model.addAttribute("CantidadPlanes", planRepository.countByActividadColaboradorIdColaborador(idColaborador));
         model.addAttribute("colaboradorLogueado", colaborador);
         return "bd/colaboradorPlanes";
     }
@@ -109,6 +114,7 @@ public class PlanesColaboradorController {
     @GetMapping("/editarColabPlanes-form/{id}")
     public String mostrarFormularioEdicionColabPlan(@PathVariable("id") Long id, Model model) {
         Plan plan = planRepository.findById(id).orElse(null);
+        
         model.addAttribute("planEntidad", plan);
         model.addAttribute("listaColaboradores", colaboradorRepository.findAll());
         model.addAttribute("listaActividades", actividadRepository.findAll());

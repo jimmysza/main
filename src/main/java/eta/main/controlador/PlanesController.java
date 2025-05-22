@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import eta.main.modeloEntidad.Actividad;
 import eta.main.modeloEntidad.Admin;
-import eta.main.modeloEntidad.Cliente;
 import eta.main.modeloEntidad.Plan;
 import eta.main.repositorio.ActividadRepository;
 import eta.main.repositorio.ColaboradorRepository;
 import eta.main.repositorio.PlanRepository;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 

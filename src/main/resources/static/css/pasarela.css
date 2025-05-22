@@ -1,0 +1,130 @@
+body{
+    display:flex;
+    position: relative;
+    flex-direction: row;
+}
+
+.contain-imga{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sidebar-pasarela{
+    width: 35%;
+    background-color: #f8f9fa;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+img{
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.gradient{
+    background: rgba(05, 05, 05, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    /*opacity: 0;*/
+}
+
+h1{
+    font-size: 1.2rem;
+    margin-top: 60px;
+    padding: 0px 10px;
+    font-weight: 700;
+    font-family: var(--font-poppins);
+    color: var(--color-black);
+    margin-bottom: 1rem;
+}
+
+.contain-imga{
+    width: 65%;
+    height: 100vh;
+}
+
+.btn-back{
+    z-index: 4;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #9abadc96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-pasarela form {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    margin: 40px 0px;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.sidebar-pasarela form {
+    height: fit-content;
+    overflow: hidden;
+}
+
+.sidebar-pasarela label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.75rem;
+}
+
+
+.sidebar-pasarela form p,
+.sidebar-pasarela-edits form input,
+.sidebar-pasarela-edits form textarea,
+.sidebar-pasarela-edits form select,
+.sidebar-pasarela form textarea,
+.sidebar-pasarela form select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.sidebar-pasarela form input:focus,
+.sidebar-pasarela-edits form input:focus {
+    outline: none;
+}
+
+
+.alert {
+    position: fixed; /* Fijado al viewport, no a un contenedor */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 8px;
+    background: white; /* Asegúrate de tener fondo */
+    z-index: 9999; /* Encima de todo */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}

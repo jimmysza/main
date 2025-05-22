@@ -72,41 +72,18 @@ public class FechasController {
     }
 
     @GetMapping("/eliminar/{idFecha}")
-    public String eliminarFechas(@PathVariable Long idFecha, HttpSession session) {
-        Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
-        if (adminLogueado == null) {
-            return "redirect:/ingreso/admin";
-        }
+    public String eliminarFechas(@PathVariable Long idFecha) {
 
         fechasRepository.deleteById(idFecha);
         return "redirect:/fechas";
     }
 
     @GetMapping("/editar/{idFecha}")
-    public String editarFechas(@PathVariable("idFecha") Long idFecha) {
-        Fechas fechasEntidad = fechasRepository.findById(idFecha).orElse(null);
-        return "bd/editarFechas";
+    public Fechas obtenerFechasParaEdicion(@PathVariable("idFecha") Long idFecha)
+    {
+        return fechasRepository.findById(idFecha).orElse(null);
     }
-
-    @PostMapping("/actualizar")
-    public String actualizarFechas(HttpServletRequest request, Model model, HttpSession session) {
-        Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
-        if (adminLogueado == null) {
-            return "redirect:/ingreso/admin";
-        }
-
-        Long idFecha = Long.valueOf(request.getParameter("idFecha"));
-        Fechas fechasEntidad = fechasRepository.findById(idFecha).orElse(null);
-
-        if (fechasEntidad != null) {
-            fechasEntidad.setDia(LocalDate.parse(request.getParameter("dia")));
-            fechasEntidad.setHora(LocalTime.parse(request.getParameter("hora")));
-            fechasRepository.save(fechasEntidad);
-        }
-
-        return "redirect:/fechas";
-    }
-
+    
     @GetMapping("/editar-form/{idFecha}")
     public String mostrarFormularioEdicion(@PathVariable("idFecha") Long idFecha, Model model, HttpSession session) {
         
@@ -118,8 +95,28 @@ public class FechasController {
         Fechas fechasEntidad = fechasRepository.findById(idFecha).orElse(null);
         model.addAttribute("fechasEntidad", fechasEntidad);
         model.addAttribute("listaActividades", actividadRepository.findAll());
-        model.addAttribute("adminLogueado", adminLogueado);
         return "bd/edits/fechas-editar";
     }
+
+    @PostMapping("/actualizar")
+    public String actualizarFechas(HttpServletRequest request, Model model, HttpSession session) {
+        Admin adminLogueado = (Admin) session.getAttribute("adminLogueado");
+        if (adminLogueado == null) {
+            return "redirect:/ingreso/admin";
+        }
+
+        Long idFecha = Long.valueOf(request.getParameter("idFecha"));
+        Fechas fechasEntidad = fechasRepository.findById(idFecha).orElse(null);
+        
+        if (fechasEntidad != null) {
+            fechasEntidad.setDia(LocalDate.parse(request.getParameter("dia")));
+            fechasEntidad.setHora(LocalTime.parse(request.getParameter("hora")));
+            fechasRepository.save(fechasEntidad);
+        }
+
+        return "redirect:/fechas";
+    }
+
+    
 
 }

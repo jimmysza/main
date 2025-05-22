@@ -51,7 +51,7 @@ public class ClienteControlador {
         model.addAttribute("cliente", nuevoCliente); //usar cliente como nuevo cliente
         model.addAttribute("clientes", clienteRepository.findByPersona_Roles_IdRol(1L)); //trae todos los personas con id rol 1
         model.addAttribute("adminLogueado", adminLogueado); // para mostrar el admin logueado en la vista
-        model.addAttribute("CantidadCliente", clienteRepository.count());// cuenta la cantidad de clientes
+        model.addAttribute("CantidaCliente", clienteRepository.count());// cuenta la cantidad de clientes
 
         return "bd/cliente";
     }
